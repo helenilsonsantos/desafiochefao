@@ -1,5 +1,4 @@
 'use strict';
-const { DataTypes } = require("sequelize");
 
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -8,56 +7,52 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       endereco_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        foreignKey: true,
+        type: Sequelize.INTEGER,
+        allowNull: true,
         references: {
           model: "Enderecos",
           key: "id"
         }
       },
       nome: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING(45),
         allowNull: false,
       },
       cpf: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.STRING(45),
         allowNull: false,
+        unique: true
       },
       data_nascimento: {
-        type: DataTypes.DATE,
-        allowNull: false,
+        type: Sequelize.DATE,
       },
       email: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: Sequelize.STRING(45),
       },
       telefone: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+        type: Sequelize.STRING(45),
       },
       observacoes: {
-          type: DataTypes.STRING,
-          allowNull: false,
+          type: Sequelize.STRING(300),
       },
       avatar: {
-          type: DataTypes.STRING,
-          allowNull: false,
+          type: Sequelize.STRING(100),
       },
       situacao: {
-          type: DataTypes.STRING,
+          type: Sequelize.ENUM('ativo', 'inativo'),
           allowNull: false,
+          defaultValue: 'ativo'
       },
       criadoEm: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       },
       alteradoEm: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       }
     });
   },
