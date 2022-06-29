@@ -2,7 +2,6 @@ const {validate, Joi} = require('express-validation')
 
 const validacaoCadastrar = validate({
     body:Joi.object({
-        endereco_id:Joi.number().required(),
         nome:Joi.string().required(),
         cpf:Joi.number().required(),
         data_nascimento:Joi.date().required(),
@@ -10,7 +9,14 @@ const validacaoCadastrar = validate({
         telefone:Joi.number().required(),
         observacoes:Joi.string().required(),
         avatar:Joi.string().required(),
-        situacao:Joi.string().required()
+        situacao:Joi.string().required(),
+        rua:Joi.string().required(),
+        numero:Joi.number().required(),
+        bairro:Joi.string().required(),
+        cep:Joi.number().required(),
+        complemento:Joi.string(),
+        cidade:Joi.string().required(),
+        estado:Joi.string().required()
     })
 })
 

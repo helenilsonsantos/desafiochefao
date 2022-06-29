@@ -13,7 +13,14 @@ const validacaoAtualizar = validate({
         telefone:Joi.number(),
         observacoes:Joi.string(),
         avatar:Joi.string(),
-        situacao:Joi.string()
+        situacao:Joi.string(),
+        rua:Joi.string(),
+        numero:Joi.number(),
+        bairro:Joi.string(),
+        cep:Joi.number(),
+        complemento:Joi.string(),
+        cidade:Joi.string(),
+        estado:Joi.string()
     })
 })
 
