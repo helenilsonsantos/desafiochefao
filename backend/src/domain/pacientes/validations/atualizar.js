@@ -5,7 +5,6 @@ const validacaoAtualizar = validate({
         id: Joi.number().required(),
     }),
     body:Joi.object({
-        endereco_id:Joi.number(),
         nome:Joi.string(),
         cpf:Joi.number(),
         data_nascimento:Joi.date(),
