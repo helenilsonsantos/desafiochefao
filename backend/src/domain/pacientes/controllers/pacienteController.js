@@ -5,7 +5,7 @@ const PacienteController = {
 
     async cadastrar(req,res){
         try{
-            const { nome, cpf, data_nascimento, email, telefone, observacoes, avatar, situacao, rua, numero, bairro, cep, complemento, cidade, estado } = req.body;
+            const { nome, cpf, data_nascimento, email, telefone, observacoes, avatar, rua, numero, bairro, cep, complemento, cidade, estado } = req.body;
             const pacienteExiste = await PacienteService.encontrarPaciente(cpf);
 
             if (pacienteExiste !== false){
@@ -15,7 +15,7 @@ const PacienteController = {
             const enderecoNovo = await EnderecoController.cadastrar(rua, numero, bairro, cep, complemento, cidade, estado);
             const endereco_id = enderecoNovo.id;
 
-            const pacienteNovo = await PacienteService.cadastrarPaciente(endereco_id, nome, cpf, data_nascimento, email, telefone, observacoes, avatar, situacao);
+            const pacienteNovo = await PacienteService.cadastrarPaciente(endereco_id, nome, cpf, data_nascimento, email, telefone, observacoes, avatar);
 
             return res.status(201).json(pacienteNovo);
 
@@ -46,7 +46,7 @@ const PacienteController = {
     async atualizar(req,res){
         try{
             const { id } = req.params;
-            const { nome, cpf, data_nascimento, email, telefone, observacoes, avatar, situacao, rua, numero, bairro, cep, complemento, cidade, estado } = req.body;
+            const { nome, cpf, data_nascimento, email, telefone, observacoes, avatar, rua, numero, bairro, cep, complemento, cidade, estado } = req.body;
             const pacienteExiste = await PacienteService.encontrarPaciente(id);
     
             if(pacienteExiste === false) {
@@ -57,7 +57,7 @@ const PacienteController = {
             
             await EnderecoController.atualizar(endereco_id, rua, numero, bairro, cep, complemento, cidade, estado);
 
-            const pacienteAtualizado = await PacienteService.atualizarpaciente(nome, cpf, data_nascimento, email, telefone, observacoes, avatar, situacao);
+            const pacienteAtualizado = await PacienteService.atualizarpaciente(nome, cpf, data_nascimento, email, telefone, observacoes, avatar);
 
             return res.status(200).json(pacienteAtualizado);
             

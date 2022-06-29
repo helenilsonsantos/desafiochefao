@@ -3,7 +3,7 @@ const { Enderecos } = require("../../enderecos/models/index");
 
 const PacienteService = {
 
-    async cadastrarPaciente(endereco_id, nome, cpf, data_nascimento, email, telefone, observacoes, avatar, situacao){
+    async cadastrarPaciente(endereco_id, nome, cpf, data_nascimento, email, telefone, observacoes, avatar){
         await Pacientes.create({
             endereco_id,
             nome,
@@ -13,7 +13,7 @@ const PacienteService = {
             telefone,
             observacoes,
             avatar,
-            situacao
+            situacao: "ativo"
         });
 
         const novoPaciente = PacienteService.encontrarPacienteComEndereco(cpf);
@@ -49,7 +49,7 @@ const PacienteService = {
         return encontrarPaciente[0];
     },
 
-    async atualizarPaciente(id, nome, cpf, data_nascimento, email, telefone, observacoes, avatar, situacao) {
+    async atualizarPaciente(id, nome, cpf, data_nascimento, email, telefone, observacoes, avatar) {
         await Pacientes.update(
             {
                 nome,
@@ -58,8 +58,7 @@ const PacienteService = {
                 email,
                 telefone,
                 observacoes,
-                avatar,
-                situacao
+                avatar
             },
             {
                 where: {
