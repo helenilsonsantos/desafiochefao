@@ -6,11 +6,21 @@ const EnderecoController = {
         try{
             const enderecoNovo = await EnderecoService.cadastrarEndereco(rua, numero, bairro, cep, complemento, cidade, estado);
 
-            return res.status(201).json(enderecoNovo);
+            return enderecoNovo;
 
         } catch (error) {
             console.log(error);
-            res.status(500).json("Ocorreu um erro ao cadastrar o endereço.");
+        }
+    },
+
+    async mostrar(endereco_id){
+        try{
+            const enderecoSendoExibido = await EnderecoService.encontrarEndereco(endereco_id);
+           
+            return enderecoSendoExibido;
+            
+        } catch (error){
+            console.log(error);
         }
     },
 
@@ -18,23 +28,23 @@ const EnderecoController = {
         try{
             const enderecoAtualizado = await EnderecoService.atualizarEndereco(endereco_id, rua, numero, bairro, cep, complemento, cidade, estado);
 
-            return res.status(200).json(enderecoAtualizado);
+            return enderecoAtualizado;
             
         } catch (error){
-            res.status(500).json("Ocorreu um erro ao atualizar o endereço.")
+            console.log(error);
         }
     },
 
-    async desativar(endereco_id){
-        try{
-            const enderecoDesativado = await EnderecoService.desativarEndereco(endereco_id);
+    // async desativar(endereco_id){
+    //     try{
+    //         const enderecoDesativado = await EnderecoService.desativarEndereco(endereco_id);
 
-            return res.status(200).json(enderecoDesativado);
+    //         return enderecoDesativado;
                    
-        } catch (error){
-            res.status(500).json("Ocorreu um erro ao deletar o endereço.")
-        }
-    }
+    //     } catch (error){
+    //         console.log(error);
+    //     }
+    // }
 }
 
 module.exports = EnderecoController;

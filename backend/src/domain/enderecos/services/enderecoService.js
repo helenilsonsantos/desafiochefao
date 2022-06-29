@@ -16,6 +16,16 @@ const EnderecoService = {
         return enderecoNovo;
     },
 
+    async encontrarEndereco(endereco_id){
+        const encontrarEndereco = await Enderecos.findByPk(endereco_id);
+        
+        if(!encontrarEndereco) {
+            return false;
+        };
+
+        return encontrarEndereco;
+    },
+
     async atualizarEndereco(endereco_id, rua, numero, bairro, cep, complemento, cidade, estado) {
         await Enderecos.update(
             {
@@ -29,30 +39,30 @@ const EnderecoService = {
             },
             {
                 where: {
-                    endereco_id
+                    id: endereco_id
                 },
             }
         );
 
-        const enderecoAtualizado = await Enderecos.findByPk(endereco_id);
+        const enderecoAtualizado = await EnderecoService.encontrarEndereco(endereco_id);
 
         return enderecoAtualizado;
     },
 
-    async desativarEndereco(endereco_id) {
-        const enderecoDesativado = await Enderecos.update(
-            {
-                situacao: "inativo"
-            },
-            {
-                where: {
-                    endereco_id
-                },
-            }
-        );
+    // async desativarEndereco(endereco_id) {
+    //     const enderecoDesativado = await Enderecos.update(
+    //         {
+    //             situacao: "inativo"
+    //         },
+    //         {
+    //             where: {
+    //                 endereco_id
+    //             },
+    //         }
+    //     );
 
-        return enderecoDesativado;
-    }
+    //     return enderecoDesativado;
+    // }
 
 }
 
