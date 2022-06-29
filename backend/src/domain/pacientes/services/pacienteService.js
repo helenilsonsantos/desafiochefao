@@ -1,10 +1,10 @@
-const { Pacientes } = require("../models/Pacientes");
+const { Pacientes } = require("../models/index");
 const { Enderecos } = require("../../enderecos/models/index");
 
 const PacienteService = {
 
     async cadastrarPaciente(endereco_id, nome, cpf, data_nascimento, email, telefone, observacoes, avatar){
-        await Pacientes.create({
+        const novoPaciente = await Pacientes.create({
             endereco_id,
             nome,
             cpf,
@@ -15,42 +15,30 @@ const PacienteService = {
             avatar,
             situacao: "ativo"
         });
-
-        const novoPaciente = PacienteService.encontrarPacienteComEndereco(cpf);
-
+        
         return novoPaciente;
+    },
+
+    async pacienteExiste(cpf){
+        const pacienteExiste = await Pacientes.count({
+            where: {cpf}
+        });
+
+        return pacienteExiste;
     },
 
     async encontrarPaciente(id){
         const encontrarPaciente = await Pacientes.findByPk(id);
         
-        if(encontrarPaciente === null) {
+        if(!encontrarPaciente) {
             return false;
         };
-
+        
         return encontrarPaciente;
     },
 
-    async encontrarPacienteComEndereco(cpf){
-        const encontrarPaciente = await Pacientes.findAll({
-            where: {
-                cpf
-            },
-            include: [{
-                model: Enderecos,
-                required:true,
-            }]
-        });
-        
-        if(encontrarPaciente === null) {
-            return false;
-        };
-
-        return encontrarPaciente[0];
-    },
-
     async atualizarPaciente(id, nome, cpf, data_nascimento, email, telefone, observacoes, avatar) {
-        await Pacientes.update(
+        const atualizarPaciente = await Pacientes.update(
             {
                 nome,
                 cpf,
@@ -67,7 +55,7 @@ const PacienteService = {
             }
         );
 
-        const pacienteAtualizado = PacienteService.encontrarPacienteComEndereco(cpf);
+        const pacienteAtualizado = PacienteService.encontrarPaciente(id);
 
         return pacienteAtualizado;
     },

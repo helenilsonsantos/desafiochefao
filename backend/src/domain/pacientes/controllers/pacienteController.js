@@ -6,9 +6,9 @@ const PacienteController = {
     async cadastrar(req,res){
         try{
             const { nome, cpf, data_nascimento, email, telefone, observacoes, avatar, rua, numero, bairro, cep, complemento, cidade, estado } = req.body;
-            const pacienteExiste = await PacienteService.encontrarPaciente(cpf);
+            const pacienteExiste = await PacienteService.pacienteExiste(cpf);
 
-            if (pacienteExiste !== false){
+            if (pacienteExiste !== 0){
                 return res.status(400).json("CPF já cadastrado!")
             }
 
@@ -17,7 +17,9 @@ const PacienteController = {
 
             const pacienteNovo = await PacienteService.cadastrarPaciente(endereco_id, nome, cpf, data_nascimento, email, telefone, observacoes, avatar);
 
-            return res.status(201).json(pacienteNovo);
+            const pacienteCompleto = [ pacienteNovo, enderecoNovo ];
+
+            return res.status(201).json(pacienteCompleto);
 
         } catch (error) {
             console.log(error)
@@ -28,15 +30,20 @@ const PacienteController = {
     async mostrar(req,res){
         try{
             const { id } = req.params;
-            const pacienteExiste = await PacienteService.encontrarPaciente(id);
+            const mostrarPaciente = await PacienteService.encontrarPaciente(id);
 
-            if(!pacienteExiste){
-                return res.status(404).json("Usuário não encontrado.")
+            if(!mostrarPaciente){
+                return res.status(404).json("Paciente não encontrado.")
             }
-            
-            const listarPaciente = await PacienteService.encontrarPacienteComEndereco(pacienteExiste.cpf);
 
-            return res.status(200).json(listarPaciente);
+            const enderecoSendoExibido = await EnderecoController.mostrar(mostrarPaciente.endereco_id);
+            if(enderecoSendoExibido === false){
+                return res.status(404).json("Endereço não encontrado.")
+            }
+
+            const pacienteCompleto = [ mostrarPaciente, enderecoSendoExibido ];
+
+            return res.status(200).json(pacienteCompleto);
             
         } catch (error){
             res.status(500).json("Ocorreu um erro ao procurar o paciente.")
@@ -46,20 +53,24 @@ const PacienteController = {
     async atualizar(req,res){
         try{
             const { id } = req.params;
+
             const { nome, cpf, data_nascimento, email, telefone, observacoes, avatar, rua, numero, bairro, cep, complemento, cidade, estado } = req.body;
-            const pacienteExiste = await PacienteService.encontrarPaciente(id);
-    
-            if(pacienteExiste === false) {
+            
+            const mostrarPaciente = await PacienteService.encontrarPaciente(id);
+
+            if(mostrarPaciente === false) {
                 return res.status(404).json("Paciente não encontrado.")
             }
             
-            const endereco_id = pacienteExiste.endereco_id;
-            
-            await EnderecoController.atualizar(endereco_id, rua, numero, bairro, cep, complemento, cidade, estado);
+            const endereco_id = mostrarPaciente.endereco_id;
 
-            const pacienteAtualizado = await PacienteService.atualizarpaciente(nome, cpf, data_nascimento, email, telefone, observacoes, avatar);
+            const enderecoAtualizado = await EnderecoController.atualizar(endereco_id, rua, numero, bairro, cep, complemento, cidade, estado);
 
-            return res.status(200).json(pacienteAtualizado);
+            const pacienteAtualizado = await PacienteService.atualizarPaciente(id, nome, cpf, data_nascimento, email, telefone, observacoes, avatar);
+
+            const pacienteCompleto = [ pacienteAtualizado, enderecoAtualizado ];
+
+            return res.status(200).json(pacienteCompleto);
             
         } catch (error){
             res.status(500).json("Ocorreu um erro ao atualizar o paciente.")
@@ -68,20 +79,24 @@ const PacienteController = {
 
     async desativar(req,res){
         try{
-            const { id } = req.params
+            const { id } = req.params;
             const pacienteExiste = await PacienteService.encontrarPaciente(id);
 
             if(pacienteExiste === false) {
                 return res.status(404).json("Paciente não encontrado.")
             }
             
-            const endereco_id = pacienteExiste.endereco_id;
+            // const endereco_id = pacienteExiste.endereco_id;
 
-            await EnderecoController.desativar(endereco_id);
+            // await EnderecoController.desativar(endereco_id);
 
             const pacienteDesativado = await PacienteService.desativarPaciente(id);
+            
+            if(pacienteDesativado === false) {
+                return res.status(404).json("Não foi possível desativar o paciente.")
+            }
 
-            return res.status(204).json(pacienteDesativado);
+            return res.status(200).json("Paciente desativado!");
                    
         } catch (error){
             res.status(500).json("Ocorreu um erro ao deletar o paciente.")
