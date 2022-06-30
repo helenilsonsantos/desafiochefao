@@ -37,6 +37,19 @@ const PacienteService = {
         return encontrarPaciente;
     },
 
+    async pacienteCompleto(id){
+        const pacienteCompleto = await Pacientes.findAll({
+            where: {
+                id
+            },
+            include: [{
+                model: Enderecos
+            }]
+        });
+        
+        return pacienteCompleto;
+    },
+
     async atualizarPaciente(id, nome, cpf, data_nascimento, email, telefone, observacoes, avatar) {
         const atualizarPaciente = await Pacientes.update(
             {

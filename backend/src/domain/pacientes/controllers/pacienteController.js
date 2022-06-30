@@ -17,7 +17,7 @@ const PacienteController = {
 
             const pacienteNovo = await PacienteService.cadastrarPaciente(endereco_id, nome, cpf, data_nascimento, email, telefone, observacoes, avatar);
 
-            const pacienteCompleto = [ pacienteNovo, enderecoNovo ];
+            const pacienteCompleto = await PacienteService.pacienteCompleto(pacienteNovo.id);
 
             return res.status(201).json(pacienteCompleto);
 
@@ -37,11 +37,12 @@ const PacienteController = {
             }
 
             const enderecoSendoExibido = await EnderecoController.mostrar(mostrarPaciente.endereco_id);
+            
             if(enderecoSendoExibido === false){
                 return res.status(404).json("Endereço não encontrado.")
             }
 
-            const pacienteCompleto = [ mostrarPaciente, enderecoSendoExibido ];
+            const pacienteCompleto = await PacienteService.pacienteCompleto(id);
 
             return res.status(200).json(pacienteCompleto);
             
@@ -68,7 +69,7 @@ const PacienteController = {
 
             const pacienteAtualizado = await PacienteService.atualizarPaciente(id, nome, cpf, data_nascimento, email, telefone, observacoes, avatar);
 
-            const pacienteCompleto = [ pacienteAtualizado, enderecoAtualizado ];
+            const pacienteCompleto = await PacienteService.pacienteCompleto(id);
 
             return res.status(200).json(pacienteCompleto);
             

@@ -1,12 +1,10 @@
 const Pacientes = require("../../pacientes/models/Pacientes");
-// const Usuarios = require("../../usuarios/models/Usuarios");
 const Enderecos = require("./Enderecos");
+// const Usuarios = require("../../usuarios/models/Usuarios");
 
-Enderecos.associate = function() {
-    Enderecos.belongsTo(Pacientes, {
-        foreignKey: "endereco_id",
-    })
-}
+Enderecos.hasOne(Pacientes, {
+    foreignKey: "endereco_id"
+})
 
 // Enderecos.belongsTo(Usuarios, {
 //     foreignKey: "endereco_id",
