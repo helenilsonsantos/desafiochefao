@@ -4,7 +4,8 @@
   "description": "Grupo de Trabalho para o projeto do Desafio Chefão do XP 41 do Curso de FullStck da Gama Academy",
   "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,17 @@
   "bugs": {
     "url": "https://github.com/helenilsonholamek/desafiochefao/issues"
   },
-  "homepage": "https://github.com/helenilsonholamek/desafiochefao#readme"
+  "homepage": "https://github.com/helenilsonholamek/desafiochefao#readme",
+  "keywords": [],
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-validation": "^4.1.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18",
+    "sequelize-cli": "^6.4.1"
+  }
 }
