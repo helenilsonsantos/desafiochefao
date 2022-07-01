@@ -8,7 +8,6 @@ const validacaoCadastrar = validate({
         email:Joi.string().required(),
         telefone:Joi.string().required(),
         observacoes:Joi.string().required(),
-        avatar:Joi.string().required(),
         rua:Joi.string().required(),
         numero:Joi.number().required(),
         bairro:Joi.string().required(),

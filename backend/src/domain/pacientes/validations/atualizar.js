@@ -11,7 +11,6 @@ const validacaoAtualizar = validate({
         email:Joi.string(),
         telefone:Joi.string(),
         observacoes:Joi.string(),
-        avatar:Joi.string(),
         rua:Joi.string(),
         numero:Joi.string(),
         bairro:Joi.string(),

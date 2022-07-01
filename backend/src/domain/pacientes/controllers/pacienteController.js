@@ -5,7 +5,7 @@ const PacienteController = {
 
     async cadastrar(req,res){
         try{
-            const { nome, cpf, data_nascimento, email, telefone, observacoes, avatar, rua, numero, bairro, cep, complemento, cidade, estado } = req.body;
+            const { nome, cpf, data_nascimento, email, telefone, observacoes, rua, numero, bairro, cep, complemento, cidade, estado } = req.body;
             const pacienteExiste = await PacienteService.pacienteExiste(cpf);
 
             if (pacienteExiste !== 0){
@@ -15,7 +15,7 @@ const PacienteController = {
             const enderecoNovo = await EnderecoController.cadastrar(rua, numero, bairro, cep, complemento, cidade, estado);
             const endereco_id = enderecoNovo.id;
 
-            const pacienteNovo = await PacienteService.cadastrarPaciente(endereco_id, nome, cpf, data_nascimento, email, telefone, observacoes, avatar);
+            const pacienteNovo = await PacienteService.cadastrarPaciente(endereco_id, nome, cpf, data_nascimento, email, telefone, observacoes);
 
             const pacienteCompleto = await PacienteService.pacienteCompleto(pacienteNovo.id);
 
@@ -55,7 +55,7 @@ const PacienteController = {
         try{
             const { id } = req.params;
 
-            const { nome, cpf, data_nascimento, email, telefone, observacoes, avatar, rua, numero, bairro, cep, complemento, cidade, estado } = req.body;
+            const { nome, cpf, data_nascimento, email, telefone, observacoes, rua, numero, bairro, cep, complemento, cidade, estado } = req.body;
             
             const mostrarPaciente = await PacienteService.encontrarPaciente(id);
 
@@ -67,7 +67,7 @@ const PacienteController = {
 
             const enderecoAtualizado = await EnderecoController.atualizar(endereco_id, rua, numero, bairro, cep, complemento, cidade, estado);
 
-            const pacienteAtualizado = await PacienteService.atualizarPaciente(id, nome, cpf, data_nascimento, email, telefone, observacoes, avatar);
+            const pacienteAtualizado = await PacienteService.atualizarPaciente(id, nome, cpf, data_nascimento, email, telefone, observacoes);
 
             const pacienteCompleto = await PacienteService.pacienteCompleto(id);
 

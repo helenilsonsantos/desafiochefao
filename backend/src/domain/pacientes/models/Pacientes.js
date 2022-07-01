@@ -46,10 +46,6 @@ const Pacientes = db.define(
       type: DataTypes.STRING(300),
       allowNull: false,
     },
-    avatar: {
-      type: DataTypes.STRING(100),
-      allowNull: false,
-    },
     situacao: {
       type: Sequelize.ENUM('ativo', 'inativo'),
       allowNull: false,
