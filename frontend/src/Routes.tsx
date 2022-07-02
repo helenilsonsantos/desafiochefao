@@ -3,13 +3,12 @@ import {
 	Route,
 	BrowserRouter,
 } from "react-router-dom";
-import Cadastro from "./Pages/Cadastro";
 
 export default function Routes() {
 	return (
 		<BrowserRouter>
 			<WrapperRoutes>
-                <Route path="/cadastro" element={<Cadastro />} />
+                {/* <Route path="" element={} /> */}
             </WrapperRoutes>
 		</BrowserRouter>
 	);
