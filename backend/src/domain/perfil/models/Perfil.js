@@ -1,4 +1,4 @@
-const db = require('../../../infrastructure/database');
+const db = require('../../../infrastructure/database/dbConexao');
 const { DataTypes } = require('sequelize');
 
 const Perfil = db.define(

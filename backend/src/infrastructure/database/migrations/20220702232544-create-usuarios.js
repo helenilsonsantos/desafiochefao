@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.INTEGER(),
         allowNull: false,
         references: {
-          model: 'Empresa',
+          model: 'Empresas',
           key: 'id'
         }
       },
@@ -42,14 +42,14 @@ module.exports = {
         allowNull: false,
         defaultValue: 'ativo'
       },
-      foto: {
+      avatar: {
         type: Sequelize.STRING(100)
       },
-      createdAt: {
+      criadoEm: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      alteradoEm: {
         allowNull: false,
         type: Sequelize.DATE
       }

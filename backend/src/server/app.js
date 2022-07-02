@@ -1,7 +1,7 @@
 const express = require ('express')
 const cors = require ('cors')
-const porta = process.env.PORTA
-const rotas = require ('../rotas')
+const porta = process.env.PORTA || 4350
+const routes= require ('../routes')
 const handleError = require('../middlewares/handleError')
 const db = require('../infrastructure/database/dbConexao')
 const upload = require('../configs/uploads')
@@ -14,7 +14,7 @@ db.conectarBanco()
 app.use (express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(upload.any())
-app.use (rotas)
+app.use (routes)
 app.use(handleError)
 
-app.listen(porta || 4350, () => console.log ('Servidor rodadando na porta 4350'))
+app.listen(porta, () => console.log ('Servidor rodadando na porta 4350'))

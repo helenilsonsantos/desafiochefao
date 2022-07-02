@@ -1,4 +1,4 @@
-const db = require("../../../infrastructure/database");
+const db = require("../../../infrastructure/database/dbConexao");
 const { DataTypes } = require("sequelize");
 const { Empresas } = require("../../empresas/models");
 
@@ -15,7 +15,7 @@ const Usuarios = db.define(
         type: DataTypes.INTEGER,
         allowNull: true,
         references: {
-            model: Empresa,
+            model: Empresas,
             key: 'id'
         }
     },
@@ -55,7 +55,7 @@ const Usuarios = db.define(
     }
   },
   {
-    tableName: "enderecos",
+    tableName: "usuarios",
     createdAt: "criadoEm",
     updatedAt: "alteradoEm",
     timestamps: true,
