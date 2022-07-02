@@ -2,7 +2,7 @@ const { Enderecos } = require("../models/index");
 
 const EnderecoService = {
 
-    async cadastrarEndereco(rua, numero, bairro, cep, complemento, cidade, estado){
+    async cadastrarEndereco({rua, numero, bairro, cep, complemento, cidade, estado}, transaction){
         const enderecoNovo = await Enderecos.create({
             rua, 
             numero,
@@ -11,7 +11,7 @@ const EnderecoService = {
             complemento,
             cidade,
             estado
-        });
+        }, {transaction});
 
         return enderecoNovo;
     },
@@ -26,7 +26,7 @@ const EnderecoService = {
         return encontrarEndereco;
     },
 
-    async atualizarEndereco(endereco_id, rua, numero, bairro, cep, complemento, cidade, estado) {
+    async atualizarEndereco({endereco_id, rua, numero, bairro, cep, complemento, cidade, estado}, transaction) {
         await Enderecos.update(
             {
                 rua,
@@ -41,6 +41,7 @@ const EnderecoService = {
                 where: {
                     id: endereco_id
                 },
+                transaction
             }
         );
 

@@ -1,9 +1,12 @@
 const PacienteService = require("../services/pacienteService");
 const EnderecoController = require("../../enderecos/controllers/enderecoController");
+const db = require("../../../infrastructure/database/dbConexao");
 
 const PacienteController = {
 
     async cadastrar(req,res){
+        const transaction = await db.transaction();
+
         try{
             const { nome, cpf, data_nascimento, email, telefone, observacoes, rua, numero, bairro, cep, complemento, cidade, estado } = req.body;
             const pacienteExiste = await PacienteService.pacienteExiste(cpf);
@@ -12,18 +15,22 @@ const PacienteController = {
                 return res.status(400).json("CPF já cadastrado!")
             }
 
-            const enderecoNovo = await EnderecoController.cadastrar(rua, numero, bairro, cep, complemento, cidade, estado);
-            const endereco_id = enderecoNovo.id;
+            const { id:endereco_id } = await EnderecoController.cadastrar({rua, numero, bairro, cep, complemento, cidade, estado}, transaction);
 
-            const pacienteNovo = await PacienteService.cadastrarPaciente(endereco_id, nome, cpf, data_nascimento, email, telefone, observacoes);
+            const pacienteNovo = await PacienteService.cadastrarPaciente({endereco_id, nome, cpf, data_nascimento, email, telefone, observacoes}, transaction);
+
+            await transaction.commit();
 
             const pacienteCompleto = await PacienteService.pacienteCompleto(pacienteNovo.id);
 
             return res.status(201).json(pacienteCompleto);
 
         } catch (error) {
-            console.log(error)
-            res.status(500).json("Ocorreu um erro ao cadastrar o paciente.")
+            console.log(error);
+
+            await transaction.rollback(); 
+
+            res.status(500).json("Ocorreu um erro ao cadastrar o paciente.");
         }
     },
 
@@ -47,11 +54,15 @@ const PacienteController = {
             return res.status(200).json(pacienteCompleto);
             
         } catch (error){
+            console.log(error);
+            
             res.status(500).json("Ocorreu um erro ao procurar o paciente.")
         }
     },
 
     async atualizar(req,res){
+        const transaction = await db.transaction();
+
         try{
             const { id } = req.params;
 
@@ -65,15 +76,21 @@ const PacienteController = {
             
             const endereco_id = mostrarPaciente.endereco_id;
 
-            const enderecoAtualizado = await EnderecoController.atualizar(endereco_id, rua, numero, bairro, cep, complemento, cidade, estado);
+            await EnderecoController.atualizar({endereco_id, rua, numero, bairro, cep, complemento, cidade, estado}, transaction);
 
-            const pacienteAtualizado = await PacienteService.atualizarPaciente(id, nome, cpf, data_nascimento, email, telefone, observacoes);
+            await PacienteService.atualizarPaciente({id, nome, cpf, data_nascimento, email, telefone, observacoes}, transaction);
+
+            await transaction.commit();
 
             const pacienteCompleto = await PacienteService.pacienteCompleto(id);
 
             return res.status(200).json(pacienteCompleto);
             
         } catch (error){
+            console.log(error);
+            
+            await transaction.rollback(); 
+
             res.status(500).json("Ocorreu um erro ao atualizar o paciente.")
         }
     },
@@ -100,6 +117,8 @@ const PacienteController = {
             return res.status(200).json("Paciente desativado!");
                    
         } catch (error){
+            console.log(error);
+
             res.status(500).json("Ocorreu um erro ao deletar o paciente.")
         }
     }
