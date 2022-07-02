@@ -2,7 +2,7 @@ import React from "react";
 import { FormGroup, FormLabel, FormControl, Button } from "react-bootstrap";
 import "./styles.css";
 
-const FormCadastro: React.FC = () => {
+const FormCadastro = () => {
 	return (
 		<div>
 			<FormGroup className="mb-3">

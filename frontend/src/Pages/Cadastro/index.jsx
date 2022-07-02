@@ -3,7 +3,7 @@ import { Container, Card } from "react-bootstrap";
 import FormCadastro from "../../Components/FormCadastro";
 import "./styles.css";
 
-const Cadastro: React.FC = () => {
+const Cadastro = () => {
 	return (
 		<div>
 
