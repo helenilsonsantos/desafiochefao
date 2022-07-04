@@ -1,4 +1,4 @@
-const db = require('../../../infrastructure/database/index');
+const db = require('../../../infrastructure/database/dbConexao');
 const { DataTypes } = require('sequelize');
 
 const Empresas = db.define(
@@ -19,14 +19,14 @@ const Empresas = db.define(
     },
     logo: {
       type: DataTypes.STRING(200),
-      allowNull: false,
+      allowNull: true,
     },
     situacao: {
       type: DataTypes.ENUM('ativo', 'inativo'),
       allowNull: false,
       defaultValue: 'ativo',
     },
-    criado: {
+    criadoEm: {
       type: DataTypes.DATE,
       allowNull: false,
     },
