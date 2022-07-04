@@ -33,18 +33,7 @@ const EnderecoController = {
         } catch (error){
             console.log(error);
         }
-    },
-
-    // async desativar(endereco_id){
-    //     try{
-    //         const enderecoDesativado = await EnderecoService.desativarEndereco(endereco_id);
-
-    //         return enderecoDesativado;
-                   
-    //     } catch (error){
-    //         console.log(error);
-    //     }
-    // }
+    }
 }
 
 module.exports = EnderecoController;

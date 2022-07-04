@@ -104,10 +104,6 @@ const PacienteController = {
                 return res.status(404).json("Paciente não encontrado.")
             }
             
-            // const endereco_id = pacienteExiste.endereco_id;
-
-            // await EnderecoController.desativar(endereco_id);
-
             const pacienteDesativado = await PacienteService.desativarPaciente(id);
             
             if(pacienteDesativado === false) {
