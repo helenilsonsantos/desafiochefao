@@ -7,6 +7,6 @@ const routes = express.Router();
 routes.post("/paciente", PacienteValidation.validacaoCadastrar, PacienteController.cadastrar);
 routes.get("/paciente/:id", PacienteValidation.validacaoListar, PacienteController.mostrar);
 routes.patch("/paciente/:id", PacienteValidation.validacaoAtualizar, PacienteController.atualizar);
-routes.patch("/desativar/:id", PacienteValidation.validacaoDesativar, PacienteController.desativar);
+routes.patch("/paciente/desativar/:id", PacienteValidation.validacaoDesativar, PacienteController.desativar);
 
 module.exports = routes;
