@@ -1,6 +1,6 @@
 const db = require("../../../infrastructure/database/dbConexao");
 const { DataTypes } = require("sequelize");
-const { Empresas } = require("../../empresas/models");
+const Empresas = require("../../empresas/models/Empresas");
 
 const Usuarios = db.define(
   "Usuarios",
@@ -41,6 +41,7 @@ const Usuarios = db.define(
     situacao: {
         type: DataTypes.STRING(),
         allowNull: false,
+        defaultValue: 'ativo'
     },
     avatar: {
         type: DataTypes.STRING(100)

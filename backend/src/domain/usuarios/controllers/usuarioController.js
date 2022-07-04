@@ -1,4 +1,4 @@
-const { Usuarios } = require ("../models")
+const { Usuarios }  = require ("../models")
 const cloudinary = require ('../../../configs/cloudinary')
 const bcrypt = require("bcryptjs")
 const fs = require ('fs')
@@ -9,7 +9,7 @@ const usuarioController = {
         try {
 
             console.log(req.auth)
-            const { empresa_id, nome_completo, telefone, email, perfil, senha, situacao } = req.body
+            const { empresa_id, nome_completo, telefone, email, perfil, senha} = req.body
 
             const avatar = req.files[0]
             const uploadPath = await cloudinary.uploads(avatar.path, 'avatar')
@@ -24,11 +24,10 @@ const usuarioController = {
                 email,
                 perfil,
                 senha: novaSenha,
-                situacao,
                 avatar: uploadPath.url
             }) 
     
-            res.json (novoUsuario)
+            res.status(201).json (novoUsuario)
 
         } catch (error) {
             console.log(error)
@@ -45,7 +44,7 @@ const usuarioController = {
                 attributes: ['id', 'empresa_id', 'nome_completo', 'telefone', 'email', 'perfil', 'situacao', 'avatar']
             })
 
-            res.json(listaResposta)
+            res.status(200).json(listaResposta)
 
         } catch (error) {
             console.log(error)
@@ -91,10 +90,10 @@ const usuarioController = {
             console.log(req.auth)
 
             const { idUsuario } = req.params
-            const { situacao = 'inativo'} = req.body
+            const { situacao } = req.body
 
             const inativarUsuario = await Usuarios.update(
-                {situacao},
+                {situacao: 'inativo'},
                 {
                     where: {
                         id: idUsuario

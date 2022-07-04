@@ -43,7 +43,7 @@ module.exports = {
         defaultValue: 'ativo'
       },
       avatar: {
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(200)
       },
       criadoEm: {
         allowNull: false,

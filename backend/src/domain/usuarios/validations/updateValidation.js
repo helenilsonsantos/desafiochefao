@@ -5,6 +5,7 @@ module.exports = validate ({
         id: Joi.number().required(),
     }),
     body: Joi.object ({
+        empresa_id: Joi.number(),
         nome_completo: Joi.string(),
         telefone: Joi.string(),
         email: Joi.string().email(),
