@@ -11,8 +11,7 @@ const PacienteService = {
             data_nascimento,
             email,
             telefone,
-            observacoes,
-            situacao: "ativo"
+            observacoes
         }, {transaction});
         
         return novoPaciente;
