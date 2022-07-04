@@ -1,13 +1,13 @@
 import { Routes, Route, BrowserRouter} from 'react-router-dom';
-import Erro from '../Pages/Erro/Erro';
-import ConfigUser from '../Pages/ConfigUser/ConfigUser';
+import ConfigUserPage from '../Pages/ConfigUser';
+import ErroPage from '../Pages/Erro';
 
 function Rotas(){
     return(
         <BrowserRouter>
         <Routes>
-            <Route path="/Erro" element={<Erro />}/>
-            <Route path="/ConfigUser" element={<ConfigUser />}/>
+            <Route path="/Erro" element={<ErroPage />}/>
+            <Route path="/ConfigUser" element={<ConfigUserPage />}/>
         </Routes>
         </BrowserRouter>
     )
