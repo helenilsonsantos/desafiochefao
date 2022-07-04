@@ -3,13 +3,13 @@ import {
 	Route,
 	BrowserRouter,
 } from "react-router-dom";
-import Cadastro from "./Pages/Cadastro";
+import InfoPaciente from "./Pages/InfoPaciente";
 
-export default function Routes() {
+export default function AppRoutes() {
 	return (
 		<BrowserRouter>
 			<WrapperRoutes>
-                <Route path="/cadastro" element={<Cadastro />} />
+				<Route path='/infopaciente' element ={<InfoPaciente />}/>
             </WrapperRoutes>
 		</BrowserRouter>
 	);

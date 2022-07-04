@@ -1,0 +1,114 @@
+main.containerFormPaciente {
+    width: 70%;
+}
+
+h2.pacienteTitulo {
+    display: flex;
+    width: 100%;
+    display: flex;
+    color: black;
+    margin: 35px 0;
+}
+
+div.formPaciente {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 45px;
+}
+
+form.infoEsq {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+form.infoDir {
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+input, textarea {
+    border: .5px solid black;
+    border-radius: 10px;
+    padding:0.4rem 0.5rem;
+}
+
+div.formPaciente {
+    text-align: left;
+}
+
+
+div.divPacienteNome input{
+    width: 30vw;
+}
+
+form.infoEsq input{
+    margin-top: 1vh;
+}
+
+form.infoEsq label{
+    margin-top: 1vh;
+}
+
+div.divPacienteCpf input{
+    width: 20vw;
+}
+
+div.divPacienteEmail input{
+    width: 21vw;
+}
+
+div.divPacienteRua input{
+    width: 21vw;
+}
+
+div.divPacienteBairro input{
+    width: 21vw;
+}
+
+div.divPacienteObservacoes textarea{
+    width: 30vw;
+    height: 15vh;
+}
+
+
+div.divPacienteTelefone input{
+   width: 21vw;
+}
+
+div.divNumeroComplemento {
+    display: flex;
+    margin-top: 10rem;
+ }
+div.divPacienteNumero {
+    margin-right: 2rem;
+}
+
+div.divPacienteNumero input{
+    width: 6rem;
+}
+
+div.divPacienteComplemento input{
+    width: 16rem;
+}
+
+div.divPacienteCidade input{
+    width: 19rem;
+}
+
+form.infoDir input{
+    margin-top: 1vh;
+}
+
+form.infoDir label{
+    margin-top: 1vh;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
