@@ -3,6 +3,7 @@ import {
 	Route,
 	BrowserRouter,
 } from "react-router-dom";
+import CadastroAtendimento from "./Pages/CadastroAtendimento";
 import InfoPaciente from "./Pages/InfoPaciente";
 
 export default function AppRoutes() {
@@ -10,6 +11,7 @@ export default function AppRoutes() {
 		<BrowserRouter>
 			<WrapperRoutes>
 				<Route path='/infopaciente' element ={<InfoPaciente />}/>
+				<Route path='/novoatendimento' element ={<CadastroAtendimento />}/>
             </WrapperRoutes>
 		</BrowserRouter>
 	);

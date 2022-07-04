@@ -5,7 +5,6 @@ main.containerFormPaciente {
 h2.pacienteTitulo {
     display: flex;
     width: 100%;
-    display: flex;
     color: black;
     margin: 35px 0;
 }
@@ -15,6 +14,7 @@ div.formPaciente {
     justify-content: space-between;
     width: 100%;
     margin-top: 45px;
+    text-align: left;
 }
 
 form.infoEsq {
@@ -36,21 +36,16 @@ input, textarea {
     padding:0.4rem 0.5rem;
 }
 
-div.formPaciente {
-    text-align: left;
-}
-
-
-div.divPacienteNome input{
-    width: 30vw;
-}
-
 form.infoEsq input{
     margin-top: 1vh;
 }
 
 form.infoEsq label{
     margin-top: 1vh;
+}
+
+div.divPacienteNome input{
+    width: 30vw;
 }
 
 div.divPacienteCpf input{
