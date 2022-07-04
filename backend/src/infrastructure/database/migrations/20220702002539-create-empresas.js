@@ -18,7 +18,7 @@ module.exports = {
       },
       logo: {
         type: Sequelize.STRING(200),
-        allowNull: false,
+        allowNull: true,
       },
       situacao: {
         type: Sequelize.ENUM('ativo', 'inativo'),
