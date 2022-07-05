@@ -1,12 +1,11 @@
 const { Atendimentos } = require("../models/index");
-const { Pacientes } = require("../../pacientes/models/index");
 
 const AtendimentoService = {
 
-    async cadastrarAtendimento(cliente_id, medico_id, procedimentos_id, data, horario, situacao, anexos){
+    async cadastrarAtendimento(cliente_id, dentista_id, procedimentos_id, data, horario, situacao, anexos){
         const novoAtendimento = await Atendimentos.create({
             cliente_id, 
-            medico_id, 
+            dentista_id, 
             procedimentos_id, 
             data, 
             horario, 
@@ -26,8 +25,12 @@ const AtendimentoService = {
         return atendimentoExiste;
     },
 
-    async encontrarAtendimento(id){
-        const encontrarAtendimento = await Atendimentos.findByPk(id);
+    async encontrarAtendimentoPaciente(paciente_id){
+        const encontrarAtendimento = await Atendimentos.findAll({
+            where: {
+                paciente_id
+            },  
+        });
         
         if(!encontrarAtendimento) {
             return false;
@@ -36,6 +39,19 @@ const AtendimentoService = {
         return encontrarAtendimento;
     },
 
+    async encontrarAtendimentoId(id){
+        const encontrarAtendimento = await Atendimentos.findAll({
+            where: {
+                id
+            },  
+        });
+        
+        if(!encontrarAtendimento) {
+            return false;
+        };
+        
+        return encontrarAtendimento;
+    },
     async atendimentoCompleto(id){
         const atendimentoCompleto = await Atendimentos.findAll({
             where: {
@@ -49,12 +65,11 @@ const AtendimentoService = {
         return atendimentoCompleto;
     },
 
-    async atualizarAtendimento(cliente_id, medico_id, procedimentos_id, data, horario, situacao, anexos) {
+    async atualizarAtendimento({id, paciente_id, dentista_id, data, horario, situacao, anexos}) {
         const atualizarAtendimento = await Atendimentos.update(
             {
-                cliente_id, 
-                medico_id, 
-                procedimentos_id, 
+                paciente_id, 
+                dentista_id,  
                 data, 
                 horario, 
                 situacao, 
@@ -67,7 +82,7 @@ const AtendimentoService = {
             }
         );
 
-        const atendimentoAtualizado = atendimentoService.encontrarAtendimento(id);
+        const atendimentoAtualizado = AtendimentoService.encontrarAtendimentoId(id);
 
         return atendimentoAtualizado;
     },

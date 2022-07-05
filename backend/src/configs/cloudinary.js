@@ -1,72 +1,29 @@
-const db = require("../../../infrastructure/database/dbConexao");
-const { DataTypes, Sequelize } = require("sequelize");
-const { Enderecos } = require("../../pacientes/models/Pacientes");
+const cloudinary = require('cloudinary')
+const upload = require("./uploads")
+const dotenv = require ('dotenv').config()
 
+cloudinary.config({ 
+    cloud_name: process.env.CLOUDINARY_NAME, 
+    api_key: process.env.CLOUDINARY_KEY, 
+    api_secret: process.env.CLOUDINARY_SECRET
+})
 
-const Atendimentos = db.define(
-  "Atendimentos",
-  {
-    id: {
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-      type: DataTypes.INTEGER
-    },
-    paciente_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      foreignKey: true,
-      references: {
-        model: Pacientes,
-        key: "id"
-      }
-    },
-    dentista_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        foreignKey: true,
-        references: {
-          model: Usuario,
-          key: "id"
+exports.uploads = (arquivo, pasta)  => {
+        
+    return new Promise(
+            (resolve) => {
+                cloudinary.uploader.upload(
+                    arquivo,
+                    (cloudinaryReturn) => {
+                        resolve ({
+                            url: cloudinaryReturn.url
+                        })
+                    },
+                    {
+                        folder: pasta,
+                        resource_type: "auto"
+                    }
+            )
         }
-    },
-    descricao: {
-      type: DataTypes.STRING(45),
-      allowNull: false,
-      unique: true
-    },
-    data: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    anexos: {
-      type: DataTypes.STRING(45),
-      allowNull: false,
-    },
-    situacao: {
-      type: DataTypes.STRING(45),
-      allowNull: false,
-    },
-    anotacoes: {
-      type: DataTypes.STRING(300),
-      allowNull: false,
-    },
-    
-    criadoEm: {
-      allowNull: false,
-      type: DataTypes.DATE
-    },
-    alteradoEm: {
-      allowNull: false,
-      type: DataTypes.DATE
-    }
-  },
-  {
-    tableName: "atendimentos",
-    createdAt: "criadoEm",
-    updatedAt: "alteradoEm",
-    timestamps: true,
-  }
-);
-
-module.exports = Atendimentos;
+    )
+}

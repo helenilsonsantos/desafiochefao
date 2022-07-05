@@ -33,7 +33,6 @@ const Atendimentos = db.define(
     descricao: {
       type: DataTypes.STRING(45),
       allowNull: false,
-      unique: true
     },
     data: {
       type: DataTypes.DATE,
@@ -41,15 +40,15 @@ const Atendimentos = db.define(
     },
     anexos: {
       type: DataTypes.STRING(45),
-      allowNull: false,
+      allowNull: true,
     },
     situacao: {
       type: DataTypes.STRING(45),
       allowNull: false,
     },
     anotacoes: {
-      type: DataTypes.STRING(300),
-      allowNull: false,
+      type: DataTypes.STRING(1000),
+      allowNull: true,
     },
     
     criadoEm: {

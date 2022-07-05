@@ -1,4 +1,3 @@
-dbConexao.js
 const sequelize = require ('sequelize')
 const dotenv = require('dotenv').config()
 
