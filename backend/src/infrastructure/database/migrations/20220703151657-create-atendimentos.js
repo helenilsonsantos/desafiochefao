@@ -14,7 +14,7 @@ module.exports = {
           allowNull: false,
           foreignKey: true,
           references: {
-            model: 'Pacientes',
+            model: 'pacientes',
             key: "id"
           }
         },
@@ -23,7 +23,7 @@ module.exports = {
             allowNull: false,
             foreignKey: true,
             references: {
-              model: 'Usuarios',
+              model: 'usuarios',
               key: "id"
             }
         },
