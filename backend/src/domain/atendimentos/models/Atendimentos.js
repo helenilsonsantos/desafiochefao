@@ -1,6 +1,7 @@
 const db = require("../../../infrastructure/database/dbConexao");
 const { DataTypes, Sequelize } = require("sequelize");
-const { Enderecos } = require("../../pacientes/models/Pacientes");
+const Pacientes = require("../../pacientes/models/Pacientes");
+const Usuarios = require("../../usuarios/models/Usuarios");
 
 
 const Atendimentos = db.define(
@@ -26,7 +27,7 @@ const Atendimentos = db.define(
         allowNull: false,
         foreignKey: true,
         references: {
-          model: Usuario,
+          model: Usuarios,
           key: "id"
         }
     },
