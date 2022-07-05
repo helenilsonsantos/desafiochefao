@@ -11,7 +11,7 @@ const EmpresasService = {
     return novaEmpresa;
   },
 
-  async encontraEmpresa(cnpj) {
+  async empresaExiste(cnpj) {
     const buscaEmpresa = await Empresas.findAll({
       where: {
         cnpj,
@@ -33,11 +33,6 @@ const EmpresasService = {
     }
 
     return empresaID;
-  },
-
-  async mostraEmpresa() {
-    const listaEmpresas = await Empresas.findAll();
-    return listaEmpresas;
   },
 
   async atualizaEmpresa(id, nome, logo) {
