@@ -1,0 +1,64 @@
+'use strict';
+
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('atendimentos',{
+        id: {
+          allowNull: false,
+          autoIncrement: true,
+          primaryKey: true,
+          type: Sequelize.INTEGER
+        },
+        paciente_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          foreignKey: true,
+          references: {
+            model: 'Pacientes',
+            key: "id"
+          }
+        },
+        dentista_id: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+            foreignKey: true,
+            references: {
+              model: 'Usuarios',
+              key: "id"
+            }
+        },
+        descricao: {
+          type: Sequelize.STRING(45),
+          allowNull: false,
+        },
+        data: {
+          type: Sequelize.DATE,
+          allowNull: false,
+        },
+        anexos: {
+          type: Sequelize.STRING(45),
+          allowNull: true,
+        },
+        situacao: {
+          type: Sequelize.STRING(45),
+          allowNull: false,
+        },
+        anotacoes: {
+          type: Sequelize.STRING(1000),
+          allowNull: true,
+        },
+        criadoEm: {
+          allowNull: false,
+          type: Sequelize.DATE
+        },
+        alteradoEm: {
+          allowNull: false,
+          type: Sequelize.DATE
+        }
+      });
+  },
+
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('atendimentos');
+  },
+};

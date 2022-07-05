@@ -9,14 +9,16 @@ const usuarioUpdateValidation = require('../domain/usuarios/validations/updateVa
 const usuarioDesativarValidation = require('../domain/usuarios/validations/desativarValidation')
 const loginValidation = require ('../domain/usuarios/validations/loginValidation')
 const auth = require ('../domain/usuarios/services/authService')
+const AtendimentoController = require('../domain/atendimentos/controllers/atendimentoController');
+const AtendimentoValidation = require('../domain/atendimentos/validations');
 
 const rotas = express.Router();
 
 //ROTAS DE PACIENTES
-rotas.post("/paciente", PacienteValidation.validacaoCadastrar, PacienteController.cadastrar);
-rotas.get("/paciente/:id", PacienteValidation.validacaoListar, PacienteController.mostrar);
-rotas.patch("/paciente/:id", PacienteValidation.validacaoAtualizar, PacienteController.atualizar);
-rotas.patch("/paciente/desativar/:id", PacienteValidation.validacaoDesativar, PacienteController.desativar);
+rotas.post("/paciente", auth.login, PacienteValidation.validacaoCadastrar, PacienteController.cadastrar);
+rotas.get("/paciente/:id", auth.login, PacienteValidation.validacaoListar, PacienteController.mostrar);
+rotas.patch("/paciente/:id", auth.login, PacienteValidation.validacaoAtualizar, PacienteController.atualizar);
+rotas.patch("/paciente/desativar/:id", auth.login, PacienteValidation.validacaoDesativar, PacienteController.desativar);
 
 //ROTAS DE USUÁRIOS
 rotas.post('/usuario/criar', auth.login, usuarioCreateValidation, usuarioController.cadastrarUsuario)
@@ -28,9 +30,15 @@ rotas.patch('/usuario/desativar/:idUsuario', auth.login, usuarioDesativarValidat
 rotas.post('/login', loginValidation, auth.login)
 
 //ROTAS DE EMPRESAS
-rotas.post('/empresa', empresaValidate.validarCadastrar, empresasController.cadastrar);
-rotas.get('/empresa/:id', empresaValidate.validarListar, empresasController.listar);
-rotas.patch('/empresa/:id', empresaValidate.validarAtualizar, empresasController.atualizar);
-rotas.patch('/empresa/desativar/:id', empresaValidate.validarDesativar, empresasController.desativar);
+rotas.post('/empresa', auth.login, empresaValidate.validarCadastrar, empresasController.cadastrar);
+rotas.get('/empresa/:id', auth.login, empresaValidate.validarListar, empresasController.listar);
+rotas.patch('/empresa/:id', auth.login, empresaValidate.validarAtualizar, empresasController.atualizar);
+rotas.patch('/empresa/desativar/:id', auth.login, empresaValidate.validarDesativar, empresasController.desativar);
 
-module.exports = rotas
+//ROTAS DE ATENDIMENTOS
+rotas.post("/atendimento", auth.login, AtendimentoValidation.validacaoCadastrar, AtendimentoController.criarAtendimento);
+rotas.get("/atendimento/:id", auth.login, AtendimentoValidation.validacaoListar, AtendimentoController.listarAtendimento);
+rotas.patch("/atendimento/:id", auth.login, AtendimentoValidation.validacaoAtualizar, AtendimentoController.atualizarAtendimento);
+rotas.patch("/atendimento/desativar/id", auth.login, AtendimentoValidation.validacaoDesativar, AtendimentoController.desativarAtendimento);
+
+module.exports = rotas;
