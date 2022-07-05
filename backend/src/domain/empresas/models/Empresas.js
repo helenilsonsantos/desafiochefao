@@ -16,6 +16,7 @@ const Empresas = db.define(
     },
     cnpj: {
       type: DataTypes.STRING(200),
+      unique: true,
     },
     logo: {
       type: DataTypes.STRING(200),
