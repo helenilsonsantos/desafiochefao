@@ -19,7 +19,7 @@ try {
         DB_USUARIO,
         DB_SENHA,
         DB_CONFIGURACOES
-        )
+    )
 } catch (error) {
 
 }
@@ -29,7 +29,7 @@ async function conectarBanco () {
         await dbConexao.authenticate ()
         console.log ('Banco de Dados Conectado')
     } catch (error) {
-        console.error ('Problemas ao Conectar ao Banco de Dados')
+        console.error ('Problemas ao conectar ao Banco de Dados')
         console.log(error)
     }
 }

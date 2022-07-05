@@ -18,7 +18,7 @@ module.exports = {
         }
       },
       nome: {
-        type: Sequelize.STRING(45),
+        type: Sequelize.STRING(70),
         allowNull: false,
       },
       cpf: {
@@ -37,9 +37,6 @@ module.exports = {
       },
       observacoes: {
           type: Sequelize.STRING(300),
-      },
-      avatar: {
-          type: Sequelize.STRING(100),
       },
       situacao: {
           type: Sequelize.ENUM('ativo', 'inativo'),

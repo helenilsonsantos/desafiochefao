@@ -1,6 +1,6 @@
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require("sequelize");
-const { Enderecos } = require("../../enderecos/models/index");
+const db = require("../../../infrastructure/database/dbConexao");
+const { DataTypes, Sequelize } = require("sequelize");
+const { Enderecos } = require("../../enderecos/models/Enderecos");
 
 
 const Pacientes = db.define(
@@ -22,36 +22,34 @@ const Pacientes = db.define(
       }
     },
     nome: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(70),
       allowNull: false,
     },
     cpf: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING(45),
       allowNull: false,
+      unique: true
     },
     data_nascimento: {
       type: DataTypes.DATE,
       allowNull: false,
     },
     email: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(45),
       allowNull: false,
     },
     telefone: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING(45),
       allowNull: false,
     },
     observacoes: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    avatar: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING(300),
+      allowNull: false,
     },
     situacao: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: Sequelize.ENUM('ativo', 'inativo'),
+      allowNull: false,
+      defaultValue: 'ativo'
     },
     criadoEm: {
       allowNull: false,
