@@ -5,7 +5,7 @@ const validarAtualizar = validate({
     id: Joi.number().required(),
   }),
   body: Joi.object({
-    nome: Joi.string().max(200).required(),
+    nome: Joi.string().max(200),
     logo: Joi.string().max(200),
   }),
 });
