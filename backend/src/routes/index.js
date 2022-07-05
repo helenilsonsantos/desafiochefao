@@ -10,8 +10,8 @@ const rotas = express.Router()
 //ROTAS DE USUÁRIOS
 rotas.post('/usuario/criar', auth.login, usuarioCreateValidation, usuarioController.cadastrarUsuario)
 rotas.get('/usuario/lista', auth.login, usuarioController.listadeUsuarios)
-rotas.patch('/usuario/atualizar/:id', auth.login, usuarioUpdateValidation, usuarioController.atualizarUsuario)
-rotas.patch('/usuario/desativar/:id', auth.login, usuarioDesativarValidation, usuarioController.desativarUsuario)
+rotas.patch('/usuario/:idUsuario', auth.login, usuarioUpdateValidation, usuarioController.atualizarUsuario)
+rotas.patch('/usuario/desativar/:idUsuario', auth.login, usuarioDesativarValidation, usuarioController.desativarUsuario)
 
 // //ROTA DE LOGIN DO USUÁRIO
 rotas.post('/login', loginValidation, auth.login)
