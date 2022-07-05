@@ -27,7 +27,7 @@ try {
 async function conectarBanco () {
     try {
         await dbConexao.authenticate ()
-        console.log ('Banco de Dados conectado!')
+        console.log ('Banco de Dados Conectado')
     } catch (error) {
         console.error ('Problemas ao conectar ao Banco de Dados')
         console.log(error)
@@ -35,7 +35,8 @@ async function conectarBanco () {
 }
 
 Object.assign(dbConexao, {
-    conectarBanco 
+    conectarBanco
+    
 })
 
 module.exports = dbConexao

@@ -1,7 +1,6 @@
-const db = require("../../../infrastructure/database");
+const db = require("../../../infrastructure/database/dbConexao");
 const { DataTypes } = require("sequelize");
-const { Enderecos } = require("../../enderecos/models/index");
-
+const Empresas = require("../../empresas/models/Empresas");
 
 const Usuarios = db.define(
   "Usuarios",
@@ -10,48 +9,43 @@ const Usuarios = db.define(
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER
-    },
-    endereco_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      foreignKey: true,
-      references: {
-        model: Enderecos,
-        key: "id"
-      }
     },
-    nome: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    empresa_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+            model: Empresas,
+            key: 'id'
+        }
     },
-    cpf: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    data_nascimento: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    nome_completo: {
+        type: DataTypes.STRING(100),
+        allowNull: false
     },
     telefone: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+        type: DataTypes.STRING(19),
+        allowNull: false
     },
-    observacoes: {
-        type: DataTypes.STRING,
-        allowNull: false,
+    email: {
+        type: DataTypes.STRING(45),
+        allowNull: false
     },
-    avatar: {
-        type: DataTypes.STRING,
-        allowNull: false,
+    perfil: {
+        type: DataTypes.ENUM('administrador', 'secretaria', 'dentista'),
+        allowNull: false
+    },
+    senha: {
+        type: DataTypes.STRING(100),
+        allowNull: false
     },
     situacao: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(),
         allowNull: false,
+        defaultValue: 'ativo'
+    },
+    avatar: {
+        type: DataTypes.STRING(100)
     },
     criadoEm: {
       allowNull: false,
@@ -71,4 +65,3 @@ const Usuarios = db.define(
 );
 
 module.exports = Usuarios;
-
