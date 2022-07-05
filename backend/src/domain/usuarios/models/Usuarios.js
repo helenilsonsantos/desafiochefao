@@ -24,14 +24,15 @@ const Usuarios = db.define(
         allowNull: false
     },
     telefone: {
-        type: DataTypes.STRING(19)
+        type: DataTypes.STRING(19),
+        allowNull: false
     },
     email: {
         type: DataTypes.STRING(45),
         allowNull: false
     },
     perfil: {
-        type: DataTypes.STRING(),
+        type: DataTypes.ENUM('administrador', 'secretaria', 'dentista'),
         allowNull: false
     },
     senha: {

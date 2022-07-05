@@ -8,8 +8,7 @@ const usuarioController = {
 
         try {
 
-            console.log(req.auth)
-            const { empresa_id, nome_completo, telefone, email, perfil, senha} = req.body
+            const { empresa_id, nome_completo, telefone, email, perfil = 'secretaria', senha} = req.body
 
             const avatar = req.files[0]
             const uploadPath = await cloudinary.uploads(avatar.path, 'avatar')
@@ -77,7 +76,7 @@ const usuarioController = {
                 }
             ) 
 
-            res.json('Comentário Atualizado com Sucesso')
+            res.json('Usuário Atualizado com Sucesso')
 
         } catch (error) {
             console.log(error)
@@ -90,7 +89,6 @@ const usuarioController = {
             console.log(req.auth)
 
             const { idUsuario } = req.params
-            const { situacao } = req.body
 
             const inativarUsuario = await Usuarios.update(
                 {situacao: 'inativo'},
