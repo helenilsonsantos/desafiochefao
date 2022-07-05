@@ -1,18 +1,18 @@
-const multer = require('multer');
-const path = require('path');
+const multer = require('multer')
+const path = require('path')
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, path.join('src/temp'));
-  },
-  filename: function (req, file, nomeArquivo) {
-    const removerEspacoNome = file.originalname.replace(/ /g, '');
-    nomeArquivo(null, Date.now() + '.' + removerEspacoNome.toLowerCase());
-  },
-});
+    destination: function (req, file, cb) {
+      cb(null, path.join("src/temp"))
+    },
+    filename: function (req, file, nomeArquivo) {
+        const removerEspacoNome = file.originalname.replace(/ /g, "")
+        nomeArquivo(null, Date.now() + '.' + removerEspacoNome.toLowerCase())
+    }
+  });
 
 const upload = multer({
-  storage: storage,
+    storage: storage
 });
 
 module.exports = upload;

@@ -5,6 +5,7 @@
   "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server/app.js",
     "dev": "nodemon src/server/app.js"
   },
   "repository": {
@@ -17,18 +18,20 @@
     "url": "https://github.com/helenilsonholamek/desafiochefao/issues"
   },
   "homepage": "https://github.com/helenilsonholamek/desafiochefao#readme",
-  "keywords": [],
   "dependencies": {
     "cloudinary": "^1.30.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "express-jwt": "^7.7.2",
     "express-validation": "^4.1.0",
+    "js-cookie": "^3.0.1",
+    "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.5-lts.1",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.21.1"
+    "nodemon": "^2.0.16",
+    "sequelize": "^6.20.1"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.18",
-    "sequelize-cli": "^6.4.1"
-  }
+  "devDependencies": {}
 }
