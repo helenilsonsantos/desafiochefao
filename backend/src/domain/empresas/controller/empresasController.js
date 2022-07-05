@@ -1,11 +1,10 @@
-const { buscaEmpresa } = require('../services/empresasService');
 const EmpresasService = require('../services/empresasService');
 
 const EmpresasController = {
   async cadastrar(req, res) {
     try {
       const { nome, cnpj, logo } = req.body;
-      const EncontraEmpresa = await EmpresasService.encontraEmpresa(cnpj);
+      const EncontraEmpresa = await EmpresasService.empresaExiste(cnpj);
 
       if (EncontraEmpresa) {
         return res.status(400).json('CNPJ já existe');
