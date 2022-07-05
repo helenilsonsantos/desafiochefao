@@ -16,17 +16,18 @@ const Empresas = db.define(
     },
     cnpj: {
       type: DataTypes.STRING(200),
+      unique: true,
     },
     logo: {
       type: DataTypes.STRING(200),
-      allowNull: false,
+      allowNull: true,
     },
     situacao: {
       type: DataTypes.ENUM('ativo', 'inativo'),
       allowNull: false,
       defaultValue: 'ativo',
     },
-    criado: {
+    criadoEm: {
       type: DataTypes.DATE,
       allowNull: false,
     },

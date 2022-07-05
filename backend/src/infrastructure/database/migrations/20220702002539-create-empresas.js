@@ -15,6 +15,7 @@ module.exports = {
       },
       cnpj: {
         type: Sequelize.STRING(20),
+        unique: true,
       },
       logo: {
         type: Sequelize.STRING(200),
