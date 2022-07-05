@@ -21,10 +21,10 @@ rotas.patch("/paciente/:id", auth.login, PacienteValidation.validacaoAtualizar, 
 rotas.patch("/paciente/desativar/:id", auth.login, PacienteValidation.validacaoDesativar, PacienteController.desativar);
 
 //ROTAS DE USUÁRIOS
-rotas.post('/usuario/criar', auth.login, usuarioCreateValidation, usuarioController.cadastrarUsuario)
-rotas.get('/usuario/lista', auth.login, usuarioController.listadeUsuarios)
-rotas.patch('/usuario/:idUsuario', auth.login, usuarioUpdateValidation, usuarioController.atualizarUsuario)
-rotas.patch('/usuario/desativar/:idUsuario', auth.login, usuarioDesativarValidation, usuarioController.desativarUsuario)
+rotas.post('/usuario', auth.login, usuarioCreateValidation, usuarioController.cadastrarUsuario)
+rotas.get('/usuario', auth.login, usuarioController.listadeUsuarios)
+rotas.patch('/usuario/:id', auth.login, usuarioUpdateValidation, usuarioController.atualizarUsuario)
+rotas.patch('/usuario/desativar/:id', auth.login, usuarioDesativarValidation, usuarioController.desativarUsuario)
 
 //ROTA DE LOGIN DO USUÁRIO
 rotas.post('/login', loginValidation, auth.login)

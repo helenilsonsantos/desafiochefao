@@ -57,7 +57,7 @@ const usuarioController = {
         try {
             console.log(req.auth)
 
-            const { idUsuario } = req.params
+            const { id } = req.params
 
             const { empresa_id, nome_completo, telefone, email, perfil, senha, situacao } = req.body
 
@@ -71,7 +71,7 @@ const usuarioController = {
                 { empresa_id, nome_completo, telefone, email, perfil, senha: novaSenha, situacao, avatar: uploadPath.url},
                 {
                     where: {
-                        id: idUsuario
+                        id
                     }
                 }
             ) 
@@ -88,13 +88,13 @@ const usuarioController = {
         try {
             console.log(req.auth)
 
-            const { idUsuario } = req.params
+            const { id } = req.params
 
             const inativarUsuario = await Usuarios.update(
                 {situacao: 'inativo'},
                 {
                     where: {
-                        id: idUsuario
+                        id
                     }
                 })
 
