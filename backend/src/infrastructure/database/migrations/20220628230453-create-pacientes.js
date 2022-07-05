@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "Enderecos",
+          model: "enderecos",
           key: "id"
         }
       },
