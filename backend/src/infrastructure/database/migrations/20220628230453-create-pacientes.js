@@ -12,6 +12,7 @@ module.exports = {
       endereco_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        foreignKey: true,
         references: {
           model: "enderecos",
           key: "id"
