@@ -9,11 +9,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER()
       },
-      endereco_id: {
+      empresa_id: {
         type: Sequelize.INTEGER(),
         allowNull: false,
         references: {
-          model: 'Enderecos',
+          model: 'Empresas',
           key: 'id'
         }
       },
@@ -43,13 +43,13 @@ module.exports = {
         defaultValue: 'ativo'
       },
       avatar: {
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(200)
       },
-      createdAt: {
+      criadoEm: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      alteradoEm: {
         allowNull: false,
         type: Sequelize.DATE
       }

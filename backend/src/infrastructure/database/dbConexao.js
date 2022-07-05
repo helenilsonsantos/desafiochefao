@@ -11,10 +11,10 @@ const DB_CONFIGURACOES = {
     timezone: process.env.DB_TIMEZONE
 }
 
-let dbComexao = {}
+let dbConexao = {}
 
 try {
-    dbComexao = new sequelize (
+    dbConexao = new sequelize (
         DB_NOME,
         DB_USUARIO,
         DB_SENHA,
@@ -26,7 +26,7 @@ try {
 
 async function conectarBanco () {
     try {
-        await dbComexao.authenticate ()
+        await dbConexao.authenticate ()
         console.log ('Banco de Dados Conectado')
     } catch (error) {
         console.error ('Problemas ao Conectar ao Banco de Dados')
@@ -34,9 +34,9 @@ async function conectarBanco () {
     }
 }
 
-Object.assign(dbComexao, {
+Object.assign(dbConexao, {
     conectarBanco
     
 })
 
-module.exports = dbComexao
+module.exports = dbConexao
