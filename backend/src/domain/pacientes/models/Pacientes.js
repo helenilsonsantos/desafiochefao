@@ -1,6 +1,6 @@
 const db = require("../../../infrastructure/database/dbConexao");
 const { DataTypes, Sequelize } = require("sequelize");
-const { Enderecos } = require("../../enderecos/models/Enderecos");
+const Enderecos = require("../../enderecos/models/Enderecos");
 
 
 const Pacientes = db.define(
