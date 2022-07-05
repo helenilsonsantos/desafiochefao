@@ -14,7 +14,7 @@ module.exports = {
         allowNull: false,
         foreignKey: true,
         references: {
-          model: "Enderecos",
+          model: "enderecos",
           key: "id"
         }
       },
