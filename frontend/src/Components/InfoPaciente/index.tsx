@@ -47,34 +47,36 @@ const InfoPaciente: React.FC = () => {
 
                 <div className='formPacienteDir'>
                     <form className='infoDir'>
-
-                    <div className='divPacienteNascimento'>
-                        <label htmlFor='pacienteNascimento'>Data de nascimento</label><br/>
-                        <input type='date' className='pacienteNascimento' name='pacienteNascimento' placeholder=''></input>
-                    </div>
-
-                    <div className='divPacienteTelefone'>
-                        <label htmlFor='pacienteTelefone'>Telefone</label><br/>
-                        <input type='number' className='pacienteTelefone' name='pacienteTelefone' placeholder=''></input>
-                    </div>
-                    <div className='divNumeroComplemento'>
-                        <div className='divPacienteNumero'>
-                            <label htmlFor='pacienteNumero'>Número</label><br/>
-                            <input type='number' className='pacienteNumero' name='pacienteNumero' placeholder=''></input>
+                    <div className='divDataTel'>
+                        <div className='divPacienteNascimento'>
+                            <label htmlFor='pacienteNascimento'>Data de nascimento</label><br/>
+                            <input type='date' className='pacienteNascimento' name='pacienteNascimento' placeholder=''></input>
                         </div>
 
-                        <div className='divPacienteComplemento'>
-                            <label htmlFor='pacienteComplemento'>Complemento</label><br/>
-                            <input type='text' className='pacienteComplemento'  name='pacienteComplemento' placeholder=''></input>
+                        <div className='divPacienteTelefone'>
+                            <label htmlFor='pacienteTelefone'>Telefone</label><br/>
+                            <input type='number' className='pacienteTelefone' name='pacienteTelefone' placeholder=''></input>
                         </div>
                     </div>
+                    <div className='divNumCompCid'>
+                        <div className='divNumeroComplemento'>
+                            <div className='divPacienteNumero'>
+                                <label htmlFor='pacienteNumero'>Número</label><br/>
+                                <input type='number' className='pacienteNumero' name='pacienteNumero' placeholder=''></input>
+                            </div>
 
-                    <div className='divPacienteCidade'>
-                        <label htmlFor='pacienteCidade'>Cidade</label><br/>
-                        <input type='text' className='pacienteCidade' name='pacienteCidade' placeholder=''></input>
+                            <div className='divPacienteComplemento'>
+                                <label htmlFor='pacienteComplemento'>Complemento</label><br/>
+                                <input type='text' className='pacienteComplemento'  name='pacienteComplemento' placeholder=''></input>
+                            </div>
+                        </div>
+
+                        <div className='divPacienteCidade'>
+                            <label htmlFor='pacienteCidade'>Cidade</label><br/>
+                            <input type='text' className='pacienteCidade' name='pacienteCidade' placeholder=''></input>
+                        </div>
                     </div>
-
-                    </form>
+                </form>
                 </div>
             </div>
         </main>
