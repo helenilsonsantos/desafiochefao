@@ -11,14 +11,15 @@ module.exports = {
       },
       endereco_id: {
         type: Sequelize.INTEGER,
-        allowNull: true,
+        allowNull: false,
+        foreignKey: true,
         references: {
-          model: "Enderecos",
+          model: "enderecos",
           key: "id"
         }
       },
       nome: {
-        type: Sequelize.STRING(45),
+        type: Sequelize.STRING(70),
         allowNull: false,
       },
       cpf: {
@@ -37,9 +38,6 @@ module.exports = {
       },
       observacoes: {
           type: Sequelize.STRING(300),
-      },
-      avatar: {
-          type: Sequelize.STRING(100),
       },
       situacao: {
           type: Sequelize.ENUM('ativo', 'inativo'),

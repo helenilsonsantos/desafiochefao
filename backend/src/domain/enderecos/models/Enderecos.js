@@ -1,50 +1,50 @@
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require("sequelize");
+const db = require("../../../infrastructure/database/dbConexao");
+const { Sequelize } = require("sequelize");
 
 const Enderecos = db.define(
   "Enderecos",
   {
-    id: {
+    endereco_id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER,
+      type: Sequelize.INTEGER,
     },
     rua: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING(45),
       allowNull: false,
     },
     numero: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.STRING(10),
       allowNull: false,
     },
     bairro: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING(45),
       allowNull: false,
     },
     cep: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.INTEGER(11),
       allowNull: false,
     },
     complemento: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING(45),
       allowNull: true,
     },
     cidade: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING(45),
       allowNull: false,
     },
     estado: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING(45),
         allowNull: false,
     },
     criadoEm: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Sequelize.DATE
     },
     alteradoEm: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Sequelize.DATE
     }
   },
   {

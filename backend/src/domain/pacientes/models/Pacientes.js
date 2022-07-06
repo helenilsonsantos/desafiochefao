@@ -1,6 +1,6 @@
-const db = require("../../../infrastructure/database");
-const { DataTypes } = require("sequelize");
-const { Enderecos } = require("../../enderecos/models/index");
+const db = require("../../../infrastructure/database/dbConexao");
+const { Sequelize } = require("sequelize");
+const Enderecos = require("../../enderecos/models/Enderecos");
 
 
 const Pacientes = db.define(
@@ -10,10 +10,10 @@ const Pacientes = db.define(
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER
+      type: Sequelize.INTEGER
     },
     endereco_id: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.INTEGER,
       allowNull: false,
       foreignKey: true,
       references: {
@@ -22,44 +22,42 @@ const Pacientes = db.define(
       }
     },
     nome: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING(70),
       allowNull: false,
     },
     cpf: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.STRING(45),
       allowNull: false,
+      unique: true
     },
     data_nascimento: {
-      type: DataTypes.DATE,
+      type: Sequelize.DATE,
       allowNull: false,
     },
     email: {
-      type: DataTypes.STRING,
+      type: Sequelize.STRING(45),
       allowNull: false,
     },
     telefone: {
-      type: DataTypes.INTEGER,
+      type: Sequelize.STRING(45),
       allowNull: false,
     },
     observacoes: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    avatar: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: Sequelize.STRING(300),
+      allowNull: false,
     },
     situacao: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: Sequelize.ENUM('ativo', 'inativo'),
+      allowNull: false,
+      defaultValue: 'ativo'
     },
     criadoEm: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Sequelize.DATE
     },
     alteradoEm: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: Sequelize.DATE
     }
   },
   {

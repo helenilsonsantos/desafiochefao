@@ -26,7 +26,8 @@ const authController = {
             id: usuario.id,
             nome: usuario.nome,
             perfil: usuario.perfil,
-            situacao: usuario.situacao
+            situacao: usuario.situacao,
+            empresa_id: usuario.empresa_id
         }, secret.key)
         
         res.cookie('tokenXp', token)
