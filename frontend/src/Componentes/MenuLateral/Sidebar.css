@@ -1,0 +1,66 @@
+
+
+.Nav{
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.sidebarnav{
+    background: #119DA4;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  
+  
+}
+.SidebarWrap{
+    width: 100%;
+}
+
+.NavIcon{
+    padding: 0;
+  font-size: 2rem;
+  
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+ 
+}
+
+.sidebarLink{
+    display: flex;
+    color: #F8F8F8;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    list-style: none;
+    height: 60px;
+    text-decoration: none;
+    font-size: 18px;
+}
+.SidebarLabel{
+    margin-left: 16px;
+}
+
+.dropdown{
+    height: 60px;
+  padding-left: 3rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+    color: black;
+  font-size: 18px;
+  
+}
+
+.icone{
+    padding: 10px;
+    background-color: #EAF1F2;
+    color: black;
+}

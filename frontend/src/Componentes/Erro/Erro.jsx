@@ -1,11 +1,15 @@
+
 import React from 'react';
 import imgErro from '../../Assets/imgErro.png';
 import {Image, Container, Row, Col} from 'react-bootstrap';
 import './Erro.css';
 
+
 function Erro(){
     return(
-        <div>
+        <div >
+            
+            <div>
             <Container>
                 <Row className="conteudo">
                     <Col sm={4}><Image className="imagem" src={imgErro} /></Col>
@@ -16,6 +20,7 @@ function Erro(){
                     </Col>
                 </Row>
             </Container>
+            </div>
         </div>
     )     
 };
