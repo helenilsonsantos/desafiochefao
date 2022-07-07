@@ -40,6 +40,7 @@ const Sidebar = () => {
             <Link className="NavIcon" to="#">
               <AiIcons.AiOutlineClose onClick={showSidebar} />
             </Link>
+            
             {SidebarData.map((item, index) => {
               return <SubMenu item={item} key={index} />;
             })}
@@ -47,7 +48,7 @@ const Sidebar = () => {
         </SidebarNav>
       </IconContext.Provider>
       </div>
-      <div className="borda"></div>
+      
     </>
   );
 };

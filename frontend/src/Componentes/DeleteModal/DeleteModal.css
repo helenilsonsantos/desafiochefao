@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap');
+
+
+.btn-close{
+    color: #FF4343;
+    border-color: #FF4343;
+    border-radius: 3rem;
+    opacity: 1;
+    border: 2.74156px solid #FF4343;
+}   
+.modal-header{
+    border-bottom: 0;
+}
+.modal-body{
+    padding: 0;
+}
+.modalText{
+    justify-content: center;
+    text-align: center;
+    
+}
+.modalText h1{
+    font-size: 30px;
+    color: #119DA4;
+    font-family: 'Lato', sans-serif;
+}
+
+.modalText p{
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    font-size: 16px;
+    color: #000000;
+    font-family: 'Arvo', serif;
+}
+.modalFooter{
+    display: center;
+    justify-content: center;
+    border-top: 0;
+}
+.modalButton{
+    background-color: #119DA4;
+    border-radius: 10px;
+    border-color: #119DA4;
+    padding-left: 40%;
+    padding-right: 40%;
+}
+

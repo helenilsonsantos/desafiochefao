@@ -3,8 +3,8 @@ import './ConfigUser.css';
 import icone from '../../Assets/icone.png';
 function ConfigUser(){
     return(
-        <div>
-            <h1>Sua conta</h1>
+        <div className="app">
+            <h1 className='titulo'>Sua conta</h1>
             <div className="informacoes">
                 <div><img alt=""src={icone}/></div>
                 <div>
