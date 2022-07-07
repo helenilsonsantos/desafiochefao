@@ -1,0 +1,50 @@
+#container-cadastro {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    margin: 120px auto;
+}
+
+#card-foto {
+    width: 100%;
+    max-width: 591px;
+
+    border: 0px;
+}
+
+#foto {
+    border-radius: 20px;
+}
+
+h3 {
+    /* font-family: "Inter"; */
+    font-weight: 400;
+    font-size: 32px;
+
+    text-align: center;
+    color: #119DA4;
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 20px;
+
+    text-align: center;
+    color: #119DA4;
+}
+
+#card-form-cadastro {
+    background: rgba(229, 197, 197, 0.3);
+    border: 0px;
+    border-radius: 15px;
+
+    width: 100%;
+    max-width: 438px;
+
+    padding: 30px 74px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
