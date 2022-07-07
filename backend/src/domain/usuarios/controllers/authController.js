@@ -1,16 +1,16 @@
-const Usuarios = require('../../usuarios/models/Usuarios')
+const Usuarios = require('../models/Usuarios')
 const jwt = require ('jsonwebtoken')
 const secret = require('../../../configs/secret')
 const bcrypt = require ('bcryptjs')
 
-const authController = {
+const AuthController = {
     async login (req, res) {
         try {   
-            const { email, senha} = req.body
+            const { email, senha } = req.body
 
             const usuario = await Usuarios.findOne({
                 where: {
-                    email:email
+                    email
                 }
             })
 
@@ -39,4 +39,4 @@ const authController = {
     }
 }
 
-module.exports = authController
+module.exports = AuthController

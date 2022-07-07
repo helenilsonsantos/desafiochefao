@@ -32,16 +32,21 @@ module.exports = {
           allowNull: false,
         },
         data: {
-          type: Sequelize.DATE,
+          type: Sequelize.STRING(10),
           allowNull: false,
         },
-        anexos: {
-          type: Sequelize.STRING(45),
+        horario: {
+          type: Sequelize.STRING(5),
+          allowNull: false,
+        },
+        anexo: {
+          type: Sequelize.STRING(100),
           allowNull: true,
         },
         situacao: {
-          type: Sequelize.STRING(45),
+          type: Sequelize.ENUM('ativo', 'inativo'),
           allowNull: false,
+          defaultValue: 'ativo'
         },
         anotacoes: {
           type: Sequelize.STRING(1000),

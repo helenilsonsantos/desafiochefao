@@ -2,17 +2,16 @@ const {validate, Joi} = require('express-validation')
 
 const validacaoAtualizar = validate({
     params:Joi.object({
-        id: Joi.number().required(),
+        idAtendimento: Joi.number().required(),
     }),
     body:Joi.object({
-        nome:Joi.string(),
-        data:Joi.date(),
+        paciente_id: Joi.number(),
+        dentista_id: Joi.number(),
+        descricao:Joi.string(),
+        data:Joi.string(),
         horario:Joi.string(),
-        valor:Joi.string(),
-        observacoes:Joi.string(),
-        situacao:Joi.string(),
-        anexos:Joi.string(),
-        
+        anexo: Joi.any(),
+        anotacoes:Joi.string(),
     })
 })
 

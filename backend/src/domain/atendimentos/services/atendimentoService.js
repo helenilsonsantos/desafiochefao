@@ -1,100 +1,96 @@
-const { Atendimentos } = require("../models/index");
+const { Atendimentos } = require("../models");
+const { Usuarios } = require("../../usuarios/models");
+const { Pacientes } = require("../../pacientes/models");
 
 const AtendimentoService = {
 
-    async cadastrarAtendimento(cliente_id, dentista_id, procedimentos_id, data, horario, situacao, anexos){
+    async cadastrarAtendimento({ paciente_id, dentista_id, descricao, data, horario, anexo, anotacoes }){
         const novoAtendimento = await Atendimentos.create({
-            cliente_id, 
+            paciente_id, 
             dentista_id, 
-            procedimentos_id, 
+            descricao, 
             data, 
             horario, 
-            situacao, 
-            anexos,
-            situacao: "ativo"
+            anexo,
+            anotacoes
         });
         
         return novoAtendimento;
     },
 
-    async atendimentoExiste(cpf){
-        const atendimentoExiste = await Atendimentos.count({
-            where: {paciente}
-        });
-
-        return atendimentoExiste;
-    },
-
-    async encontrarAtendimentoPaciente(paciente_id){
-        const encontrarAtendimento = await Atendimentos.findAll({
+    async atendimentoExiste(idAtendimento){
+        const encontrarAtendimento = await Atendimentos.count({
             where: {
-                paciente_id
-            },  
+                id: idAtendimento
+            }
         });
-        
-        if(!encontrarAtendimento) {
-            return false;
-        };
         
         return encontrarAtendimento;
     },
 
-    async encontrarAtendimentoId(id){
+    async encontrarAtendimentoPorId(idAtendimento){
         const encontrarAtendimento = await Atendimentos.findAll({
             where: {
-                id
-            },  
-        });
-        
-        if(!encontrarAtendimento) {
-            return false;
-        };
-        
-        return encontrarAtendimento;
-    },
-    async atendimentoCompleto(id){
-        const atendimentoCompleto = await Atendimentos.findAll({
-            where: {
-                id
+                id: idAtendimento
             },
             include: [{
-                model: Pacientes
+                model: Pacientes,
+                attributes: [ "nome" ]
+            },{
+                model: Usuarios,
+                attributes: [ "nome_completo" ]
             }]
         });
         
-        return atendimentoCompleto;
+        return encontrarAtendimento;
     },
 
-    async atualizarAtendimento({id, paciente_id, dentista_id, data, horario, situacao, anexos}) {
-        const atualizarAtendimento = await Atendimentos.update(
+    async encontrarAtendimentosDePaciente(idPaciente){
+        const encontrarAtendimento = await Atendimentos.findAll({
+            where: {
+                paciente_id: idPaciente
+            },
+            include: [{
+                model: Pacientes,
+                attributes: [ "nome" ]
+            },{
+                model: Usuarios,
+                attributes: [ "nome_completo" ]
+            }]
+        });
+        
+        return encontrarAtendimento;
+    },
+
+    async atualizarAtendimento({ idAtendimento, descricao, data, horario, anexo, anotacoes }) {
+        await Atendimentos.update(
             {
-                paciente_id, 
-                dentista_id,  
+                descricao,
                 data, 
                 horario, 
-                situacao, 
-                anexos
+                anexo,
+                anotacoes
             },
             {
                 where: {
-                    id
+                    id: idAtendimento
                 },
             }
         );
 
-        const atendimentoAtualizado = AtendimentoService.encontrarAtendimentoId(id);
+        const atendimentoAtualizado = AtendimentoService.encontrarAtendimentoPorId(idAtendimento);
 
         return atendimentoAtualizado;
     },
 
-    async desativarAtendimento(id) {
+    async desativarAtendimento(idAtendimento) {
         const atendimentoDesativado = await Atendimentos.update(
             {
                 situacao: "inativo"
             },
             {
                 where: {
-                    id
+                    id: idAtendimento
                 },
             }
         );

@@ -1,9 +1,9 @@
 const {validate, Joi} = require('express-validation')
 
-const validacaoDesativar = validate({
+const validacaoListarAtendimentosdePaciente = validate({
     params:Joi.object({
         idPaciente: Joi.number().required(),
     })
 })
 
-module.exports = validacaoDesativar
+module.exports = validacaoListarAtendimentosdePaciente

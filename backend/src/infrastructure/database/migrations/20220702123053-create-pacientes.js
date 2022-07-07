@@ -18,6 +18,15 @@ module.exports = {
           key: "id"
         }
       },
+      empresa_id: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        foreignKey: true,
+        references: {
+            model: "empresas",
+            key: 'id'
+        }
+      },
       nome: {
         type: Sequelize.STRING(70),
         allowNull: false,
@@ -28,7 +37,7 @@ module.exports = {
         unique: true
       },
       data_nascimento: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING(10),
       },
       email: {
         type: Sequelize.STRING(45),

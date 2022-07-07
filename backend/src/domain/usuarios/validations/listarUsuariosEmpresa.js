@@ -2,6 +2,6 @@ const { validate, Joi } =  require ('express-validation')
 
 module.exports = validate ({
     params:Joi.object({
-        id: Joi.number().required(),
+        idEmpresa: Joi.number().required(),
     })
 })
