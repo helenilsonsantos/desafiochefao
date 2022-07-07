@@ -1,0 +1,61 @@
+section.prontuario {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.icones{
+    width: 25px;
+    height: 18px;
+}
+
+.email{
+    position: relative;
+    left: -5px;
+    top: 8px;
+}
+
+#story{
+    width: 900px;
+    height: 107px;
+    margin-bottom: 55px;
+}
+
+.contato {
+    border: 1px solid #CCCACA;
+    padding: 15px;
+    background: #FFFDFD;
+    width: 400px;
+    margin-top: 15px;
+}
+
+input{
+    width: 348px;
+    margin: 0 0 30px;
+}
+
+.sobre {
+    display: flex;
+    flex-direction: column;
+    margin-right: 80px;
+}
+
+.container{
+    max-width: 1424px;
+    margin: auto;
+}
+
+.photo-usuario{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 30px;
+    right: 70px;
+}
+
+.gambia{
+    margin-left: 150px;
+}
+
+.teste{
+    display: flex;
+}
