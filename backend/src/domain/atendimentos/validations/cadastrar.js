@@ -2,12 +2,13 @@ const {validate, Joi} = require('express-validation')
 
 const validacaoCadastrar = validate({
     body:Joi.object({
-        paciente_id:Joi.string(),
-        dentista_id: Joi.string(),
-        data:Joi.date(),
-        horario:Joi.string(),
-        valor:Joi.string(),
-        observacoes:Joi.string(),
+        paciente_id:Joi.number().required(),
+        dentista_id: Joi.number().required(),
+        descricao: Joi.string(),
+        data:Joi.string().required(),
+        horario: Joi.string().required(),
+        anexo: Joi.any(),
+        anotacoes:Joi.string().required(),
     })
 })
 

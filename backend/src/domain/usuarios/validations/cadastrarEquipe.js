@@ -8,7 +8,6 @@ module.exports = validate ({
         email: Joi.string().email().required(),
         perfil: Joi.string().required(),
         senha: Joi.string().min(8).required(),
-        situacao: Joi.string(),
-        avatar: Joi.string()
+        avatar: Joi.any()
     })
 })
