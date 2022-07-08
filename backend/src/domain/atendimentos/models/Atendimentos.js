@@ -36,7 +36,7 @@ const Atendimentos = db.define(
       allowNull: false,
     },
     data: {
-      type: DataTypes.STRING(10),
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     horario: {

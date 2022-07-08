@@ -37,7 +37,7 @@ module.exports = {
         unique: true
       },
       data_nascimento: {
-        type: Sequelize.STRING(10),
+        type: Sequelize.DATEONLY,
       },
       email: {
         type: Sequelize.STRING(45),

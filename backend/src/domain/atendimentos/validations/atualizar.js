@@ -8,7 +8,7 @@ const validacaoAtualizar = validate({
         paciente_id: Joi.number(),
         dentista_id: Joi.number(),
         descricao:Joi.string(),
-        data:Joi.string(),
+        data:Joi.date(),
         horario:Joi.string(),
         anexo: Joi.any(),
         anotacoes:Joi.string(),
