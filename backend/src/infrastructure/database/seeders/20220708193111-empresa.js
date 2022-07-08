@@ -6,7 +6,7 @@ let empresa = [];
 
 for (let i = 0; i < 10; i++) {
   empresa.push({
-    nome: faker.company.companyName(),
+    nome_empresa: faker.company.companyName(),
     cnpj: faker.phone.number('## ### ### #### ##'),
     logo: faker.image.abstract(),
     situacao: 'ativo',

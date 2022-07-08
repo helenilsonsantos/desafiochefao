@@ -4,13 +4,13 @@ const { faker } = require('@faker-js/faker');
 
 let usuario = [];
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 10; i++) {
   usuario.push({
-    empresa_id: 115,
+    empresa_id: faker.random.numeric(1, { bannedDigits: ['0'] }),
     nome_completo: faker.name.findName(),
     telefone: faker.phone.number('+55 11 #### ####'),
     email: faker.internet.email(),
-    perfil: faker.name.jobType(),
+    perfil: 'dentista',
     senha: faker.random.alpha(10),
     situacao: 'ativo',
     avatar: faker.image.avatar(),

@@ -4,9 +4,10 @@ const { faker } = require('@faker-js/faker');
 
 let paciente = [];
 
-for (let i = 0; i < 1; i++) {
+for (let i = 0; i < 10; i++) {
   paciente.push({
-    endereco_id: 15,
+    endereco_id: faker.random.numeric(1, { bannedDigits: ['0'] }),
+    empresa_id: faker.random.numeric(1, { bannedDigits: ['0'] }),
     nome: faker.name.findName(),
     cpf: faker.phone.number('### ### ### ##'),
     data_nascimento: faker.date.birthdate(),
