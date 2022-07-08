@@ -1,13 +1,10 @@
-
-import './App.css';
-import Rotas from './routes/routes';
-
+import Routes from "./routes/routes"
 
 function App() {
   return (
-    <div className="App">
-      <Rotas />
-    </div>
+  <div className="App">
+   <Routes />
+  </div>
   );
 }
 

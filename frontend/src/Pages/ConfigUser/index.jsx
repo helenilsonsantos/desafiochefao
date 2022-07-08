@@ -6,12 +6,8 @@ import Sidebar from '../../Componentes/MenuLateral/Sidebar';
 function ConfigUserPage(){
     return(
         <div>
-            
-                
                    <Sidebar />
                   <ConfigUser />
-             
-             
         </div>
     )
 }

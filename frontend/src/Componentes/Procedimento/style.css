@@ -1,0 +1,18 @@
+.procedimentos .nameData{
+    display: flex;
+    justify-content: space-around;
+}
+
+.procedimentos .dentistaHora{
+    display: flex;
+    justify-content: space-around;
+}
+
+.container{
+    max-width: 1200px;
+    margin: auto;
+}
+
+.descricao {
+    margin-left: 325px;
+}
