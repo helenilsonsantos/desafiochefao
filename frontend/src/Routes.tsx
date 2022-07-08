@@ -1,3 +1,4 @@
+import React from 'react';
 import {
 	Routes as WrapperRoutes,
 	Route,

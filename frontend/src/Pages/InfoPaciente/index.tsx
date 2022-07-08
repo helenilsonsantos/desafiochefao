@@ -2,6 +2,7 @@ import React from 'react';
 import Container from '../../Components/Container'
 import HeaderLogado from '../../Components/HeaderLogado';
 import InfoPaciente from '../../Components/InfoPaciente';
+import ModalNovoUser from '../../Components/ModalNovoUser';
 
 const Paciente: React.FC = () => {
 
@@ -9,6 +10,7 @@ const Paciente: React.FC = () => {
         <Container>
             <HeaderLogado />
             <InfoPaciente />
+            <ModalNovoUser />
         </Container>
     )
 }

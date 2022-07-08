@@ -1,14 +1,12 @@
 header{
-    display: flex;
-    justify-content: flex-end;
     background: #119DA4;
     width: 100%;
 }
 
 div.headerLogadoMenu {
     display: flex;
-    width: 50vw;
-    justify-content: flex-end;
+    width: 100%;
+    justify-content: space-between;
     padding: 1.5rem .75rem;
 }
 
@@ -34,4 +32,8 @@ div.headerLogadoItens button{
     border: none;
     border-radius: 1rem;
     font-size: 1.7rem;
+}
+
+header img {
+    margin-left: 3%;
 }
