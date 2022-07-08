@@ -2,6 +2,6 @@
   "scripts": {
     "postinstall": "if [ $FRONTEND ]; then npm run frontend; elif [ $BACKEND ]; then npm run backend; else echo no environment detected, please set CLIENT_ENV or SERVER_ENV; fi",
     "frontend": "cd frontend && npm install && npm run build",
-    "backend": "cd backend && npm install && npm run dev"
+    "backend": "cd backend && npm start"
   }
 }
