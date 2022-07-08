@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from "./styled"
 
 
-const Container = ({children}:{children: React.ReactNode}) => (
+const Container = () => (
     <S.StyledContainer>
         {children}
     </S.StyledContainer>

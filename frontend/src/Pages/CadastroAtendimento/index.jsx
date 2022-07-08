@@ -1,15 +1,15 @@
 import React from 'react';
-import Container from '../../Components/Container'
+import '../../Components/Container/styles.css'
 import HeaderLogado from '../../Components/HeaderLogado';
 import NovoAtendimento from '../../Components/NovoAtendimento'
 
-const CadastroAtendimento: React.FC = () => {
+const CadastroAtendimento= () => {
 
     return (
-        <Container>
+        <div className='ContainerGeral'>
             <HeaderLogado />
             <NovoAtendimento />
-        </Container>
+        </div>
     )
 }
 

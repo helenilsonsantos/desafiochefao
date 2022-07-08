@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css'
 
-const NovoAtendimento: React.FC = () => {
+const NovoAtendimento = () => {
     return(
         <main className='containerNovoAtendimento'>
             <h2 className='novoAtendimentoTitulo'>Cadastro de atendimento</h2>

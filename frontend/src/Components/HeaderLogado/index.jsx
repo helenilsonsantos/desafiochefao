@@ -4,7 +4,7 @@ import engrenagemImg from '../../Assets/engrenagem-header.png'
 import logo from '../../Assets/logo.png'
 import './styles.css'
 
-const HeaderLogado: React.FC = () => {
+const HeaderLogado = () => {
     return(
         <header>
             <div className='headerLogadoMenu'>

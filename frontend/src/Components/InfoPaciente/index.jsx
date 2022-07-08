@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css'
 
-const InfoPaciente: React.FC = () => {
+const InfoPaciente= () => {
     return (
         <main className='containerFormPaciente'>
             <h2 className='pacienteTitulo'>Informações sobre o paciente</h2>

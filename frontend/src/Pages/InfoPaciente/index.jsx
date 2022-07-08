@@ -1,17 +1,17 @@
 import React from 'react';
-import Container from '../../Components/Container'
+import '../../Components/Container/styles.css'
 import HeaderLogado from '../../Components/HeaderLogado';
 import InfoPaciente from '../../Components/InfoPaciente';
 import ModalNovoUser from '../../Components/ModalNovoUser';
 
-const Paciente: React.FC = () => {
+const Paciente= () => {
 
     return (
-        <Container>
+        <div className='ContainerGeral'>
             <HeaderLogado />
             <InfoPaciente />
             <ModalNovoUser />
-        </Container>
+        </div>
     )
 }
 
