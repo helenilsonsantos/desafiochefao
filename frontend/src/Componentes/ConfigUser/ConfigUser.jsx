@@ -1,6 +1,8 @@
 import React from 'react';
 import './ConfigUser.css';
 import icone from '../../Assets/icone.png';
+
+
 function ConfigUser(){
     return(
         <div className="app">

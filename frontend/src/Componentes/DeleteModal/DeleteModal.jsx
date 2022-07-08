@@ -17,7 +17,7 @@ function MyVerticallyCenteredModal(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <div class="modalText">
+            <div className="modalText">
                 <h1>Remover um usuário</h1>
                 <p>Tem certeza que deseja remover este usuário? </p>  
             </div>
