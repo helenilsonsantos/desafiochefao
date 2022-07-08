@@ -13,7 +13,7 @@ const Usuarios = db.define(
     },
     empresa_id: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
         references: {
             model: Empresas,
             key: 'id'
@@ -45,7 +45,8 @@ const Usuarios = db.define(
         defaultValue: 'ativo'
     },
     avatar: {
-        type: DataTypes.STRING(100)
+        type: DataTypes.STRING(100),
+        allowNull: true,
     },
     criadoEm: {
       allowNull: false,
