@@ -32,7 +32,7 @@ module.exports = {
           allowNull: false,
         },
         data: {
-          type: Sequelize.STRING(10),
+          type: Sequelize.DATEONLY,
           allowNull: false,
         },
         horario: {

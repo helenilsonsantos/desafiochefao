@@ -7,7 +7,7 @@ const validacaoAtualizar = validate({
     body:Joi.object({
         nome:Joi.string(),
         cpf:Joi.string(),
-        data_nascimento:Joi.string(),
+        data_nascimento:Joi.date(),
         email:Joi.string().email(),
         telefone:Joi.string(),
         observacoes:Joi.string(),

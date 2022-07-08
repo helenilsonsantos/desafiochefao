@@ -39,7 +39,7 @@ const Pacientes = db.define(
       unique: true
     },
     data_nascimento: {
-      type: Sequelize.STRING(10),
+      type: Sequelize.DATEONLY,
       allowNull: false,
     },
     email: {

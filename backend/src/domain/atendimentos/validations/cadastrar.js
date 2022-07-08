@@ -5,7 +5,7 @@ const validacaoCadastrar = validate({
         paciente_id:Joi.number().required(),
         dentista_id: Joi.number().required(),
         descricao: Joi.string(),
-        data:Joi.string().required(),
+        data:Joi.date().required(),
         horario: Joi.string().required(),
         anexo: Joi.any(),
         anotacoes:Joi.string().required(),

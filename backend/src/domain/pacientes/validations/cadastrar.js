@@ -4,7 +4,7 @@ const validacaoCadastrar = validate({
     body:Joi.object({
         nome:Joi.string().required(),
         cpf:Joi.string().required(),
-        data_nascimento:Joi.string().required(),
+        data_nascimento:Joi.date().required(),
         email:Joi.string().email().required(),
         telefone:Joi.string().required(),
         observacoes:Joi.string().required(),
