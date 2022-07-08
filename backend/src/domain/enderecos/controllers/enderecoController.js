@@ -2,9 +2,9 @@ const EnderecoService = require("../services/enderecoService");
 
 const EnderecoController = {
 
-    async cadastrar({rua, numero, bairro, cep, complemento, cidade, estado}, transaction){
+    async cadastrarEndereco({ rua, numero, bairro, cep, complemento, cidade, estado }, transaction){
         try{
-            const enderecoNovo = await EnderecoService.cadastrarEndereco({rua, numero, bairro, cep, complemento, cidade, estado}, transaction);
+            const enderecoNovo = await EnderecoService.cadastrarEndereco({ rua, numero, bairro, cep, complemento, cidade, estado }, transaction);
 
             return enderecoNovo;
 
@@ -13,20 +13,9 @@ const EnderecoController = {
         }
     },
 
-    async mostrar(endereco_id){
+    async atualizarEndereco({ endereco_id, rua, numero, bairro, cep, complemento, cidade, estado }, transaction){
         try{
-            const enderecoSendoExibido = await EnderecoService.encontrarEndereco(endereco_id);
-           
-            return enderecoSendoExibido;
-            
-        } catch (error){
-            console.log(error);
-        }
-    },
-
-    async atualizar({endereco_id, rua, numero, bairro, cep, complemento, cidade, estado}, transaction){
-        try{
-            const enderecoAtualizado = await EnderecoService.atualizarEndereco({endereco_id, rua, numero, bairro, cep, complemento, cidade, estado}, transaction);
+            const enderecoAtualizado = await EnderecoService.atualizarEndereco({ endereco_id, rua, numero, bairro, cep, complemento, cidade, estado }, transaction);
 
             return enderecoAtualizado;
             

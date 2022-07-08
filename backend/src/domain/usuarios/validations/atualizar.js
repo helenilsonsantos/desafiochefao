@@ -2,16 +2,14 @@ const { validate, Joi } =  require ('express-validation')
 
 module.exports = validate ({
     params:Joi.object({
-        id: Joi.number().required(),
+        idUsuario: Joi.number().required(),
     }),
     body: Joi.object ({
-        empresa_id: Joi.number(),
         nome_completo: Joi.string(),
         telefone: Joi.string(),
         email: Joi.string().email(),
         perfil: Joi.string(),
         senha: Joi.string().min(8),
-        situacao: Joi.string(),
-        avatar: Joi.string(),
+        avatar: Joi.any()
     })
 })

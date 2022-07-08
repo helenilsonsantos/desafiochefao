@@ -4,7 +4,7 @@ const { Sequelize } = require("sequelize");
 const Enderecos = db.define(
   "Enderecos",
   {
-    endereco_id: {
+    id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
@@ -15,7 +15,7 @@ const Enderecos = db.define(
       allowNull: false,
     },
     numero: {
-      type: Sequelize.STRING(10),
+      type: Sequelize.INTEGER(10),
       allowNull: false,
     },
     bairro: {
@@ -23,7 +23,7 @@ const Enderecos = db.define(
       allowNull: false,
     },
     cep: {
-      type: Sequelize.INTEGER(11),
+      type: Sequelize.STRING(10),
       allowNull: false,
     },
     complemento: {

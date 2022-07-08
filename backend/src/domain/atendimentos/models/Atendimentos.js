@@ -36,22 +36,26 @@ const Atendimentos = db.define(
       allowNull: false,
     },
     data: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
-    anexos: {
-      type: DataTypes.STRING(45),
+    horario: {
+      type: DataTypes.STRING(5),
+      allowNull: false,
+    },
+    anexo: {
+      type: DataTypes.STRING(100),
       allowNull: true,
     },
     situacao: {
-      type: DataTypes.STRING(45),
+      type: Sequelize.ENUM('ativo', 'inativo'),
       allowNull: false,
+      defaultValue: 'ativo'
     },
     anotacoes: {
       type: DataTypes.STRING(1000),
       allowNull: true,
     },
-    
     criadoEm: {
       allowNull: false,
       type: DataTypes.DATE

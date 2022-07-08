@@ -1,11 +1,12 @@
-const { Pacientes } = require("../models/index");
-const { Enderecos } = require("../../enderecos/models/index");
+const { Pacientes } = require("../models");
+const { Enderecos } = require("../../enderecos/models");
 
 const PacienteService = {
 
-    async cadastrarPaciente({endereco_id, nome, cpf, data_nascimento, email, telefone, observacoes}, transaction){
+    async cadastrarPaciente({ endereco_id, empresa_id, nome, cpf, data_nascimento, email, telefone, observacoes }, transaction){
         const novoPaciente = await Pacientes.create({
             endereco_id,
+            empresa_id,
             nome,
             cpf,
             data_nascimento,
@@ -25,20 +26,26 @@ const PacienteService = {
         return pacienteExiste;
     },
 
-    async encontrarPaciente(id){
-        const encontrarPaciente = await Pacientes.findByPk(id);
-        
-        if(!encontrarPaciente) {
-            return false;
-        };
+    async encontrarPacientePorId(idPaciente){
+        const encontrarPaciente = await Pacientes.findByPk(idPaciente);
         
         return encontrarPaciente;
     },
 
-    async pacienteCompleto(id){
+    async listarPacientesDeEmpresa(idEmpresa){
+        const listarPacientes = await Pacientes.findAll({
+            where: {
+                empresa_id: idEmpresa
+            }
+        });
+        
+        return listarPacientes;
+    },
+
+    async pacienteCompleto(idPaciente){
         const pacienteCompleto = await Pacientes.findAll({
             where: {
-                id
+                id: idPaciente
             },
             include: [{
                 model: Enderecos
@@ -48,7 +55,7 @@ const PacienteService = {
         return pacienteCompleto;
     },
 
-    async atualizarPaciente({id, nome, cpf, data_nascimento, email, telefone, observacoes}, transaction) {
+    async atualizarPaciente({ idPaciente, nome, cpf, data_nascimento, email, telefone, observacoes }, transaction) {
         await Pacientes.update(
             {
                 nome,
@@ -60,25 +67,23 @@ const PacienteService = {
             },
             {
                 where: {
-                    id
+                    id: idPaciente
                 },
                 transaction
             }
         );
 
-        const pacienteAtualizado = PacienteService.encontrarPaciente(id);
-
-        return pacienteAtualizado;
+        return;
     },
 
-    async desativarPaciente(id) {
+    async desativarPaciente(idPaciente) {
         const pacienteDesativado = await Pacientes.update(
             {
                 situacao: "inativo"
             },
             {
                 where: {
-                    id
+                    id: idPaciente
                 },
             }
         );

@@ -1,11 +1,13 @@
 const validacaoCadastrar =  require('./cadastrar')
-const validacaoListar = require('./listar')
+const validacaoListarPacienteId = require('./listarPacienteId')
+const validacaoListarPacientesEmpresa = require('./listarPacientesEmpresa')
 const validacaoAtualizar = require('./atualizar')
 const validacaoDesativar = require('./desativar')
 
 module.exports = {
     validacaoCadastrar,
-    validacaoListar,
+    validacaoListarPacienteId,
+    validacaoListarPacientesEmpresa,
     validacaoAtualizar,
     validacaoDesativar
 }
