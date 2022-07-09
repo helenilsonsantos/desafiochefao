@@ -1,5 +1,6 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
+import iconeAdd from "../../Assets/icone-add.png";
 import "./styles.css";
 
 function Home() {
@@ -33,21 +34,32 @@ function Home() {
 				<hr />
 
 				<Container id="container">
-					<h1>Lista de usuários</h1>
-					<Container>
-						<h2>Administrador(es):</h2>
+					<section className="section-botao">
+						<h1>Lista de usuários</h1>
+						<Button>
+							<img src={iconeAdd} alt="ícone de adicionar usuário" />
+							Adicionar usuário
+						</Button>
+						{/* Modal de adicionar usuário */}
+					</section>
+
+					<h2>Administrador(es):</h2>
+					<Container className="container-admin">
+						<span id="nome-adm">Beatriz Neves</span>
 						<span id="nome-adm">Beatriz Neves</span>
 					</Container>
 					<hr />
-					<Container>
-						<h2>Dentista(s):</h2>
+
+					<h2>Dentista(s):</h2>
+					<Container className="container-admin">
 						<span id="nome-dentista">Beatriz Neves</span>
 						<span id="nome-dentista">Beatriz Neves</span>
 						<span id="nome-dentista">Beatriz Neves</span>
 					</Container>
 					<hr />
-					<Container>
-						<h2>Recepcionista(s):</h2>
+
+					<h2>Recepcionista(s):</h2>
+					<Container className="container-admin">
 						<span id="nome-recepionista">Beatriz Neves</span>
 						<span id="nome-recepionista">Beatriz Neves</span>
 						<span id="nome-recepionista">Beatriz Neves</span>
