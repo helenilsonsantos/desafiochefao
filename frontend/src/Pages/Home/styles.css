@@ -7,9 +7,9 @@
 	padding-left: 80px;
 }
 
-h1 {
+/* h1 {
 	font-size: 30px;
-}
+} */
 
 #sua-conta {
 	display: flex;
@@ -44,9 +44,9 @@ h1 {
 	font-size: 14px;
 }
 
-hr {
+/* hr {
 	margin-bottom: 65px;
-}
+} */
 
 #seu-plano {
 	display: flex;
@@ -68,9 +68,9 @@ hr {
     font-size: 15px;
 }
 
-h2 {
+/* h2 {
     font-size: 25px;
-}
+} */
 
 .section-botao {
 	display: flex;

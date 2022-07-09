@@ -7,6 +7,8 @@ import ErroPage from '../Pages/Erro';
 import CadastroAtendimento from "../Pages/CadastroAtendimento";
 import InfoPaciente from "../Pages/InfoPaciente";
 import React from 'react'
+import Cadastro from "./Pages/Cadastro";
+import Home from "./Pages/Home";
 
 
 function Routes(){
@@ -20,6 +22,8 @@ function Routes(){
                 <Route path="/ConfigUser" element={<ConfigUserPage />}/>
 				<Route path='/infopaciente' element ={<InfoPaciente />}/>
 				<Route path='/novoatendimento' element ={<CadastroAtendimento />}/>
+                <Route path="/cadastro" element={<Cadastro />} />
+				<Route path="/home" element={<Home />} />
             </WrapperRoutes>
         </BrowserRouter>
     );
