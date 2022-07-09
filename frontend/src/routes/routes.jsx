@@ -7,8 +7,8 @@ import ErroPage from '../Pages/Erro';
 import CadastroAtendimento from "../Pages/CadastroAtendimento";
 import InfoPaciente from "../Pages/InfoPaciente";
 import React from 'react'
-import Cadastro from "./Pages/Cadastro";
-import Home from "./Pages/Home";
+import Cadastro from "../Pages/Cadastro";
+import Home from "../Pages/Home";
 
 
 function Routes(){
