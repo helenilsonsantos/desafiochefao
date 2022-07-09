@@ -1,7 +1,7 @@
 const db = require("../../../infrastructure/database/dbConexao");
-const { Sequelize } = require("sequelize");
+const { DataTypes, Sequelize } = require("sequelize");
 const Enderecos = require("../../enderecos/models/Enderecos");
-
+const Empresas = require("../../empresas/models/Empresas");
 
 const Pacientes = db.define(
   "Pacientes",
@@ -21,6 +21,14 @@ const Pacientes = db.define(
         key: "id"
       }
     },
+    empresa_id: {
+      type: Sequelize.INTEGER,
+      allowNull: true,
+      references: {
+          model: Empresas,
+          key: 'id'
+      }
+    },
     nome: {
       type: Sequelize.STRING(70),
       allowNull: false,
@@ -31,7 +39,7 @@ const Pacientes = db.define(
       unique: true
     },
     data_nascimento: {
-      type: Sequelize.DATE,
+      type: Sequelize.DATEONLY,
       allowNull: false,
     },
     email: {
