@@ -1,35 +1,35 @@
 import React from "react";
 import { Button, Container } from "react-bootstrap";
-import iconeAdd from "../../Assets/icone-add.png";
+import iconeAdd from "../../Assets/adicionar.png";
+import iconeDelete from "../../Assets/excluir.png";
+import iconeEdit from "../../Assets/editar.png";
+import HeaderLogado from "../../Componentes/HeaderLogado";
+import Sidebar from "../../Componentes/MenuLateral/Sidebar";
 import "./styles.css";
+import InfoConta from "../../Componentes/InfoConta";
+import InfoPlano from "../../Componentes/InfoPlano";
 
 function Home() {
 	return (
 		<div>
-			{/* Header */}
+			<HeaderLogado />
 
-			{/* Barra Lateral */}
+			<Sidebar />
 
 			<Container id="config-adm">
-				<Container id="container">
-					<h1>Sua Conta</h1>
-					<Container id="info-conta-adm">
-						<span id="nome">Beatriz Neves</span>
-						<span id="email">beatriz.neves@bol.com.br</span>
-						<span id="cnpj">XX. XXX. XXX/0001-XX</span>
-					</Container>
-				</Container>
+				<InfoConta
+					nome="Beatriz Neves"
+					email="beatriz.neves@bol.com.br"
+					cnpj="XX. XXX. XXX/0001-XX"
+				/>
 
 				<hr />
 
-				<Container id="container">
-					<h1>Seu Plano</h1>
-					<Container id="seu-plano">
-						<span id="nome-plano">Plano anual Dental Platinum PRO</span>
-						<span id="info-plano">Consultar informações sobre meu plano</span>
-						<span id="id-consultorio-adm">Id do consultório: xxxxxxx</span>
-					</Container>
-				</Container>
+				<InfoPlano
+					nomePlano="Plano anual Dental Platinum PRO"
+					infoPlano="Consultar informações sobre meu plano"
+					idConsultorio="xxxxxxx"
+				/>
 
 				<hr />
 
@@ -46,23 +46,73 @@ function Home() {
 					<h2>Administrador(es):</h2>
 					<Container className="container-admin">
 						<span id="nome-adm">Beatriz Neves</span>
-						<span id="nome-adm">Beatriz Neves</span>
 					</Container>
+
 					<hr />
 
 					<h2>Dentista(s):</h2>
 					<Container className="container-admin">
-						<span id="nome-dentista">Beatriz Neves</span>
-						<span id="nome-dentista">Beatriz Neves</span>
-						<span id="nome-dentista">Beatriz Neves</span>
+						<div className="section-botao" id="nome-dentista">
+							<span>Beatriz Neves</span>
+							<div className="nome-dentista-botao">
+								<Button>
+									<img src={iconeDelete} alt="ícone de deletar" />
+								</Button>
+								<Button>
+									<img src={iconeEdit} alt="ícone de editar" />
+								</Button>
+							</div>
+						</div>
+						<div className="section-botao" id="nome-dentista">
+							<span>Juliana Santana</span>
+							<div className="nome-dentista-botao">
+								<Button>
+									<img src={iconeDelete} alt="ícone de deletar" />
+								</Button>
+								<Button>
+									<img src={iconeEdit} alt="ícone de editar" />
+								</Button>
+							</div>
+						</div>
+						<div className="section-botao" id="nome-dentista">
+							<span>Barbara Andrade</span>
+							<div className="nome-dentista-botao">
+								<Button>
+									<img src={iconeDelete} alt="ícone de deletar" />
+								</Button>
+								<Button>
+									<img src={iconeEdit} alt="ícone de editar" />
+								</Button>
+							</div>
+						</div>
 					</Container>
+					
 					<hr />
 
 					<h2>Recepcionista(s):</h2>
 					<Container className="container-admin">
-						<span id="nome-recepionista">Beatriz Neves</span>
-						<span id="nome-recepionista">Beatriz Neves</span>
-						<span id="nome-recepionista">Beatriz Neves</span>
+						<div className="section-botao" id="nome-dentista">
+							<span>Maria do Carmo</span>
+							<div className="nome-dentista-botao">
+								<Button>
+									<img src={iconeDelete} alt="ícone de deletar" />
+								</Button>
+								<Button>
+									<img src={iconeEdit} alt="ícone de editar" />
+								</Button>
+							</div>
+						</div>
+						<div className="section-botao" id="nome-dentista">
+							<span>Julia Neves</span>
+							<div className="nome-dentista-botao">
+								<Button>
+									<img src={iconeDelete} alt="ícone de deletar" />
+								</Button>
+								<Button>
+									<img src={iconeEdit} alt="ícone de editar" />
+								</Button>
+							</div>
+						</div>
 					</Container>
 				</Container>
 			</Container>

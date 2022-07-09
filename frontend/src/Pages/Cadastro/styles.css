@@ -1,4 +1,4 @@
-#container-pagina-cadastro {
+.container-pagina-cadastro {
 	background: #F2F2F2;
 }
 
@@ -7,13 +7,19 @@
 	justify-content: center;
 	align-items: center;
 	gap: 50px;
-	margin: 120px auto;
+	margin: 16px auto;
 }
 
 #card-foto {
 	width: 100%;
 	max-width: 591px;
-	border: 0px;
+
+	border: none;
+	background: #F2F2F2;
+}
+
+#card-foto a {
+	text-decoration: none;
 }
 
 #card-foto Button {
@@ -25,6 +31,7 @@
 
 	box-sizing: border-box;
 	padding: 10px 30px 10px 20px;
+	margin-bottom: 16px;
 	max-width: 30%;
 	border: 2px solid #119da4;
 	border-radius: 10px;
