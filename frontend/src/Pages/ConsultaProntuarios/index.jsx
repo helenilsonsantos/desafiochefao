@@ -1,5 +1,6 @@
 import Header from "../../Componentes/Header";
 import Quantidade from "../../Componentes/Quantidade";
+import React from 'react'
 
 
 function ConsultaProntuarioPages() {
