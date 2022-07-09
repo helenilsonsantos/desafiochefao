@@ -7,7 +7,7 @@
 	justify-content: center;
 	align-items: center;
 	gap: 50px;
-	margin: 16px auto;
+	margin-bottom: 24px;
 }
 
 #card-foto {
@@ -68,8 +68,8 @@
 }
 
 #card-form-cadastro h3 {
-	font-weight: 400;
-	font-size: 30px;
+	font-weight: 500;
+	font-size: 28px;
 
 	text-align: center;
 	color: #119da4;
