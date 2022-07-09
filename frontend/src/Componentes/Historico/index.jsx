@@ -1,5 +1,6 @@
 import "./style.css";
 import Pontos from "../../Assets/pontos.svg"
+import React from 'react'
 
 function Historico(){
     return(
@@ -10,7 +11,7 @@ function Historico(){
                     <b>Clareamento</b>
                     <p>15/05/2021</p>
                 </div>
-                <img className="pontos" src={Pontos} />
+                <img className="pontos" src={Pontos} alt=''/>
             </div>
            <hr />
         </div>

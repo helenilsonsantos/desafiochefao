@@ -4,6 +4,9 @@ import ProntuarioPages from "../Pages/Prontuarios";
 import ConsultaProntuarioPages from "../Pages/ConsultaProntuarios"
 import ConfigUserPage from '../Pages/ConfigUser';
 import ErroPage from '../Pages/Erro';
+import CadastroAtendimento from "../Pages/CadastroAtendimento";
+import InfoPaciente from "../Pages/InfoPaciente";
+import React from 'react'
 
 
 function Routes(){
@@ -15,6 +18,8 @@ function Routes(){
                 <Route path="/consultaprontuario" element={<ConsultaProntuarioPages/>} />
                 <Route path="/Erro" element={<ErroPage />}/>
                 <Route path="/ConfigUser" element={<ConfigUserPage />}/>
+				<Route path='/infopaciente' element ={<InfoPaciente />}/>
+				<Route path='/novoatendimento' element ={<CadastroAtendimento />}/>
             </WrapperRoutes>
         </BrowserRouter>
     );
