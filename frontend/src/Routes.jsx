@@ -11,7 +11,7 @@ export default function Routes() {
 		<BrowserRouter>
 			<WrapperRoutes>
 				<Route path="/cadastro" element={<Cadastro />} />
-				<Route path="/" element={<Home />} />
+				<Route path="/home" element={<Home />} />
 
 
 			</WrapperRoutes>
