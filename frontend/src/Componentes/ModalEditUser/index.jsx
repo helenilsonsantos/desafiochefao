@@ -2,10 +2,10 @@ import React from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import adicionar from '../../Assets/adicionar.png'
+import editar from '../../Assets/editar.png'
 import './styles.css'
 
-function ModalNovoUser() {
+function ModalEditUser() {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
@@ -14,12 +14,12 @@ function ModalNovoUser() {
     return (
       <>
         <Button variant="" onClick={handleShow}>
-         <img src={adicionar} alt="Botão adicionar" />
+         <img src={editar} alt="Botão adicionar" />
         </Button>
   
         <Modal show={show} onHide={handleClose} id="ModalBody">
           <Modal.Header closeButton>
-            <h4 id='TituloModalCadastrar'>Cadastrar um novo usuário</h4>
+            <h4 id='TituloModalCadastrar'>Editar um usuário</h4>
           </Modal.Header>
           <Modal.Body>
             <Form>
@@ -83,4 +83,4 @@ function ModalNovoUser() {
     );
   }
   
-export default ModalNovoUser
+export default ModalEditUser
