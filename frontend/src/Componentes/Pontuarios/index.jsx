@@ -1,7 +1,7 @@
 import "./style.css";
 import Envelope from "../../Assets/Envelope.svg";
 import Mobile from "../../Assets/Mobile.svg";
-import Perfil from "../../Assets/perfil.svg"
+
 
 function Pontuarios(){
     return(
@@ -18,9 +18,9 @@ function Pontuarios(){
                      <div>
                         <h2>Teste</h2>
                         <div className="contato">
-                        < img  className= "icones email" src= {Mobile} />
+                        < img alt="" className= "icones email" src= {Mobile} />
                         <input placeholder="Celular"></input>
-                        < img className= "icones email" src= {Envelope} />
+                        < img alt="" className= "icones email" src= {Envelope} />
                         <input placeholder="Email"></input>
                         </div>
                      </div>
