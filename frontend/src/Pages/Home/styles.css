@@ -1,0 +1,65 @@
+#config-adm {
+	margin: 120px auto;
+	margin-left: 220px;
+	
+}
+
+#config-adm hr, #container hr {
+	margin-bottom: 65px;
+	max-width: 100%;
+}
+
+#container {
+	padding-left: 80px;
+}
+
+#container h1, .section-botao h1 {
+	font-size: 30px;
+}
+
+#container h2 {
+	font-size: 25px;
+}
+
+.section-botao {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	margin-bottom: 70px;
+}
+
+.section-botao Button {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+
+	border: none;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+.section-botao Button:hover {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+.container-admin {
+	padding-top:  8px;
+
+	display:flex;
+	flex-direction: column;
+	gap: 4px;	
+}
+
+#nome-dentista {
+	margin-bottom: 4px;
+}
+
+.nome-dentista-botao {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}

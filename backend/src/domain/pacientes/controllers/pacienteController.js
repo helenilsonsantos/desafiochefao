@@ -4,20 +4,20 @@ const db = require("../../../infrastructure/database/dbConexao");
 
 const PacienteController = {
 
-    async cadastrar(req,res){
+    async cadastrarPaciente(req,res){
         const transaction = await db.transaction();
 
         try{
-            const { nome, cpf, data_nascimento, email, telefone, observacoes, rua, numero, bairro, cep, complemento, cidade, estado } = req.body;
+            const { nome, cpf, data_nascimento, email, telefone, observacoes, empresa_id, rua, numero, bairro, cep, complemento, cidade, estado } = req.body;
             const pacienteExiste = await PacienteService.pacienteExiste(cpf);
 
             if (pacienteExiste !== 0){
-                return res.status(400).json("CPF já cadastrado!")
+                return res.status(400).json("Erro: CPF já cadastrado.")
             }
 
-            const { id:endereco_id } = await EnderecoController.cadastrar({rua, numero, bairro, cep, complemento, cidade, estado}, transaction);
+            const { id: endereco_id } = await EnderecoController.cadastrarEndereco({ rua, numero, bairro, cep, complemento, cidade, estado }, transaction);
 
-            const pacienteNovo = await PacienteService.cadastrarPaciente({endereco_id, nome, cpf, data_nascimento, email, telefone, observacoes}, transaction);
+            const pacienteNovo = await PacienteService.cadastrarPaciente({ endereco_id, empresa_id, nome, cpf, data_nascimento, email, telefone, observacoes }, transaction);
 
             await transaction.commit();
 
@@ -34,55 +34,59 @@ const PacienteController = {
         }
     },
 
-    async mostrar(req,res){
+    async mostrarPacientePorId(req,res){
         try{
-            const { id } = req.params;
-            const mostrarPaciente = await PacienteService.encontrarPaciente(id);
+            const { idPaciente } = req.params;
+            const mostrarPaciente = await PacienteService.encontrarPacientePorId(idPaciente);
 
             if(!mostrarPaciente){
-                return res.status(404).json("Paciente não encontrado.")
+                return res.status(404).json("Erro: paciente não encontrado.")
             }
 
-            const enderecoSendoExibido = await EnderecoController.mostrar(mostrarPaciente.endereco_id);
-            
-            if(enderecoSendoExibido === false){
-                return res.status(404).json("Endereço não encontrado.")
-            }
-
-            const pacienteCompleto = await PacienteService.pacienteCompleto(id);
-
-            return res.status(200).json(pacienteCompleto);
+            return res.status(200).json(mostrarPaciente);
             
         } catch (error){
             console.log(error);
-            
-            res.status(500).json("Ocorreu um erro ao procurar o paciente.")
+            res.status(500).json("Ocorreu um erro ao recuperar informações do paciente.")
         }
     },
 
-    async atualizar(req,res){
+    async mostrarPacientesDeEmpresa(req,res){
+        try{
+            const { idEmpresa } = req.params;
+
+            const listaDePacientes = await PacienteService.listarPacientesDeEmpresa(idEmpresa);
+
+            return res.status(200).json(listaDePacientes);
+            
+        } catch (error){
+            console.log(error);
+            res.status(500).json("Ocorreu um erro ao recuperar os pacientes da empresa.")
+        }
+    },
+
+    async atualizarPaciente(req,res){
         const transaction = await db.transaction();
 
         try{
-            const { id } = req.params;
-
+            const { idPaciente } = req.params;
             const { nome, cpf, data_nascimento, email, telefone, observacoes, rua, numero, bairro, cep, complemento, cidade, estado } = req.body;
             
-            const mostrarPaciente = await PacienteService.encontrarPaciente(id);
+            const mostrarPaciente = await PacienteService.encontrarPacientePorId(idPaciente);
 
-            if(mostrarPaciente === false) {
-                return res.status(404).json("Paciente não encontrado.")
+            if(!mostrarPaciente) {
+                return res.status(404).json("Erro: paciente não encontrado.")
             }
             
             const endereco_id = mostrarPaciente.endereco_id;
 
-            await EnderecoController.atualizar({endereco_id, rua, numero, bairro, cep, complemento, cidade, estado}, transaction);
+            await EnderecoController.atualizarEndereco({ endereco_id, rua, numero, bairro, cep, complemento, cidade, estado }, transaction);
 
-            await PacienteService.atualizarPaciente({id, nome, cpf, data_nascimento, email, telefone, observacoes}, transaction);
+            await PacienteService.atualizarPaciente({ idPaciente, nome, cpf, data_nascimento, email, telefone, observacoes }, transaction);
 
             await transaction.commit();
 
-            const pacienteCompleto = await PacienteService.pacienteCompleto(id);
+            const pacienteCompleto = await PacienteService.pacienteCompleto(idPaciente);
 
             return res.status(200).json(pacienteCompleto);
             
@@ -95,27 +99,22 @@ const PacienteController = {
         }
     },
 
-    async desativar(req,res){
+    async desativarPaciente(req,res){
         try{
-            const { id } = req.params;
-            const pacienteExiste = await PacienteService.encontrarPaciente(id);
+            const { idPaciente } = req.params;
+            const pacienteExiste = await PacienteService.encontrarPacientePorId(idPaciente);
 
-            if(pacienteExiste === false) {
-                return res.status(404).json("Paciente não encontrado.")
+            if(!pacienteExiste) {
+                return res.status(404).json("Erro: paciente não encontrado.")
             }
             
-            const pacienteDesativado = await PacienteService.desativarPaciente(id);
-            
-            if(pacienteDesativado === false) {
-                return res.status(404).json("Não foi possível desativar o paciente.")
-            }
+            await PacienteService.desativarPaciente(idPaciente);
 
-            return res.status(200).json("Paciente desativado!");
+            return res.status(200).json("Paciente excluído!");
                    
         } catch (error){
             console.log(error);
-
-            res.status(500).json("Ocorreu um erro ao deletar o paciente.")
+            res.status(500).json("Ocorreu um erro ao excluir o paciente.")
         }
     }
 }

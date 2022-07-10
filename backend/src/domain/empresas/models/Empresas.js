@@ -10,12 +10,13 @@ const Empresas = db.define(
       autoIncrement: true,
       primaryKey: true,
     },
-    nome: {
+    nome_empresa: {
       type: DataTypes.STRING(200),
-      allowNull: true,
+      allowNull: false,
     },
     cnpj: {
       type: DataTypes.STRING(200),
+      allowNull: false,
       unique: true,
     },
     logo: {

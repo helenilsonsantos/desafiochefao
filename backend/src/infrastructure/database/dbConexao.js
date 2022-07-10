@@ -27,9 +27,9 @@ try {
 async function conectarBanco () {
     try {
         await dbConexao.authenticate ()
-        console.log ('Banco de Dados Conectado')
+        console.log ('Banco de dados conectado!')
     } catch (error) {
-        console.error ('Problemas ao conectar ao Banco de Dados')
+        console.error ('Problemas ao conectar ao banco de bados.')
         console.log(error)
     }
 }

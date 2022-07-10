@@ -4,13 +4,45 @@ import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import editar from '../../Assets/editar.png'
 import './styles.css'
+import { buscarUsuario } from '../../services/usuarios';
 
-function ModalEditUser() {
+function ModalEditUser(props) {
     const [show, setShow] = useState(false);
+    const [perfil, setPerfil] = useState("");
+    const [nome, setNome] = useState("");
+    const [email, setEmail] = useState("");
+    const [telefone, setTelefone] = useState("");
+    const [senha, setSenha] = useState("");
+    const [confirmarSenha, setConfirmarSenha] = useState("");
   
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-  
+    const buscarPorId = async (usuarioId) => {
+      const response = await buscarUsuario(usuarioId)
+      const dadosUsuario = response.data[0]
+      setPerfil(dadosUsuario.perfil);
+      setNome(dadosUsuario.nome_completo);
+      setEmail(dadosUsuario.email);
+      setTelefone(dadosUsuario.telefone);
+      setSenha(dadosUsuario.senha);
+      setConfirmarSenha(dadosUsuario.confirmarSenha);
+    }
+
+    const handleClose = async () => {
+      const dadosParaAtualizar = {
+        perfil: perfil,
+        nome: nome,
+        email: email,
+        telefone: telefone,
+        senha: senha,
+      }; 
+
+      await props.onUpdate(props.usuarioId, dadosParaAtualizar)
+      setShow(false);
+    
+    }
+    const handleShow = () => {
+      buscarPorId(props.usuarioId)
+      setShow(true);
+    }
     return (
       <>
         <Button variant="" onClick={handleShow}>
@@ -25,10 +57,13 @@ function ModalEditUser() {
             <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                 <Form.Label>Selecione o tipo de usuário</Form.Label>
-                    <Form.Select>
-                        <option value='valor1'>Administrador</option>
-                        <option value='valor2' selected>Dentista</option>
-                        <option value='valor3'>Recepcionista</option>
+                    <Form.Select
+                    value={perfil}
+                    onChange={(event) => setPerfil(event.target.value)}>
+                        <option value=""></option>
+                        <option value='administrador'>Administrador</option>
+                        <option value='dentista' selected>Dentista</option>
+                        <option value='secretaria'>Recepcionista</option>
                     </Form.Select>
               </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -37,6 +72,8 @@ function ModalEditUser() {
                     type="text"
                     placeholder="Digite seu nome"
                     autoFocus
+                    value={nome}
+                    onChange={(event) => setNome(event.target.value)}
                     />
               </Form.Group>
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -45,6 +82,8 @@ function ModalEditUser() {
                     type="email"
                     placeholder="Insira seu e-mail"
                     autoFocus
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -53,6 +92,8 @@ function ModalEditUser() {
                         type="number"
                         placeholder="Ex: 11990909090"
                         autoFocus
+                        value={telefone}
+                        onChange={(event) => setTelefone(event.target.value)}
                         />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -61,6 +102,8 @@ function ModalEditUser() {
                         type="password"
                         placeholder="Sua senha"
                         autoFocus
+                        
+                        
                         />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -69,13 +112,14 @@ function ModalEditUser() {
                         type="password"
                         placeholder="Confirme a senha"
                         autoFocus
+                        
                         />
                 </Form.Group>
             </Form>
           </Modal.Body>
           <Modal.Footer id="ContainerModalCadastrar">
             <button id="BotaoCriarPerfilModal" onClick={handleClose} >
-              Criar perfil
+              Editar usuário
             </button>
           </Modal.Footer>
         </Modal>
