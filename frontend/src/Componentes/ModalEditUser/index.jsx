@@ -35,7 +35,7 @@ function ModalEditUser(props) {
         senha: senha,
       }; 
 
-      await props.onUpdate(dadosParaAtualizar)
+      await props.onUpdate(props.usuarioId, dadosParaAtualizar)
       setShow(false);
     
     }

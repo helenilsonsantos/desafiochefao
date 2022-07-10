@@ -8,7 +8,12 @@ import InfoPlano from "../../Componentes/InfoPlano";
 import ModalNovoUser from "../../Componentes/ModalNovoUser";
 import DeleteModal from "../../Componentes/DeleteModal/DeleteModal";
 import ModalEditUser from "../../Componentes/ModalEditUser/index";
-import { criarUsuario, deletarUsuario,  listarUsuarios } from "../../services/usuarios";
+import {
+  atualizarUsuario,
+  criarUsuario,
+  deletarUsuario,
+  listarUsuarios,
+} from "../../services/usuarios";
 
 function Home() {
   const [administradores, setAdministradores] = useState([]);
@@ -35,15 +40,15 @@ function Home() {
   };
 
   const cadastrarNovoUsuario = async (dados) => {
-	await criarUsuario(dados);
-	listar()
+    await criarUsuario(dados);
+    listar();
+  };
 
-  }
-
-  const atualizarUsuario = async(dados) => {
-	await atualizarUsuario(dados);
-	listar()
-  }
+  const atualizarUsuarioExistente = async (id, dados) => {
+    console.log(id, dados)
+    await atualizarUsuario(dados, id);
+    listar();
+  };
 
   useEffect(() => {
     listar();
@@ -94,14 +99,17 @@ function Home() {
           <Container className="container-admin">
             {dentistas.map((dentista) => (
               <div className="section-botao" id="nome-dentista">
-                <span>{dentista.nome_completo}s</span>
+                <span>{dentista.nome_completo}</span>
 
                 <div className="nome-dentista-botao">
                   <Button>
                     <DeleteModal onDelete={() => excluirUsuario(dentista.id)} />
                   </Button>
                   <Button>
-                    <ModalEditUser usuarioId={dentista.id} onUpdate={atualizarUsuario}/>
+                    <ModalEditUser
+                      usuarioId={dentista.id}
+                      onUpdate={atualizarUsuarioExistente}
+                    />
                   </Button>
                 </div>
               </div>
@@ -112,21 +120,24 @@ function Home() {
 
           <h2>Recepcionista(s):</h2>
           <Container className="container-admin">
-				{recepcionistas.map((recepcionista) => (
-					<div className="section-botao" id="nome-dentista">
-					<span>{recepcionista.nome_completo}</span>
-					<div className="nome-dentista-botao">
-						<Button>
-						<DeleteModal onDelete={() => excluirUsuario(recepcionista.id)} />
-						</Button>
-						<Button>
-						<ModalEditUser usuarioId={recepcionista.id} onUpdate={atualizarUsuario}/>
-						</Button>
-					</div>
-					</div>
-
-				))}
-			
+            {recepcionistas.map((recepcionista) => (
+              <div className="section-botao" id="nome-dentista">
+                <span>{recepcionista.nome_completo}</span>
+                <div className="nome-dentista-botao">
+                  <Button>
+                    <DeleteModal
+                      onDelete={() => excluirUsuario(recepcionista.id)}
+                    />
+                  </Button>
+                  <Button>
+                    <ModalEditUser
+                      usuarioId={recepcionista.id}
+                      onUpdate={atualizarUsuarioExistente}
+                    />
+                  </Button>
+                </div>
+              </div>
+            ))}
           </Container>
         </Container>
       </Container>

@@ -24,6 +24,7 @@ function Routes(){
 				<Route path='/novoatendimento' element ={<CadastroAtendimento />}/>
                 <Route path="/cadastro" element={<Cadastro />} />
 				<Route path="/home" element={<Home />} />
+                <Route path="/" element={<Home />} />
             </WrapperRoutes>
         </BrowserRouter>
     );
