@@ -1,8 +1,9 @@
 import React from 'react';
-import '../../Components/Container/styles.css'
-import HeaderLogado from '../../Components/HeaderLogado';
-import InfoPaciente from '../../Components/InfoPaciente';
-import ModalNovoUser from '../../Components/ModalNovoUser';
+import ModalNovoUser from '../../Componentes/ModalNovoUser';
+import '../../Componentes/Container/styles.css'
+import HeaderLogado from '../../Componentes/HeaderLogado';
+import InfoPaciente from '../../Componentes/InfoPaciente';
+import ModalEditUser from '../../Componentes/ModalEditUser';
 
 const Paciente= () => {
 
@@ -10,7 +11,6 @@ const Paciente= () => {
         <div className='ContainerGeral'>
             <HeaderLogado />
             <InfoPaciente />
-            <ModalNovoUser />
         </div>
     )
 }

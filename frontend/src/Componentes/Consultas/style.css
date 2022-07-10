@@ -1,0 +1,20 @@
+.consultas{
+    width: 290px;
+    height: 50px;
+    background: #119DA4;
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    font-size: 25px;
+}
+
+h2{
+    font-size: 30px;
+    font-weight: 400;
+}
+
+
+.container{
+    max-width: 1424px;
+    margin: auto;
+}

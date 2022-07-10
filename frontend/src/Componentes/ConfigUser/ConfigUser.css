@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+.app{
+    padding-left: 5rem;
+}
+h1{
+    font-family: 'Lato', sans-serif;
+    
+}
+
+.titulo{
+    display: flex;
+    margin-left: 10rem;
+}
+
+.informacoes{
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    margin-left: 6rem;
+    padding: 4rem;
+}
+hr {
+    border: 1px solid #000000;
+    max-width: 50%;
+    margin-left: 6%;
+}
+.plano{
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    justify-content: start;
+    text-align: start;
+    margin-left: 10rem;
+    padding-top: 4rem;
+}
+
+.plano h1{
+    padding-bottom: 2rem;
+}
+
+.plano p{
+    padding: 0.5rem;
+}
+

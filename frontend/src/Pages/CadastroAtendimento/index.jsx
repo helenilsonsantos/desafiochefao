@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../Components/Container/styles.css'
-import HeaderLogado from '../../Components/HeaderLogado';
-import NovoAtendimento from '../../Components/NovoAtendimento'
+import '../../Componentes/Container/styles.css'
+import HeaderLogado from '../../Componentes/HeaderLogado';
+import NovoAtendimento from '../../Componentes/NovoAtendimento'
 
 const CadastroAtendimento= () => {
 
