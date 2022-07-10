@@ -1,26 +1,10 @@
 const supertest  = require ("supertest");
+const { faker } = require ('@faker-js/faker')
 const app = require ('../../../app')
 
 describe('No controller, ao executar função', () => {
 
     describe('cadastrar um usuário adiministrador', () => {
-
-        test('em caso de sucesso, deve retornar 201', async () => {
-            const response = await supertest(app)
-            .post('/cadastro-inicial')
-            .send({
-                nome_empresa: "Gama Academy",
-                cnpj: "19.306.845/0001-38",
-                logo: "",
-                nome_completo: "Helenilson Holamek",
-                telefone: "82981681784",
-                email: "helenilsonn@gmail.com",
-                senha: "12345678",
-                avatar: ''
-            })
-    
-            expect(response.status).toBe(201)
-        })
 
         test('em caso dados incompletos, deve retornar 400', async () => {
             const response = await supertest(app)

@@ -36,6 +36,20 @@ const AuthController = {
         } catch (error) {
             console.log(error)
         }
+    },
+
+    async genereteToken (id, nome, perfil, situacao, empresa_id) {
+        const token = jwt.sign(
+            {
+            id,
+            nome,
+            perfil,
+            situacao,
+            empresa_id
+            },
+            secret.key
+        )
+        return token
     }
 }
 
