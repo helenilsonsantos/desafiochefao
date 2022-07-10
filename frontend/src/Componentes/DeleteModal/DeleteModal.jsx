@@ -1,6 +1,7 @@
 import React from 'react';
 import {Modal, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import iconeDelete from "../../Assets/excluir.png";
 import './DeleteModal.css';
 
 function MyVerticallyCenteredModal(props) {
@@ -23,25 +24,29 @@ function MyVerticallyCenteredModal(props) {
             </div>
         </Modal.Body>
         <Modal.Footer className="modalFooter">
-          <Button  className="modalButton" onClick={props.onHide}>Confirmar</Button>
+          <Button  className="modalButton" onClick={props.onDelete}>Confirmar</Button>
         </Modal.Footer>
       </Modal>
     );
   }
   
-  function DeleteModal() {
+  function DeleteModal(props) {
     const [modalShow, setModalShow] = React.useState(false);
   
     return (
       <>
         {/* Colocar o botão aqui */}
         <Button variant="primary" onClick={() => setModalShow(true)}>
-          Launch vertically centered modal
+          <img src={iconeDelete} alt="" />
         </Button>
   
         <MyVerticallyCenteredModal
           show={modalShow}
           onHide={() => setModalShow(false)}
+          onDelete={() => {
+            props.onDelete()
+            setModalShow(false)
+          }}
         />
       </>
     );

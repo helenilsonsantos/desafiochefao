@@ -25,7 +25,7 @@ const UsuarioController = {
                 return res.status(400).json("Erro: CNPJ já cadastrado.");
             }
 
-            var avatar = req.files[0];
+            var avatar = req.files && req.files[0];
             if(avatar) {
                 const uploadPath = await cloudinary.uploads(avatar.path, 'avatar');
                 fs.unlinkSync(avatar.path);
@@ -67,7 +67,7 @@ const UsuarioController = {
                 return res.status(400).json("Erro: email já cadastrado.");
             }
 
-            var avatar = req.files[0];
+            var avatar = req.files && req.files[0];
             if(avatar) {
                 const uploadPath = await cloudinary.uploads(avatar.path, 'avatar');
                 fs.unlinkSync(avatar.path);

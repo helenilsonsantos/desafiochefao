@@ -1,7 +1,5 @@
 import React from "react";
 import { FormGroup, FormLabel, FormControl, Button } from "react-bootstrap";
-import { useFormik } from "formik";
-import * as Yup from "yup";
 import "./styles.css";
 
 // const validationSchema = Yup.object({

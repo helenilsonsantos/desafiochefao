@@ -1,123 +1,137 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
-import iconeAdd from "../../Assets/adicionar.png";
-import iconeDelete from "../../Assets/excluir.png";
-import iconeEdit from "../../Assets/editar.png";
 import HeaderLogado from "../../Componentes/HeaderLogado";
 import Sidebar from "../../Componentes/MenuLateral/Sidebar";
 import "./styles.css";
 import InfoConta from "../../Componentes/InfoConta";
 import InfoPlano from "../../Componentes/InfoPlano";
+import ModalNovoUser from "../../Componentes/ModalNovoUser";
+import DeleteModal from "../../Componentes/DeleteModal/DeleteModal";
+import ModalEditUser from "../../Componentes/ModalEditUser/index";
+import { criarUsuario, deletarUsuario,  listarUsuarios } from "../../services/usuarios";
 
 function Home() {
-	return (
-		<div>
-			<HeaderLogado />
+  const [administradores, setAdministradores] = useState([]);
+  const [dentistas, setDentistas] = useState([]);
+  const [recepcionistas, setRecepcionistas] = useState([]);
 
-			<Sidebar />
+  const listar = async () => {
+    const response = await listarUsuarios();
 
-			<Container id="config-adm">
-				<InfoConta
-					nome="Beatriz Neves"
-					email="beatriz.neves@bol.com.br"
-					cnpj="XX. XXX. XXX/0001-XX"
-				/>
+    const ativos = response.data.filter((i) => i.situacao === "ativo");
 
-				<hr />
+    const admins = ativos.filter((i) => i.perfil === "administrador");
+    const dentistas = ativos.filter((i) => i.perfil === "dentista");
+    const secretarias = ativos.filter((i) => i.perfil === "secretaria");
 
-				<InfoPlano
-					nomePlano="Plano anual Dental Platinum PRO"
-					infoPlano="Consultar informações sobre meu plano"
-					idConsultorio="xxxxxxx"
-				/>
+    setAdministradores(admins);
+    setDentistas(dentistas);
+    setRecepcionistas(secretarias);
+  };
 
-				<hr />
+  const excluirUsuario = async (id) => {
+    await deletarUsuario(id);
+    listar();
+  };
 
-				<Container id="container">
-					<section className="section-botao">
-						<h1>Lista de usuários</h1>
+  const cadastrarNovoUsuario = async (dados) => {
+	await criarUsuario(dados);
+	listar()
+
+  }
+
+  const atualizarUsuario = async(dados) => {
+	await atualizarUsuario(dados);
+	listar()
+  }
+
+  useEffect(() => {
+    listar();
+  }, []);
+
+  return (
+    <div>
+      <HeaderLogado />
+
+      <Sidebar />
+
+      <Container id="config-adm">
+        <InfoConta
+          nome="Beatriz Neves"
+          email="beatriz.neves@bol.com.br"
+          cnpj="XX. XXX. XXX/0001-XX"
+        />
+
+        <hr />
+
+        <InfoPlano
+          nomePlano="Plano anual Dental Platinum PRO"
+          infoPlano="Consultar informações sobre meu plano"
+          idConsultorio="xxxxxxx"
+        />
+
+        <hr />
+
+        <Container id="container">
+          <section className="section-botao">
+            <h1>Lista de usuários</h1>
+            <Button>
+              <ModalNovoUser onSubmit={cadastrarNovoUsuario} />
+            </Button>
+            {/* Modal de adicionar usuário */}
+          </section>
+
+          <h2>Administrador(es):</h2>
+          <Container className="container-admin">
+            {administradores.map((admin) => (
+              <span id="nome-adm">{admin.nome_completo}</span>
+            ))}
+          </Container>
+
+          <hr />
+
+          <h2>Dentista(s):</h2>
+          <Container className="container-admin">
+            {dentistas.map((dentista) => (
+              <div className="section-botao" id="nome-dentista">
+                <span>{dentista.nome_completo}s</span>
+
+                <div className="nome-dentista-botao">
+                  <Button>
+                    <DeleteModal onDelete={() => excluirUsuario(dentista.id)} />
+                  </Button>
+                  <Button>
+                    <ModalEditUser usuarioId={dentista.id} onUpdate={atualizarUsuario}/>
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </Container>
+
+          <hr />
+
+          <h2>Recepcionista(s):</h2>
+          <Container className="container-admin">
+				{recepcionistas.map((recepcionista) => (
+					<div className="section-botao" id="nome-dentista">
+					<span>{recepcionista.nome_completo}</span>
+					<div className="nome-dentista-botao">
 						<Button>
-							<img src={iconeAdd} alt="ícone de adicionar usuário" />
-							Adicionar usuário
+						<DeleteModal onDelete={() => excluirUsuario(recepcionista.id)} />
 						</Button>
-						{/* Modal de adicionar usuário */}
-					</section>
+						<Button>
+						<ModalEditUser usuarioId={recepcionista.id} onUpdate={atualizarUsuario}/>
+						</Button>
+					</div>
+					</div>
 
-					<h2>Administrador(es):</h2>
-					<Container className="container-admin">
-						<span id="nome-adm">Beatriz Neves</span>
-					</Container>
-
-					<hr />
-
-					<h2>Dentista(s):</h2>
-					<Container className="container-admin">
-						<div className="section-botao" id="nome-dentista">
-							<span>Beatriz Neves</span>
-							<div className="nome-dentista-botao">
-								<Button>
-									<img src={iconeDelete} alt="ícone de deletar" />
-								</Button>
-								<Button>
-									<img src={iconeEdit} alt="ícone de editar" />
-								</Button>
-							</div>
-						</div>
-						<div className="section-botao" id="nome-dentista">
-							<span>Juliana Santana</span>
-							<div className="nome-dentista-botao">
-								<Button>
-									<img src={iconeDelete} alt="ícone de deletar" />
-								</Button>
-								<Button>
-									<img src={iconeEdit} alt="ícone de editar" />
-								</Button>
-							</div>
-						</div>
-						<div className="section-botao" id="nome-dentista">
-							<span>Barbara Andrade</span>
-							<div className="nome-dentista-botao">
-								<Button>
-									<img src={iconeDelete} alt="ícone de deletar" />
-								</Button>
-								<Button>
-									<img src={iconeEdit} alt="ícone de editar" />
-								</Button>
-							</div>
-						</div>
-					</Container>
-					
-					<hr />
-
-					<h2>Recepcionista(s):</h2>
-					<Container className="container-admin">
-						<div className="section-botao" id="nome-dentista">
-							<span>Maria do Carmo</span>
-							<div className="nome-dentista-botao">
-								<Button>
-									<img src={iconeDelete} alt="ícone de deletar" />
-								</Button>
-								<Button>
-									<img src={iconeEdit} alt="ícone de editar" />
-								</Button>
-							</div>
-						</div>
-						<div className="section-botao" id="nome-dentista">
-							<span>Julia Neves</span>
-							<div className="nome-dentista-botao">
-								<Button>
-									<img src={iconeDelete} alt="ícone de deletar" />
-								</Button>
-								<Button>
-									<img src={iconeEdit} alt="ícone de editar" />
-								</Button>
-							</div>
-						</div>
-					</Container>
-				</Container>
-			</Container>
-		</div>
-	);
+				))}
+			
+          </Container>
+        </Container>
+      </Container>
+    </div>
+  );
 }
 
 export default Home;
