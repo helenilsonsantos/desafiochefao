@@ -4,7 +4,7 @@ import "./infoplano.css";
 
 const InfoPlano = (props) => {
 	return (
-		<Container id="container">
+		<Container id="container-info">
 			<h1>Seu Plano</h1>
 			<Container id="seu-plano">
 				<span id="nome-plano">{props.nomePlano}</span>

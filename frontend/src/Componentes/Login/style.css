@@ -1,79 +1,115 @@
-.sessao-login{
-    display: flex;
-    justify-content: center;
-    padding: 50px;
+.sessao-login {
+    max-height: 100vh;
+    max-width: 100vw;
+    margin: 50px;
+
+	display: flex;
+    flex-direction: row;
+	justify-content: center;
+    align-items: center;	
 }
 
-.login-usuario{
-    width: 452px;
-    height: 560px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 7px 3px rgba(130, 130, 130, 0.1);
-    border-radius: 0px 20px 20px 0px;
-    text-align: center;
+.sessao-login-img {
+	border-radius: 20px 0px 0px 20px;
 }
 
-.login-usuario h2{
-    font-size: 30px;
-    color: #119DA4;
-    font-weight: 400;
+.login-usuario {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	width: 452px;
+	height: 560px;
+	background: #ffffff;
+	box-shadow: 0px 0px 7px 3px rgba(130, 130, 130, 0.1);
+	border-radius: 0px 20px 20px 0px;
+	text-align: center;
 }
 
-.login-usuario button{
-    width: 352px;
-    height: 45px;
-    background: #119DA4;
-    border: 1px solid #119DA4;
-    border-radius: 10px;
-    color: #FFFFFF;   
-    margin-left: 30px; 
+.login-usuario h2 {
+	font-family: "Lato";
+	font-size: 30px;
+	line-height: 36px;
+	color: #119da4;
 }
 
-.login-usuario hr{
-    width: 352px;
-    border-top: 2px solid #8E9798;
-    opacity: 0.3;
-    margin-top: 42px;
+.login-usuario hr {
+	width: 352px;
+	border-top: 2px solid #8e9798;
+	opacity: 0.3;
+	margin-top: 42px;
 }
 
-.login-usuario p{
-    font-size: 20px;
-    font-weight: 600;
-    margin: 35px;
+.botao-login {
+    font-family: "Arvo";
+    color: #f8f8f8;
+    background: #119da4;
+	border: 1px solid #119da4;
+	border-radius: 10px;
+
+    margin: 10px 0px;
+	width: 290px;
+	height: 50px;
+
+    transition: 0.3s;
 }
 
-.login-usuario .cadastrar{
-    width: 352px;
-    height: 45px;
-    background: #FFFFFF;
-    border: 2px solid #119DA4;
-    border-radius: 10px;
-    font-size: 16px;
-    text-align: center;
-    color: #119DA4;
+
+.botao-login:hover {
+    color: #119da4;
+    background-color: #f8f8f8;
 }
 
-.login-usuario input{
+.input-login {
+    position:relative;
+    margin-top: 10px;
+}
+
+.input-login img {
+	position: absolute;
+	box-sizing: border-box;
+	top: 50%;
+	left: 8px;
+    transform: translateY(-50%);
+}
+
+.input-login input {
+    font-family: "Arvo";
+    background: #ffffff;
+	border: 1px solid #8e9798;
+	border-radius: 10px;
+
     width: 290px;
-    height: 50px;
-    background: #FFFFFF;
-    border: 1px solid #8E9798;
+	height: 50px;
+    padding: 0 32px;
+}
+
+.input-login::placeholder {
+    color: #8e9798;
+}
+
+.login-usuario p {
+    font-family: "Lato";
+    color: #2A2A2B;
+	font-size: 20px;
+	font-weight: 600;
+	margin: 30px auto;
+}
+
+.botao-cadastrar {
+    width: 352px;
+	height: 45px;
+
+    color: #119da4;
+    background-color: #f8f8f8;
+	border: 2px solid #119da4;
     border-radius: 10px;
-    padding: 0 30px;
+
+    transition: 0.3s;
 }
 
-.login-usuario form .icones{
-    position: relative;
-    top: 6px;
-    left: 30px;
-}
-
-.login-usuario form .icone{
-    position: relative;
-    top: 6px;
-    right: 347px;
-}
-
-.login-usuario form .senha{
-    margin-left: 45px;
+.botao-cadastrar:hover {
+    color: #f8f8f8;
+    background-color: #119da4;
 }

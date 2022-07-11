@@ -1,26 +1,23 @@
 .info-pacientes {
-    padding: 10px 0 0 50px;
+	padding: 10px 0 0 50px;
+	font-family: "Arvo";
 }
 
-.container{
-    max-width: 1424px;
-    margin: auto;
+.historico-img {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	max-width: 1424px;
+	width: 100%;
+
+	margin-bottom: 64px;
 }
 
-h2{
-    font-size: 25px;
-    font-weight: 400;
-}
-
-.historico-img{
-    display: flex;
-    justify-content: space-between;
-}
-
-.pontos{
-    width: 24px;
-    height: 5px;
-    position: relative;
-    right: 40px;
-    top: 25px;
+.pontos {
+	width: 24px;
+	height: 5px;
+	position: relative;
+	right: 40px;
+	top: 25px;
 }

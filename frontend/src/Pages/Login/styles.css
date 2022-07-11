@@ -1,0 +1,108 @@
+.login-pagina {
+	background-color: #fefefe;
+}
+
+/* responsividade */
+@media only screen and (max-width: 1200px) {
+
+    .sessao-login-img, .login-usuario {
+        max-width: 650px;
+        max-height: 455px;
+    }
+
+    .botao-cadastrar {
+        max-width: 320px;
+    }
+
+    .login-usuario hr {
+        margin-top: 32px;
+        margin-bottom: 0;
+    }
+
+    .login-usuario p {
+        margin: 24px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .sessao-login-img, .login-usuario {
+        max-width: 550px;
+        max-height: 385px;
+    }
+
+    .login-usuario hr {
+        margin-top: 24px;
+        margin-bottom: 0;
+    }
+
+    .login-usuario p {
+        margin: 12px;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .sessao-login {
+        flex-direction: column;
+        justify-content: center;
+        gap: 28px;
+    }
+
+    .sessao-login-img, .login-usuario {
+        border-radius: 20px;
+        max-width: 452px;
+        max-height: 455px;
+    }
+
+    .login-usuario hr {
+        margin-top: 32px;
+        margin-bottom: 0;
+    }
+
+    .login-usuario p {
+        margin: 24px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .sessao-login {
+        gap: 16px;
+    }
+
+    .sessao-login-img, .login-usuario {
+        max-width: 300px;
+        max-height: 385px;
+    }
+
+    .login-usuario {
+        margin-bottom: 12px;
+    }
+
+    .login-usuario h2 {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 24px;
+        margin-top: 12px;
+    }
+
+    .input-login {
+        margin-top: 8px;
+    }
+
+    .input-login input, .botao-login {
+        width: 260px;
+    }
+
+    .login-usuario hr {
+        margin-top: 12px;
+        margin-bottom: 0;
+    }
+
+    .login-usuario p {
+        margin: 12px;
+    }
+
+    .botao-cadastrar {
+        max-width: 260px;
+        margin-bottom: 12px;
+    }
+}

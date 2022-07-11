@@ -1,0 +1,82 @@
+.container-prontuario {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 1424px;
+	width: 90%;
+
+	background-color: #fefefe;
+}
+
+.container-prontuario h1 {
+	align-self: flex-start;
+
+	font-family: "Lato";
+	color: #2a2a2b;
+}
+
+.prontuario {
+	display: flex;
+	justify-content: space-evenly;
+	gap: 64px;
+
+	margin: 24px;
+}
+
+.icones {
+	width: 25px;
+	height: 18px;
+}
+
+.email {
+	position: relative;
+	left: -5px;
+	top: 8px;
+}
+
+.contato {
+	border: 1px solid #cccaca;
+	padding: 15px;
+	background: #fffdfd;
+	height: 162px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.contato-input {
+	display: flex;
+}
+
+.contato-input input {
+	width: 348px;
+	font-family: "Arvo";
+}
+
+.sobre {
+	width: 348px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+
+	font-family: "Arvo";
+}
+
+.sobre h2,
+.teste h2 {
+	color: #2a2a2b;
+}
+
+.gambia {
+	width: 817px;
+	font-family: "Lato";
+	color: #2a2a2b;
+}
+
+.gambia textarea {
+	width: 817px;
+	height: 107px;
+	font-family: "Arvo";
+}

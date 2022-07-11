@@ -96,3 +96,34 @@ button.buttonEnviar {
     height: 5vh;
     font-size: 1.25rem;   
 }
+
+@media only screen and (max-width: 720px) {
+
+    .novoAtendimentoForm {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    form.NovoAtendimentoEsq, div.divNovoPacienteNome input, div.divNovoNomeDentista input, div.divNovoAtendimentoObservacoes textarea, div.divNovoAtendimentoAnotacoes textarea, form.NovoAtendimentoDir {
+        max-width: 608px;
+        width: 100%;
+    }
+
+    div.divDataHora {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    div.divNovoAtendimentoAnotacoes textarea, div.divNovoAtendimentoObservacoes textarea {
+        height: 128px;
+    }
+
+}
+
+@media only screen and (max-width: 320px) {
+
+    div.divNovaData{
+        margin-right: 12px;
+    }
+
+}

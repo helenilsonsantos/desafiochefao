@@ -5,7 +5,7 @@ import React from 'react'
 function Header(){
     return (
        <header>
-        <img src={ImgLogoHome} alt=''/>
+        <img src={ImgLogoHome} alt='Logo da Tech Dental'/>
        </header>
     );
 }

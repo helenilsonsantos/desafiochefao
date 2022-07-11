@@ -1,0 +1,64 @@
+.info-pagina {
+    background-color: #FEFEFE;
+}
+
+/* responsividade */
+@media only screen and (max-width: 720px) {
+    div.formPaciente {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    form.infoEsq, form.infoEsq input, .divNumeroComplemento,  div.divPacienteObservacoes textarea, .pacienteNumero  {
+        width: 100% !important;
+    }
+
+    .divNumeroComplemento {
+        justify-content: space-between;
+    }
+
+    div.divPacienteCpf input, .divPacienteCep, .pacienteBairro, .pacienteNascimento, .pacienteTelefone {
+        width: 60% !important;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    h2.pacienteTitulo {
+        margin: 12px 0;
+    }
+
+    div.formPaciente {
+        margin-top: 12px;
+    }
+
+    div.formPaciente input, div.formPaciente textarea {
+        margin-bottom: 3px;
+    }
+
+    div.divPacienteCpf input, .divPacienteCep, .pacienteBairro, .pacienteNascimento, .pacienteTelefone, div.divPacienteComplemento input, div.divPacienteCidade input {
+        width: 100% !important;
+    }
+
+    form.infoDir {
+        width: 100%;
+    }
+
+    div.divNumeroComplemento {
+        flex-direction: column;
+        justify-content:center;
+
+        width: 100%;
+    }
+
+    div.divPacienteNumero {
+        margin-right: 0;
+    }
+
+     {
+        width: 100%;
+    }
+
+    .botoes-pacientes {
+        gap: 12px;
+    }
+}

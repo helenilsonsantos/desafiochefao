@@ -1,0 +1,37 @@
+.consulta-pagina {
+    background-color: #FEFEFE;
+}
+
+/* responsividade */
+@media only screen and (max-width: 1024px) {
+    .container-consulta-prontuario h1 {
+        font-size: 28px;
+    }
+
+    .container-consulta-prontuario div {
+        width: 773px;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .container-consulta-prontuario h1, .container-consulta-prontuario div  {
+        width: 608px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+
+    .container-consulta-prontuario h1 {
+        font-size: 22px;
+        margin-bottom: 36px;
+    }
+
+    .container-consulta-prontuario div {
+        font-size: 13px
+    }
+
+    .container-consulta-prontuario h1, .container-consulta-prontuario div, #select  {
+        width: 220px;
+    }
+
+}

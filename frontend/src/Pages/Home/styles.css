@@ -1,23 +1,27 @@
 #config-adm {
-	margin: 120px auto;
+	margin: 64px auto;
 	margin-left: 220px;
+
+	background-color: #FEFEFE;
 	
 }
 
-#config-adm hr, #container hr {
+#config-adm hr, #container-info hr {
 	margin-bottom: 65px;
 	max-width: 100%;
 }
 
-#container {
+#container-info {
 	padding-left: 80px;
 }
 
-#container h1, .section-botao h1 {
+#container-info h1, .section-botao h1 {
+	font-family: "Lato";
 	font-size: 30px;
 }
 
-#container h2 {
+#container-info h2, #nome {
+	font-family: "Lato";
 	font-size: 25px;
 }
 
@@ -55,6 +59,7 @@
 }
 
 #nome-dentista {
+	font-family: "Arvo";
 	margin-bottom: 4px;
 }
 
@@ -62,4 +67,73 @@
 	display: flex;
 	flex-direction: row;
 	gap: 10px;
+}
+
+#email, #cnpj, #nome-plano, #info-plano, #id-consultorio-adm {
+	font-family: "Arvo";
+}
+
+.modal-content {
+	font-family: "Lato";
+}
+
+
+
+/* responsividade */
+@media only screen and (max-width: 720px) {
+	.section-botao Button{
+		margin-right: 12px;
+	}
+}
+
+@media only screen and (max-width: 320px) {
+	#config-adm {
+		margin: 28px;
+		margin-left: 32px;
+
+		height: 100vh;
+	}
+
+	#container-info {
+		padding-left: 12px;
+	}
+
+	#info-conta-adm, #seu-plano {
+		margin: 26px auto;
+	}
+
+	#config-adm hr, #container-info hr {
+		margin-bottom: 40px;
+	}
+
+	.section-botao {
+		margin-bottom: 40px;
+	}
+
+	#container-info h2, #nome {
+		font-size: 20px;
+	}
+
+	#container-info h1, .section-botao h1 {
+		font-size: 25px;
+	}
+
+	#email, #cnpj {
+		font-size: 14px;
+	}
+
+	.modal.show .modal-dialog {
+		width: 300px;
+		height: 100vh;
+		margin-bottom: 12px;
+	}
+
+	.modal-content {
+		padding: 12px 24px !important;
+		overflow: visible !important;
+	}
+
+	.modal-header {
+		padding: 8px;
+	}
 }

@@ -1,13 +1,14 @@
-import Header from "../../Componentes/Header";
+import HeaderLogado from "../../Componentes/HeaderLogado";
 import Quantidade from "../../Componentes/Quantidade";
 import React from 'react'
 import Sidebar from "../../Componentes/MenuLateral/Sidebar";
+import "./styles.css"
 
 
 function ConsultaProntuarioPages() {
     return (
-    <div>
-      <Header />
+    <div className="consulta-pagina">
+      <HeaderLogado />
       <Sidebar />
       <Quantidade/>
     </div>

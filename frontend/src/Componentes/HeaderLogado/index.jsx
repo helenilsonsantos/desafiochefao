@@ -1,16 +1,22 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import engrenagemImg from '../../Assets/engrenagem-header.png'
 import logo from '../../Assets/logo.png'
 import './styles.css'
 
 const HeaderLogado = () => {
+    const navigate = useNavigate()
+
+    const Sair = () => {
+        navigate("/")
+    }
+
     return(
         <header>
             <div className='headerLogadoMenu'>
             <img src={logo} alt="Tech Dental"/>   
                 <div className='headerLogadoItens'>
-                    <button>Sair</button>
+                    <button onClick={Sair}>Sair</button>
                     <img src={engrenagemImg} alt='Configurações'/>
                 </div>
             </div>

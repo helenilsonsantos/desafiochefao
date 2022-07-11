@@ -1,0 +1,67 @@
+.erro-pagina {
+	background-color: #fefefe;
+}
+
+/* responsividade */
+@media only screen and (max-width: 1024px) {
+	.container-erro {
+		display: flex;
+		justify-content: center;
+
+		margin-top: 24px;
+	}
+
+	.imagem {
+		height: 500px;
+	}
+
+	.conteudo {
+		width: 800px;
+	}
+}
+
+@media only screen and (max-width: 720px) {
+	.conteudo {
+		flex-direction: column-reverse;
+		margin-top: 64px;
+	}
+
+	.imagem {
+		height: 500px;
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 320px) {
+    .conteudo {
+		width: 200px;
+	}
+
+    .container-erro {
+        margin-top: 8px;
+    }
+
+    .texto h1 {
+        font-size: 46px;
+        font-weight: 600;
+    }
+
+    .texto a {
+        font-size: 32px;
+    }
+
+    .texto h2 {
+        font-size: 32px;
+    }
+
+    .texto h3 {
+        font-size: 22px;
+    }
+
+    .imagem {
+		width: 280px;
+		height: 100%;
+
+        margin-bottom: 24px;
+	}
+}

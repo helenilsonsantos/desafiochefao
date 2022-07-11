@@ -1,0 +1,115 @@
+.container-pagina-cadastro {
+	background: #FEFEFE;
+	font-family: "Lato";
+}
+
+.container-pagina-cadastro input{
+	font-family: "Arvo";
+}
+
+#container-cadastro {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 50px;
+	margin-bottom: 24px;
+}
+
+#card-foto {
+	width: 100%;
+	max-width: 591px;
+
+	border: none;
+	background: #FEFEFE;
+
+	font-family: "Lato";
+}
+
+#card-foto a {
+	text-decoration: none;
+}
+
+#card-foto Button {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+
+	box-sizing: border-box;
+	padding: 10px 30px 10px 20px;
+	margin-bottom: 16px;
+	max-width: 30%;
+	border: 2px solid #119da4;
+	border-radius: 10px;
+
+	background-color: #ffffff;
+	color: #119da4;
+}
+
+#card-foto Button:hover {
+	background-color: #119da4;
+	color: #ffffff;
+	border: 2px solid #119da4;
+}
+
+#foto {
+	border-radius: 20px;
+}
+
+#card-form-cadastro {
+	background: #ffffff;
+	box-shadow: 0px 0px 7px 3px rgba(130, 130, 130, 0.1);
+    border: none;
+	border-radius: 20px;
+
+	width: 100%;
+	max-width: 580px;
+
+	padding: 30px 74px;
+	margin-top: 60px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+#card-form-cadastro h3 {
+	font-weight: 500;
+	font-size: 28px;
+
+	text-align: center;
+	color: #119da4;
+}
+
+/* responsividade */
+@media only screen and (max-width: 720px) {
+	#container-cadastro {
+		flex-direction: column;
+		justify-content: center;
+
+		gap: 12px;
+	}
+
+	#card-foto, #card-foto Button{
+		margin: 12px 0;
+	}
+
+	#foto {
+		display: none;
+	}
+
+	#card-form-cadastro {
+		margin-top: 0;
+	}
+}
+
+@media only screen and (max-width: 320px) {
+    #card-foto Button {
+		max-width: 50%;
+	}
+
+	#card-form-cadastro {
+		padding: 30px 30px;
+	}
+}
