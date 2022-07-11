@@ -12,7 +12,9 @@ O administrador da clínica poderá também fazer a adição de novos colaborado
 
 Sendo, portanto, quatro principais funções: cadastrar pacientes, cadastrar atendimentos, visualizar prontuáriose e fazer a administração dos funcionários que irão operar o sistema.
 
-### 🏠 [Pagina Inicial]
+### 🏠 [Pagina Inicial Front]
+
+### 🏠 [Link Deploy Back] https://techdental.herokuapp.com/
 
 ## Executando o projeto
 
