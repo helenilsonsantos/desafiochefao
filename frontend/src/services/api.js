@@ -1,10 +1,8 @@
 import axios from 'axios';
 
 
-const Api = axios.create({
+const api = axios.create({
     baseURL: process.env.API_URL || 'https://techdental.herokuapp.com'
 });
 
-Api.defaults.headers.common['Authorization'] = ""
-
-export { Api }
+export default api; 
