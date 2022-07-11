@@ -44,7 +44,7 @@ Após clonar esse repositório é necessário instalar suas dependências por me
 
 Por Último utilize do seguinte comando para criar as tabelas da sua base de dados: 
 
-npx sequelize db:create:undo:all//
+npx sequelize db:create//
 
 npx sequelize db:migrate//
 
