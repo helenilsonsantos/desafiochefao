@@ -1,1 +1,1 @@
-web: cd frontend && node src/index.jsx
+web: cd frontend && node src/App.jsx
