@@ -1,5 +1,6 @@
 main.containerFormPaciente {
     width: 70%;
+    font-family: "Lato";
 }
 
 h2.pacienteTitulo {
@@ -12,9 +13,20 @@ h2.pacienteTitulo {
 div.formPaciente {
     display: flex;
     justify-content: space-between;
+    gap: 32px;
     width: 100%;
     margin-top: 45px;
     text-align: left;
+}
+
+div.formPaciente label {
+    color: #6C6D6D;
+    margin-bottom: 2px;
+}
+
+div.formPaciente input, div.formPaciente textarea {
+    margin-top: 0 !important;
+    margin-bottom: 12px;
 }
 
 form.infoEsq {
@@ -76,7 +88,7 @@ div.divPacienteTelefone input{
 
 div.divNumeroComplemento {
     display: flex;
-    margin-top: 10rem;
+    
  }
 div.divPacienteNumero {
     margin-right: 2rem;
@@ -106,4 +118,47 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.botoes-pacientes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+}
+
+.botoes-pacientes button {
+    font-family: "Lato";
+    color: #F8F8F8;
+
+    text-decoration: none;
+    border-radius: 10px;
+
+    width: 217px;
+    height: 50px;
+
+    margin: 32px 0;
+
+    transition: 0.3s;
+}
+
+.botoes-pacientes-cancelar {
+    background-color: #FF4343;
+    border: 1px solid #FF4343;
+}
+
+.botoes-pacientes-cancelar:hover {
+    background-color: #F8F8F8;
+    color: #FF4343;
+}
+
+.botoes-pacientes-inserir {
+    background-color: #35D675;
+    border: 1px solid #35D675;
+}
+
+.botoes-pacientes-inserir:hover {
+    background-color: #F8F8F8;
+    color: #35D675;
 }
