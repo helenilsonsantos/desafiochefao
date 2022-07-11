@@ -1,9 +1,9 @@
-import React from 'react';
-import '../../Componentes/Container/styles.css'
-import HeaderLogado from '../../Componentes/HeaderLogado';
-import InfoPaciente from '../../Componentes/InfoPaciente';
-import Sidebar from '../../Componentes/MenuLateral/Sidebar';
-import "./styles.css"
+import React from "react";
+import "../../Componentes/Container/styles.css";
+import HeaderLogado from "../../Componentes/HeaderLogado";
+import InfoPaciente from "../../Componentes/InfoPaciente";
+import Sidebar from "../../Componentes/MenuLateral/Sidebar";
+import "./styles.css";
 
 const Paciente = () => {
 	return (
@@ -14,8 +14,6 @@ const Paciente = () => {
 			<Sidebar />
 			<div className="ContainerGeral">
 				<InfoPaciente />
-				<ModalNovoUser />
-				<ModalEditUser />
 			</div>
 		</div>
 	);
