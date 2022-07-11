@@ -77,7 +77,7 @@ function Home() {
 
         <hr />
 
-        <Container id="container">
+        <Container id="container-info">
           <section className="section-botao">
             <h1>Lista de usuários</h1>
             <Button>

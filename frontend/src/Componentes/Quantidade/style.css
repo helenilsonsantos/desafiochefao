@@ -1,4 +1,39 @@
-#select{
-    width: 485px;
-    height: 58px;
+.container-consulta-prontuario {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	max-width: 1440;
+	width: 100%;
+	margin-top: 24px;
+}
+
+.container-consulta-prontuario h1 {
+	color: #2a2a2b;
+	font-family: "Lato";
+	font-size: 36px;
+
+	margin-bottom: 56px;
+}
+
+.container-consulta-prontuario div {
+	max-width: 995px;
+	width: 100%;
+}
+
+.container-consulta-prontuario div p {
+	font-family: "Arvo";
+	color: #6c6d6d;
+	margin-bottom: 8px;
+}
+
+#select {
+	width: 485px;
+	height: 58px;
+
+    color: #2a2a2b;
+	font-family: "Arvo";
+	background-color: #fefefe;
+	border: 1px solid #6c6d6d;
+	border-radius: 10px;
 }

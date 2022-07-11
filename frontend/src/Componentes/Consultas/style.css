@@ -1,20 +1,31 @@
 .consultas{
     width: 290px;
     height: 50px;
+    margin: 8px auto;
+
     background: #119DA4;
+    border: 1px solid #119DA4;
     border-radius: 20px;
-    border: none;
-    color: #fff;
+
+    color: #F8F8F8;
+    font-family: "Lato";
     font-size: 25px;
+
+    transition: 0.3s;
 }
 
-h2{
+.consultas:hover {
+    background-color: #F8F8F8;
+    color: #119DA4;
+}
+
+.container-prontuario h2, .container-prontuario button{
+    align-self: flex-start;
+}
+
+.container-prontuario h2 {
+    color: #2A2A2B;
+    font-family: "Lato";
     font-size: 30px;
     font-weight: 400;
-}
-
-
-.container{
-    max-width: 1424px;
-    margin: auto;
 }

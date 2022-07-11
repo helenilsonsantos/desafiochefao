@@ -1,7 +1,7 @@
 .label {
-	font-size: 17px;
+	font-size: 16px;
 	color: #6c6d6d;
-	line-height: 21px;
+	line-height: 18px;
 }
 
 .input {
@@ -9,37 +9,47 @@
 	height: 100%;
 }
 
-#input {
+.input input {
 	border: 1px solid #8e9798;
 	border-radius: 10px;
 
 	max-width: 480px;
 	width: 100%;
 
-    padding: 15px 30px;
+    padding: 10px 24px;
 }
 
-#input::placeholder {
-    font-size: 16px;
+.input input::placeholder {
+    font-size: 14px;
 }
 
-#button {
+.button-form-cadastro {
 	width: 100%;
 	height: 100%;
 	max-width: 480px;
 	max-height: 50px;
 
-	margin: 10px auto;
+	margin: 8px auto;
 
 	background-color: #119da4;
 	border: 1px solid #119da4;
 	border-radius: 20px;
 
+	color: #FFFFFF;
 	font-size: 16px;
     text-align: center;
+
+	transition: 0.3s;
 }
 
-#button:hover {
+.button-form-cadastro:hover {
 	background-color: #FFFFFF;
 	color: #119da4;
+}
+
+.formik-erro {
+	font-size: 12px;
+	
+	margin: 0 auto;
+	box-sizing: border-box;
 }

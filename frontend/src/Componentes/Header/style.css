@@ -5,27 +5,15 @@ header{
     padding: 10px;
 }
 
-.login button{
-    width: 150px;
-    height: 30px;
-    margin-right: 15px;
-    border-radius: 15px;
-    border: none;
-    font-size: 20px;
-    color:#8E9798;
+/* responsividade */
+@media only screen and (max-width: 1200px) {
+    header {
+        padding: 5px;
+    }
 }
 
-.login img{
-    width: 30px;
-    height: 30px;
-}
-
-.login{
-    display: flex;
-    align-items: center;
-}
-
-.configuracao{
-    width: 48px;
-    height: 48px;
+@media only screen and (max-width: 320px) {
+    header {
+        justify-content: center;
+    }
 }

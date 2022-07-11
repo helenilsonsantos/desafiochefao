@@ -1,9 +1,9 @@
-#container {
+.container-info-conta {
 	padding-left: 80px;
     margin: 50px auto;
 }
 
-#container h1, .section-botao h1 {
+#container-info h1, .section-botao h1 {
 	font-size: 30px;
 }
 
@@ -13,10 +13,10 @@
 	justify-content: flex-end;
 	gap: 10px;
 
-	padding-top: 40px;
+	margin: 50px auto;
 }
 
-#nome , #container h2 {
+#nome , #container-info h2 {
 	font-size: 25px;
 }
 

@@ -1,12 +1,12 @@
-#container {
+#container-info {
 	padding-left: 80px;
 }
 
-#container h1 {
+#container-info h1 {
 	font-size: 30px;
 }
 
-#container h2 {
+#container-info h2 {
 	font-size: 25px;
 }
 

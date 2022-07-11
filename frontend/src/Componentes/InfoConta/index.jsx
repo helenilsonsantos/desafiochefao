@@ -5,7 +5,7 @@ import "./infoconta.css"
 function InfoConta(props) {
 	return (
 		<div>
-			<Container id="container">
+			<Container id="container-info">
 				<h1>Sua Conta</h1>
 				<Container id="info-conta-adm">
 					<span id="nome">{props.nome}</span>
