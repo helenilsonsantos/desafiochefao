@@ -18,12 +18,13 @@ function Routes(){
                 <Route path="/login" element={<LoginPages/>} />
                 <Route path="/prontuario" element={<ProntuarioPages/>} />
                 <Route path="/consultaprontuario" element={<ConsultaProntuarioPages/>} />
-                <Route path="/Erro" element={<ErroPage />}/>
-                <Route path="/ConfigUser" element={<ConfigUserPage />}/>
-				<Route path='/infopaciente' element ={<InfoPaciente />}/>
-				<Route path='/novoatendimento' element ={<CadastroAtendimento />}/>
+                <Route path="/erro" element={<ErroPage />}/>
+                <Route path="/configuser" element={<ConfigUserPage />}/>
+		        <Route path='/infopaciente' element ={<InfoPaciente />}/>
+		        <Route path='/novoatendimento' element ={<CadastroAtendimento />}/>
                 <Route path="/cadastro" element={<Cadastro />} />
 				<Route path="/home" element={<Home />} />
+                <Route path="/" element={<Home />} />
             </WrapperRoutes>
         </BrowserRouter>
     );

@@ -10,17 +10,17 @@ export const SidebarData = [
   },
   {
     title: "Paciente",
-    path: "/Erro",
+    path: "/infopaciente",
    
   },
   {
     title: "Atendimento",
-    path: "/Erro",
+    path: "/novoatendimento",
     
   },
   {
     title: "Prontuários",
-    path: "/Erro",
+    path: "/prontuario",
     
   },
   

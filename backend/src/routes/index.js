@@ -1,44 +1,41 @@
 const express = require('express');
+
 const PacienteController = require('../domain/pacientes/controllers/pacienteController');
-const PacienteValidation = require('../domain/pacientes/validations');
-const empresasController = require('../domain/empresas/controller/empresasController');
-const empresaValidate = require('../domain/empresas/validations/index');
-const usuarioController = require ('../domain/usuarios/controllers/usuarioController')
-const usuarioCreateValidation = require('../domain/usuarios/validations/createValidation')
-const usuarioUpdateValidation = require('../domain/usuarios/validations/updateValidation')
-const usuarioDesativarValidation = require('../domain/usuarios/validations/desativarValidation')
-const loginValidation = require ('../domain/usuarios/validations/loginValidation')
-const auth = require ('../domain/usuarios/services/authService')
+const UsuarioController = require ('../domain/usuarios/controllers/usuarioController');
 const AtendimentoController = require('../domain/atendimentos/controllers/atendimentoController');
-const AtendimentoValidation = require('../domain/atendimentos/validations');
+const AuthController = require ('../domain/usuarios/controllers/authController');
+const auth = require ('../middlewares/auth');
+
+const pacienteValidation = require('../domain/pacientes/validations');
+const usuarioValidation = require('../domain/usuarios/validations');
+const atendimentoValidation = require('../domain/atendimentos/validations');
 
 const rotas = express.Router();
 
 //ROTAS DE PACIENTES
-rotas.post("/paciente", auth.login, PacienteValidation.validacaoCadastrar, PacienteController.cadastrar);
-rotas.get("/paciente/:id", auth.login, PacienteValidation.validacaoListar, PacienteController.mostrar);
-rotas.patch("/paciente/:id", auth.login, PacienteValidation.validacaoAtualizar, PacienteController.atualizar);
-rotas.patch("/paciente/desativar/:id", auth.login, PacienteValidation.validacaoDesativar, PacienteController.desativar);
+rotas.post("/paciente", auth, pacienteValidation.validacaoCadastrar, PacienteController.cadastrarPaciente);
+rotas.get("/paciente/:idPaciente", auth, pacienteValidation.validacaoListarPacienteId, PacienteController.mostrarPacientePorId);
+rotas.get("/pacientes/empresa/:idEmpresa", auth, pacienteValidation.validacaoListarPacientesEmpresa, PacienteController.mostrarPacientesDeEmpresa);
+rotas.patch("/paciente/:idPaciente", auth, pacienteValidation.validacaoAtualizar, PacienteController.atualizarPaciente);
+rotas.patch("/paciente/desativar/:idPaciente", auth, pacienteValidation.validacaoDesativar, PacienteController.desativarPaciente);
 
 //ROTAS DE USUÁRIOS
-rotas.post('/usuario', auth.login, usuarioCreateValidation, usuarioController.cadastrarUsuario)
-rotas.get('/usuario', auth.login, usuarioController.listadeUsuarios)
-rotas.patch('/usuario/:id', auth.login, usuarioUpdateValidation, usuarioController.atualizarUsuario)
-rotas.patch('/usuario/desativar/:id', auth.login, usuarioDesativarValidation, usuarioController.desativarUsuario)
+rotas.post("/cadastro-inicial", usuarioValidation.validacaoCadastrarAdm, UsuarioController.cadastrarUsuarioAdministrador);
+rotas.post("/usuario", auth, usuarioValidation.validacaoCadastrarEquipe, UsuarioController.cadastrarUsuarioEquipe); 
+rotas.get("/usuario/:idUsuario", auth, usuarioValidation.validacaoListarUsuarioId, UsuarioController.mostrarUsuarioPorId);
+rotas.get("/usuarios/empresa/:idEmpresa", auth, usuarioValidation.validacaoListarUsuariosEmpresa, UsuarioController.mostrarUsuariosDeEmpresa);
+rotas.patch("/usuario/:idUsuario", auth, usuarioValidation.validacaoAtualizar, UsuarioController.atualizarUsuario);
+rotas.patch("/usuario/desativar/:idUsuario", auth, usuarioValidation.validacaoDesativar, UsuarioController.desativarUsuario);
 
-//ROTA DE LOGIN DO USUÁRIO
-rotas.post('/login', loginValidation, auth.login)
-
-//ROTAS DE EMPRESAS
-rotas.post('/empresa', auth.login, empresaValidate.validarCadastrar, empresasController.cadastrar);
-rotas.get('/empresa/:id', auth.login, empresaValidate.validarListar, empresasController.listar);
-rotas.patch('/empresa/:id', auth.login, empresaValidate.validarAtualizar, empresasController.atualizar);
-rotas.patch('/empresa/desativar/:id', auth.login, empresaValidate.validarDesativar, empresasController.desativar);
+//ROTA DE LOGIN
+rotas.post('/login', usuarioValidation.validacaoLogin, AuthController.login);
 
 //ROTAS DE ATENDIMENTOS
-rotas.post("/atendimento", auth.login, AtendimentoValidation.validacaoCadastrar, AtendimentoController.criarAtendimento);
-rotas.get("/atendimento/:id", auth.login, AtendimentoValidation.validacaoListar, AtendimentoController.listarAtendimento);
-rotas.patch("/atendimento/:id", auth.login, AtendimentoValidation.validacaoAtualizar, AtendimentoController.atualizarAtendimento);
-rotas.patch("/atendimento/desativar/id", auth.login, AtendimentoValidation.validacaoDesativar, AtendimentoController.desativarAtendimento);
+rotas.post("/atendimento", auth, atendimentoValidation.validacaoCadastrar, AtendimentoController.cadastrarAtendimento);
+rotas.get("/atendimento/:idAtendimento", auth, atendimentoValidation.validacaoListarAtendimentoId, AtendimentoController.mostrarAtendimentoPorId);
+rotas.get("/atendimentos/paciente/:idPaciente", auth, atendimentoValidation.validacaoListarAtendimentosdePaciente, AtendimentoController.mostrarAtendimentosDePaciente);
+rotas.patch("/atendimento/:idAtendimento", auth, atendimentoValidation.validacaoAtualizar, AtendimentoController.atualizarAtendimento);
+rotas.patch("/atendimento/desativar/:idAtendimento", auth, atendimentoValidation.validacaoAtualizar, AtendimentoController.desativarAtendimento);
+
 
 module.exports = rotas;
