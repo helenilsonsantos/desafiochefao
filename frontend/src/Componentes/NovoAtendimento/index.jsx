@@ -1,7 +1,13 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import './styles.css'
 
 const NovoAtendimento = () => {
+    const navigate = useNavigate();
+
+	const navigateCancelar = () => {
+		navigate("/home");
+	};
     return(
         <main className='containerNovoAtendimento'>
             <h2 className='novoAtendimentoTitulo'>Cadastro de atendimento</h2>
@@ -54,10 +60,18 @@ const NovoAtendimento = () => {
                 </div>
 
             </div>
-            <div className='novoAtendimentoButtons'>
-                <button type="button" className="buttonCancelar">Cancelar</button>
-                <button type="button" className="buttonEnviar">Inserir entrada</button>
-            </div>
+            <div className="botoes-pacientes">
+				<button
+					onClick={navigateCancelar}
+					className="botoes-pacientes-cancelar"
+				>
+					Cancelar
+				</button>
+
+				<button type="submit" className="botoes-pacientes-inserir">
+					Inserir entrada
+				</button>
+			</div>
         </main>
     )
 }

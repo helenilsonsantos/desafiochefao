@@ -3,12 +3,11 @@ import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
 const InfoPaciente = () => {
+	const navigate = useNavigate();
 
-    const navigate = useNavigate()
-
-    const navigateCancelar = () => {
-        navigate("/home")
-    }
+	const navigateCancelar = () => {
+		navigate("/home");
+	};
 	return (
 		<main className="containerFormPaciente">
 			<h2 className="pacienteTitulo">Informações sobre o paciente</h2>
@@ -144,23 +143,29 @@ const InfoPaciente = () => {
 							</div>
 						</div>
 					</form>
-                    <div className="divPacienteObservacoes">
-							<label htmlFor="pacienteObservacoes">Observações</label>
-							<br />
-							<textarea
-								className="pacienteObservacoes"
-								name="pacienteObservacoes"
-								placeholder=""
-							></textarea>
-						</div>
+					<div className="divPacienteObservacoes">
+						<label htmlFor="pacienteObservacoes">Observações</label>
+						<br />
+						<textarea
+							className="pacienteObservacoes"
+							name="pacienteObservacoes"
+							placeholder=""
+						></textarea>
+					</div>
 				</div>
-               
 			</div>
-            <div className="botoes-pacientes">
-					<button onClick={navigateCancelar} className="botoes-pacientes-cancelar">Cancelar</button>
+			<div className="botoes-pacientes">
+				<button
+					onClick={navigateCancelar}
+					className="botoes-pacientes-cancelar"
+				>
+					Cancelar
+				</button>
 
-					<button type="submit" className="botoes-pacientes-inserir">Inserir entrada</button>
-				</div>
+				<button type="submit" className="botoes-pacientes-inserir">
+					Inserir entrada
+				</button>
+			</div>
 		</main>
 	);
 };
