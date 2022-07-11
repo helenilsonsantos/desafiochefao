@@ -10,21 +10,27 @@ import React from 'react'
 import Cadastro from "../Pages/Cadastro";
 import Home from "../Pages/Home";
 
+const Private = ({ Item }) => {
+    const signed = false;
+
+    return signed > 0 ? <Item /> : <Cadastro />;
+};
+
 
 function Routes(){
     return(
         <BrowserRouter>
             <WrapperRoutes>
-                <Route path="/login" element={<LoginPages/>} />
-                <Route path="/prontuario" element={<ProntuarioPages/>} />
-                <Route path="/consultaprontuario" element={<ConsultaProntuarioPages/>} />
-                <Route path="/erro" element={<ErroPage />}/>
-                <Route path="/configuser" element={<ConfigUserPage />}/>
-		        <Route path='/infopaciente' element ={<InfoPaciente />}/>
-		        <Route path='/novoatendimento' element ={<CadastroAtendimento />}/>
-                <Route path="/cadastro" element={<Cadastro />} />
-				<Route path="/home" element={<Home />} />
-                <Route path="/" element={<Home />} />
+                    <Route path="*" element={<LoginPages/>} />
+                    <Route path="/prontuario" element={<ProntuarioPages/>} />
+                    <Route path="/consultaprontuario" element={<ConsultaProntuarioPages/>} />
+                    <Route path="/erro" element={<ErroPage />}/>
+                    <Route path="/configuser" element={<ConfigUserPage />}/>
+		            <Route path='/infopaciente' element ={<InfoPaciente />}/>
+		            <Route path='/novoatendimento' element ={<CadastroAtendimento />}/>
+                    <Route path="/cadastro" element={<Cadastro />} />
+				    <Route path="/home" element={<Private Item={Home} />} />
+                    <Route path="/" element={<LoginPages />} />
             </WrapperRoutes>
         </BrowserRouter>
     );
