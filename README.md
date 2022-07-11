@@ -178,4 +178,3 @@ ________________________________________________________________________________
 Linkedin https://www.linkedin.com/in/tom-vinicius-de-andrade-972303232/
 
 GitHub https://github.com/TomAndrade
-
