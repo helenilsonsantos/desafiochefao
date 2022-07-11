@@ -1,4 +1,4 @@
-.container-info-coonta {
+.container-info-conta {
 	padding-left: 80px;
     margin: 50px auto;
 }
@@ -13,7 +13,7 @@
 	justify-content: flex-end;
 	gap: 10px;
 
-	padding-top: 40px;
+	margin: 50px auto;
 }
 
 #nome , #container-info h2 {
