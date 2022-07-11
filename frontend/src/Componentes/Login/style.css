@@ -1,0 +1,79 @@
+.sessao-login{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.login-usuario{
+    width: 452px;
+    height: 560px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 7px 3px rgba(130, 130, 130, 0.1);
+    border-radius: 0px 20px 20px 0px;
+    text-align: center;
+}
+
+.login-usuario h2{
+    font-size: 30px;
+    color: #119DA4;
+    font-weight: 400;
+}
+
+.login-usuario button{
+    width: 352px;
+    height: 45px;
+    background: #119DA4;
+    border: 1px solid #119DA4;
+    border-radius: 10px;
+    color: #FFFFFF;   
+    margin-left: 30px; 
+}
+
+.login-usuario hr{
+    width: 352px;
+    border-top: 2px solid #8E9798;
+    opacity: 0.3;
+    margin-top: 42px;
+}
+
+.login-usuario p{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 35px;
+}
+
+.login-usuario .cadastrar{
+    width: 352px;
+    height: 45px;
+    background: #FFFFFF;
+    border: 2px solid #119DA4;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+    color: #119DA4;
+}
+
+.login-usuario input{
+    width: 290px;
+    height: 50px;
+    background: #FFFFFF;
+    border: 1px solid #8E9798;
+    border-radius: 10px;
+    padding: 0 30px;
+}
+
+.login-usuario form .icones{
+    position: relative;
+    top: 6px;
+    left: 30px;
+}
+
+.login-usuario form .icone{
+    position: relative;
+    top: 6px;
+    right: 347px;
+}
+
+.login-usuario form .senha{
+    margin-left: 45px;
+}
