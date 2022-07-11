@@ -1,6 +1,6 @@
 import React from "react";
-import { FormGroup, FormLabel, Button } from "react-bootstrap";
-import { useFormik } from "formik";
+import { FormGroup, FormLabel, Form } from "react-bootstrap";
+import { useFormik, Formik } from "formik";
 import * as Yup from "yup";
 import { criarUsuario } from "../../api";
 import "./styles.css";
@@ -34,7 +34,7 @@ const FormCadastro = () => {
 			confirmar_senha: "",
 		},
 		validationSchema,
-		onSubmit: async (values) => {
+		onSubmit: async (values, { resetForm }) => {
 			const a = await criarUsuario({
 				email: values.email,
 				nome_empresa: values.nome_empresa,
@@ -44,11 +44,12 @@ const FormCadastro = () => {
 				senha: values.senha,
 			});
 			console.log(a);
+			resetForm({ values: "" });
 		},
 	});
 
 	return (
-		<div onSubmit={formik.handleSubmit}>
+		<Form onSubmit={formik.handleSubmit}>
 			<FormGroup className="mb-3 input">
 				<FormLabel className="label">E-mail</FormLabel>
 				<input
@@ -57,12 +58,11 @@ const FormCadastro = () => {
 					placeholder="Insira seu e-mail"
 					value={formik.values.email}
 					onChange={formik.handleChange}
-					isInvalid={formik.touched.email && !!formik.errors.email}
-					isValid={formik.touched.email && !formik.errors.email}
+					onBlur={formik.handleBlur}
 				/>
-				{formik.errors.email && (
+				{formik.touched.email && formik.errors.email ? (
 					<span className="formik-erro">{formik.errors.email}</span>
-				)}
+				) : null}
 			</FormGroup>
 
 			<FormGroup className="mb-3 input">
@@ -73,14 +73,12 @@ const FormCadastro = () => {
 					placeholder="Informe o nome da empresa"
 					value={formik.values.nome_empresa}
 					onChange={formik.handleChange}
-					isInvalid={
-						formik.touched.nome_empresa && !!formik.errors.nome_empresa
-					}
-					isValid={formik.touched.nome_empresa && !formik.errors.nome_empresa}
+					onBlur={formik.handleBlur}
 				/>
-				{formik.errors.nome_empresa && (
+
+				{formik.touched.nome_empresa && formik.errors.nome_empresa ? (
 					<span className="formik-erro">{formik.errors.nome_empresa}</span>
-				)}
+				) : null}
 			</FormGroup>
 
 			<FormGroup className="mb-3 input">
@@ -91,12 +89,12 @@ const FormCadastro = () => {
 					placeholder="Informe seu CNPJ"
 					value={formik.values.cnpj}
 					onChange={formik.handleChange}
-					isInvalid={formik.touched.cnpj && !!formik.errors.cnpj}
-					isValid={formik.touched.cnpj && !formik.errors.cnpj}
+					onBlur={formik.handleBlur}
 				/>
-				{formik.errors.cnpj && (
+
+				{formik.touched.cnpj && formik.errors.cnpj ? (
 					<span className="formik-erro">{formik.errors.cnpj}</span>
-				)}
+				) : null}
 			</FormGroup>
 
 			<FormGroup className="mb-3 input">
@@ -107,14 +105,11 @@ const FormCadastro = () => {
 					placeholder="Digite seu nome"
 					value={formik.values.nome_completo}
 					onChange={formik.handleChange}
-					isInvalid={
-						formik.touched.nome_completo && !!formik.errors.nome_completo
-					}
-					isValid={formik.touched.nome_completo && !formik.errors.nome_completo}
+					onBlur={formik.handleBlur}
 				/>
-				{formik.errors.nome_completo && (
+				{formik.touched.nome_completo && formik.errors.nome_completo ? (
 					<span className="formik-erro">{formik.errors.nome_completo}</span>
-				)}
+				) : null}
 			</FormGroup>
 
 			<FormGroup className="mb-3 input">
@@ -125,12 +120,11 @@ const FormCadastro = () => {
 					placeholder="Ex: 11990909090"
 					value={formik.values.telefone}
 					onChange={formik.handleChange}
-					isInvalid={formik.touched.telefone && !!formik.errors.telefone}
-					isValid={formik.touched.telefone && !formik.errors.telefone}
+					onBlur={formik.handleBlur}
 				/>
-				{formik.errors.telefone && (
+				{formik.touched.telefone && formik.errors.telefone ? (
 					<span className="formik-erro">{formik.errors.telefone}</span>
-				)}
+				) : null}
 			</FormGroup>
 
 			<FormGroup className="mb-3 input">
@@ -141,12 +135,11 @@ const FormCadastro = () => {
 					placeholder="Sua senha"
 					value={formik.values.senha}
 					onChange={formik.handleChange}
-					isInvalid={formik.touched.senha && !!formik.errors.senha}
-					isValid={formik.touched.senha && !formik.errors.senha}
+					onBlur={formik.handleBlur}
 				/>
-				{formik.errors.senha && (
+				{formik.touched.senha && formik.errors.senha ? (
 					<span className="formik-erro">{formik.errors.senha}</span>
-				)}
+				) : null}
 			</FormGroup>
 
 			<FormGroup className="mb-3 input">
@@ -157,22 +150,17 @@ const FormCadastro = () => {
 					placeholder="Confirme a senha"
 					value={formik.values.confirmar_senha}
 					onChange={formik.handleChange}
-					isInvalid={
-						formik.touched.confirmar_senha && !!formik.errors.confirmar_senha
-					}
-					isValid={
-						formik.touched.confirmar_senha && !formik.errors.confirmar_senha
-					}
+					onBlur={formik.handleBlur}
 				/>
-				{formik.errors.confirmar_senha && (
+				{formik.touched.confirmar_senha && formik.errors.confirmar_senha ? (
 					<span className="formik-erro">{formik.errors.confirmar_senha}</span>
-				)}
+				) : null}
 			</FormGroup>
 
 			<button type="submit" className="button-form-cadastro">
 				Criar conta
 			</button>
-		</div>
+		</Form>
 	);
 };
 
