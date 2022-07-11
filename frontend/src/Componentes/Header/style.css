@@ -1,0 +1,31 @@
+header{
+    background: #119DA4;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.login button{
+    width: 150px;
+    height: 30px;
+    margin-right: 15px;
+    border-radius: 15px;
+    border: none;
+    font-size: 20px;
+    color:#8E9798;
+}
+
+.login img{
+    width: 30px;
+    height: 30px;
+}
+
+.login{
+    display: flex;
+    align-items: center;
+}
+
+.configuracao{
+    width: 48px;
+    height: 48px;
+}

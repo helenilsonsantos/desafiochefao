@@ -1,0 +1,29 @@
+#container {
+	padding-left: 80px;
+    margin: 50px auto;
+}
+
+#container h1, .section-botao h1 {
+	font-size: 30px;
+}
+
+#info-conta-adm {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	gap: 10px;
+
+	padding-top: 40px;
+}
+
+#nome , #container h2 {
+	font-size: 25px;
+}
+
+#email {
+	font-size: 16px;
+}
+
+#cnpj {
+	font-size: 14px;
+}

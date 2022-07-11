@@ -1,0 +1,31 @@
+#container {
+	padding-left: 80px;
+}
+
+#container h1 {
+	font-size: 30px;
+}
+
+#container h2 {
+	font-size: 25px;
+}
+
+#seu-plano {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	gap: 10px;
+	margin: 50px auto;
+}
+
+#nome-plano {
+	font-size: 16px;
+}
+
+#info-plano {
+    font-size: 14px;
+}
+
+#id-consultorio-adm {
+    font-size: 15px;
+}
