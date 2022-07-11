@@ -1,5 +1,10 @@
 .container-pagina-cadastro {
 	background: #FEFEFE;
+	font-family: "Lato";
+}
+
+.container-pagina-cadastro input{
+	font-family: "Arvo";
 }
 
 #container-cadastro {
@@ -16,6 +21,8 @@
 
 	border: none;
 	background: #FEFEFE;
+
+	font-family: "Lato";
 }
 
 #card-foto a {
@@ -73,4 +80,36 @@
 
 	text-align: center;
 	color: #119da4;
+}
+
+/* responsividade */
+@media only screen and (max-width: 720px) {
+	#container-cadastro {
+		flex-direction: column;
+		justify-content: center;
+
+		gap: 12px;
+	}
+
+	#card-foto, #card-foto Button{
+		margin: 12px 0;
+	}
+
+	#foto {
+		display: none;
+	}
+
+	#card-form-cadastro {
+		margin-top: 0;
+	}
+}
+
+@media only screen and (max-width: 320px) {
+    #card-foto Button {
+		max-width: 50%;
+	}
+
+	#card-form-cadastro {
+		padding: 30px 30px;
+	}
 }
