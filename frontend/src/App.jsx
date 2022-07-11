@@ -1,4 +1,4 @@
-import Routes from "./routes/routes"
+import Routes from "./routes/routes.jsx"
 import React from 'react'
 
 
