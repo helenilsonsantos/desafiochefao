@@ -6,20 +6,20 @@
 	
 }
 
-#config-adm hr, #container hr {
+#config-adm hr, #container-info hr {
 	margin-bottom: 65px;
 	max-width: 100%;
 }
 
-#container {
+#container-info {
 	padding-left: 80px;
 }
 
-#container h1, .section-botao h1 {
+#container-info h1, .section-botao h1 {
 	font-size: 30px;
 }
 
-#container h2 {
+#container-info h2 {
 	font-size: 25px;
 }
 

@@ -1,11 +1,18 @@
 import "./style.css";
 import React from 'react'
+import {useNavigate} from "react-router-dom"
 
 function Consultas(){
+    const navigate = useNavigate()
+
+    const navigateToAtendimento = () => {
+        navigate("/novoatendimento")
+    }
+
     return(
-     <div className="container">
+     <div className="container-prontuario">
         <h2>Consultas</h2>
-        <button className="consultas">Adicionar consulta</button>
+        <button onClick={navigateToAtendimento} className="consultas">Adicionar consulta</button>
      </div>
     );
 }

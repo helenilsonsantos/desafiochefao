@@ -1,3 +1,124 @@
 .prontuario-pagina {
-    background-color: #FEFEFE;
+	background-color: #fefefe;
+}
+
+.container-prontuario-pagina {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.prontuario-pagina hr {
+	max-width: 1424px;
+	width: 100%;
+}
+
+/* responsividade */
+@media only screen and (max-width: 720px) {
+    .prontuario {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .sobre {
+        max-width: 405px;
+        width: 100%;
+    }
+
+    .gambia, .gambia textarea {
+        max-width: 450px;
+        width: 100%;
+    }
+
+    .prontuario-pagina hr {
+        max-width: 650px;
+        width: 90%;
+    }
+
+    div.headerLogadoItens button {
+        width: 120px;
+        height: 36px;
+
+        font-size: 1.25rem;
+        font-weight: 500;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    header img {
+        margin: auto;
+        margin-left: 3%;
+        width: 100px;
+    }
+
+    div.headerLogadoMenu div.headerLogadoItens img {
+        max-width: 24px;
+        max-height: 24px;
+    }
+
+    div.headerLogadoItens {
+        gap: 12px;
+    }
+
+    div.headerLogadoItens button {
+        width: 64px;
+        height: 36px;
+
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .container-prontuario {
+        width: 80%;
+        margin-top: 4px;
+    }
+
+    .container-prontuario h1 {
+        align-self: center;
+    }
+
+    .prontuario {
+        align-items: center;
+    }
+
+    .prontuario h2, .container-prontuario h2 {
+        font-size: calc(1.1rem + 1.5vw);
+    }
+    
+    .contato-input input {
+        width: 216px;
+    }
+
+    .sobre, .teste {
+        max-width: 270px;
+        width: 100%;
+    }
+
+    .container-prontuario h2 {
+        align-self: center;
+    }
+
+    .container-prontuario button {
+        max-width: 220px;
+        width: 100%;
+
+        font-size: calc(0.9rem + 1.5vw);
+
+        align-self: center;
+    }
+
+    .historico-img {
+        max-width: 270px;
+        align-items: center;
+    }
+
+    .info-pacientes {
+        padding: 10px 0;
+    }
+
+    .pontos {
+        right: auto;
+        top: auto;
+    }
 }
