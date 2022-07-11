@@ -1,8 +1,8 @@
 import React from "react";
 import { FormGroup, FormLabel, Form } from "react-bootstrap";
-import { useFormik, Formik } from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
-import { criarUsuario } from "../../api";
+import { criarUsuario } from "../../services/usuarios";
 import "./styles.css";
 
 const validationSchema = Yup.object({

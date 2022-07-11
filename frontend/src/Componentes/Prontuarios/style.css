@@ -42,6 +42,8 @@ input{
 .container{
     max-width: 1424px;
     margin: auto;
+
+    background-color: #FEFEFE;
 }
 
 .photo-usuario{
