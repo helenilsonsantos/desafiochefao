@@ -1,28 +1,21 @@
-import { Api } from "./api";
+import api from "./api";
 
 export async function criarUsuario(dados) {
-  const payload = {
-    empresa_id: 11,
-    nome_completo: dados.nome,
-    telefone: dados.telefone,
-    email: dados.email,
-    perfil: dados.perfil,
-    senha: dados.senha,
-  };
+  
 
-  return await Api.post("/usuario", payload);
+  return await api.post("/cadastro-inicial", dados);
 }
 
 export async function deletarUsuario(id) {
-  return await Api.patch("/usuario/desativar/" + id);
+  return await api.patch("/usuario/desativar/" + id);
 }
 
 export async function listarUsuarios() {
-  return await Api.get("/usuarios/empresa/11");
+  return await api.get("/usuarios/empresa/11");
 }
 
 export async function buscarUsuario(id) {
-  return await Api.get("/usuario/" + id);
+  return await api.get("/usuario/" + id);
 }
 
 export async function atualizarUsuario(dados, id) {
@@ -34,5 +27,5 @@ export async function atualizarUsuario(dados, id) {
     senha: dados.senha,
   };
 
-  return await Api.patch("/usuario/" + id, payload);
+  return await api.patch("/usuario/" + id, payload);
 }

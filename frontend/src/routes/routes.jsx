@@ -10,6 +10,7 @@ import React from 'react'
 import Cadastro from "../Pages/Cadastro";
 import Home from "../Pages/Home";
 
+
 const Private = ({ Item }) => {
     const signed = false;
 
