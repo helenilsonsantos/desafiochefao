@@ -7,7 +7,10 @@ import { Alert } from "react-bootstrap";
 import "./style.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import user from "../../Store/modules/user";
+import jwt_decode from "jwt-decode";
+import {useDispatch} from "react-redux";
+import {login as loginReducer} from "../../Store/modules/user/index"
+import api from "../../services/api"
 import { login } from "../../services/login";
 
 const validationSchema = Yup.object({
@@ -21,6 +24,14 @@ const validationSchema = Yup.object({
 });
 
 function Login() {
+
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
+	const navigateToCadastro = () => {
+		navigate("/cadastro");
+	};
+
 	const alerta = () => {
 		return (
 			<Alert variant="danger">
@@ -28,24 +39,25 @@ function Login() {
 			</Alert>
 		);
 	};
-
-	const navigate = useNavigate();
-	const navigateToCadastro = () => {
-		navigate("/cadastro");
-	};
-
+	
 	const formik = useFormik({
 		initialValues: {
 			email: "",
-			senha: "",
+			senha: ""
 		},
 		validationSchema,
-		onSubmit: async (values, { resetForm }) => {
-			const response = await login(values);
-			console.log(response);
-			resetForm({ values: "" });
-		},
-	});
+		onSubmit: async values => {
+			const token = await login(values)
+			const decode = jwt_decode(token)
+			dispatch(loginReducer({
+				token,
+				decode
+			})) 
+			api.defaults.headers.common.Authorization = `Bearer ${token}`
+			navigate("/home")
+		}
+	})
+	
 
 	return (
 		<section className="sessao-login">
