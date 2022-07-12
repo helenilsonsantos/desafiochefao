@@ -15,7 +15,7 @@ export async function listarUsuarios() {
 }
 
 export async function buscarUsuario(id) {
-  return await api.get("/usuario/" + id);
+  return await api.get("/usuario/", id);
 }
 
 export async function atualizarUsuario(dados, id) {
@@ -29,3 +29,4 @@ export async function atualizarUsuario(dados, id) {
 
   return await api.patch("/usuario/" + id, payload);
 }
+
