@@ -40,11 +40,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
     "start": "node src/server/server.js",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "tsc": "tsc"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
