@@ -1,8 +1,28 @@
 import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { criarPaciente } from "../../services/pacientes";
 import "./styles.css";
 
 const InfoPaciente = () => {
+
+	const [paciente, setPaciente] = useState("");
+	const [cpf, setCpf] = useState("");
+	const [email, setEmail] = useState("");
+	const [cep, setCep] = useState("");
+	const [rua, setRua] = useState("");
+	const [bairro, setBairro] = useState("");
+	const [data, setData] = useState(Date);
+	const [telefone, setTelefone] = useState("");
+	const [numero, setNumero] = useState("");
+	const [complemento, setComplemento] = useState("");
+	const [cidade, setCidade] = useState("");
+	const [observacoes, setObservacoes] = useState("");
+
+	const cadastrarPaciente = async (dados) => {
+		await criarPaciente(dados);
+	};
+
 	const navigate = useNavigate();
 
 	const navigateCancelar = () => {
@@ -22,6 +42,8 @@ const InfoPaciente = () => {
 								className="pacienteNome"
 								name="pacienteNome"
 								placeholder="Exemplo: José Vieira"
+								value={paciente}
+								onChange={(event) => setPaciente(event.target.value)}
 							></input>
 						</div>
 
@@ -33,6 +55,8 @@ const InfoPaciente = () => {
 								className="pacienteCpf"
 								name="pacienteCpf"
 								placeholder=""
+								value={cpf}
+								onChange={(event) => setCpf(event.target.value)}
 							></input>
 						</div>
 						<div className="divPacienteEmail">
@@ -43,6 +67,8 @@ const InfoPaciente = () => {
 								className="pacienteEmail"
 								name="pacienteEmail"
 								placeholder=""
+								value={email}
+								onChange={(event) => setEmail(event.target.value)}
 							></input>
 						</div>
 
@@ -54,6 +80,8 @@ const InfoPaciente = () => {
 								className="pacienteCep"
 								name="pacienteCep"
 								placeholder=""
+								value={cep}
+								onChange={(event) => setCep(event.target.value)}
 							></input>
 						</div>
 
@@ -65,6 +93,8 @@ const InfoPaciente = () => {
 								className="pacienteRua"
 								name="pacienteRua"
 								placeholder=""
+								value={rua}
+								onChange={(event) => setRua(event.target.value)}
 							></input>
 						</div>
 
@@ -76,6 +106,8 @@ const InfoPaciente = () => {
 								className="pacienteBairro"
 								name="pacienteBairro"
 								placeholder=""
+								value={bairro}
+								onChange={(event) => setBairro(event.target.value)}
 							></input>
 						</div>
 					</form>
@@ -92,6 +124,8 @@ const InfoPaciente = () => {
 									className="pacienteNascimento"
 									name="pacienteNascimento"
 									placeholder=""
+									value={data}
+									onChange={(event) => setData(event.target.value)}
 								></input>
 							</div>
 
@@ -103,6 +137,8 @@ const InfoPaciente = () => {
 									className="pacienteTelefone"
 									name="pacienteTelefone"
 									placeholder=""
+									value={telefone}
+									onChange={(event) => setTelefone(event.target.value)}
 								></input>
 							</div>
 						</div>
@@ -116,6 +152,8 @@ const InfoPaciente = () => {
 										className="pacienteNumero"
 										name="pacienteNumero"
 										placeholder=""
+										value={numero}
+										onChange={(event) => setNumero(event.target.value)}
 									></input>
 								</div>
 
@@ -127,6 +165,8 @@ const InfoPaciente = () => {
 										className="pacienteComplemento"
 										name="pacienteComplemento"
 										placeholder=""
+										value={complemento}
+										onChange={(event) => setComplemento(event.target.value)}
 									></input>
 								</div>
 							</div>
@@ -139,6 +179,8 @@ const InfoPaciente = () => {
 									className="pacienteCidade"
 									name="pacienteCidade"
 									placeholder=""
+									value={cidade}
+									onChange={(event) => setCidade(event.target.value)}
 								></input>
 							</div>
 						</div>
@@ -150,6 +192,8 @@ const InfoPaciente = () => {
 							className="pacienteObservacoes"
 							name="pacienteObservacoes"
 							placeholder=""
+							value={observacoes}
+							onChange={(event) => setObservacoes(event.target.value)}
 						></textarea>
 					</div>
 				</div>
@@ -162,7 +206,7 @@ const InfoPaciente = () => {
 					Cancelar
 				</button>
 
-				<button type="submit" className="botoes-pacientes-inserir">
+				<button type="submit" className="botoes-pacientes-inserir" onSubmit={cadastrarPaciente}>
 					Inserir entrada
 				</button>
 			</div>

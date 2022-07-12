@@ -1,5 +1,6 @@
 import api from "./api";
 
+
 export async function criarUsuario(dados) {
   
 
