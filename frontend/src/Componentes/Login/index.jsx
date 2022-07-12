@@ -7,8 +7,13 @@ import "./style.css";
 import {useFormik} from "formik";
 import user from "../../Store/modules/user";
 import {login} from "../../services/login"
+import jwt_decode from "jwt-decode";
+import {useDispatch} from "react-redux";
+import {login as loginReducer} from "../../Store/modules/user/index"
+import api from "../../services/api"
 
 function Login() {
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const formik = useFormik({
 		initialValues: {
@@ -16,8 +21,14 @@ function Login() {
 			senha: ""
 		},
 		onSubmit: async values => {
-			const response = await login(values)
-			console.log(response)
+			const token = await login(values)
+			const decode = jwt_decode(token)
+			dispatch(loginReducer({
+				token,
+				decode
+			})) 
+			api.defaults.headers.common.Authorization = `Bearer ${token}`
+			navigate("/home")
 		}
 	})
 	const navigateToCadastro = () => {
