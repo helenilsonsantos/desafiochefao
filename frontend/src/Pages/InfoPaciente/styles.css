@@ -3,7 +3,7 @@
 }
 
 /* responsividade */
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 902px) {
     div.formPaciente {
         flex-direction: column;
         gap: 12px;
@@ -22,7 +22,7 @@
     }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 598px) {
     h2.pacienteTitulo {
         margin: 12px 0;
     }

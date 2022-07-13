@@ -3,11 +3,23 @@ main.containerFormPaciente {
     font-family: "Lato";
 }
 
+.containerFormPaciente input, .containerFormPaciente textarea{
+    font-family: "Arvo" !important;
+}
+
 h2.pacienteTitulo {
     display: flex;
     width: 100%;
     color: black;
     margin: 35px 0;
+}
+
+.formik-erro-paciente {
+    margin: 0 !important;
+}
+
+.input-paciente {
+    margin-bottom: 12px !important;
 }
 
 div.formPaciente {
@@ -26,7 +38,7 @@ div.formPaciente label {
 
 div.formPaciente input, div.formPaciente textarea {
     margin-top: 0 !important;
-    margin-bottom: 12px;
+    margin-bottom: 
 }
 
 form.infoEsq {
@@ -57,6 +69,7 @@ form.infoEsq label{
 }
 
 div.divPacienteNome input{
+    font-size: 16px !important;
     width: 30vw;
 }
 
