@@ -80,6 +80,14 @@
 
 
 /* responsividade */
+@media only screen and (max-width: 1280px) {
+	#config-adm {
+
+		margin-left: 64px;
+
+		height: 100vh;
+	}
+
 @media only screen and (max-width: 900px) {
 	.section-botao Button{
 		margin-right: 12px;

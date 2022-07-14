@@ -15,7 +15,7 @@
 }
 
 /* responsividade */
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 900px) {
     .prontuario {
         flex-direction: column;
         gap: 32px;

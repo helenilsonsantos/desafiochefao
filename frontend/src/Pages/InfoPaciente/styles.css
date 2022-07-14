@@ -33,6 +33,7 @@
 
     div.formPaciente input, div.formPaciente textarea {
         margin-bottom: 3px;
+        width: 70vw;
     }
 
     div.divPacienteCpf input, .divPacienteCep, .pacienteBairro, .pacienteNascimento, .pacienteTelefone, div.divPacienteComplemento input, div.divPacienteCidade input {
