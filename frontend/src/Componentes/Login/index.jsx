@@ -87,7 +87,7 @@ function Login() {
 						<img src={Lock} alt="ícone de senha" />
 						<input
 							id="senha"
-							type="senha"
+							type="password"
 							placeholder="Insira sua senha"
 							value={formik.values.senha}
 							onChange={formik.handleChange}
@@ -97,6 +97,7 @@ function Login() {
 					{formik.touched.senha && formik.errors.senha ? (
 						<span className="formik-erro">{formik.errors.senha}</span>
 					) : null}
+					<br />
 					<button type="submit" className="botao-login">
 						Login
 					</button>
