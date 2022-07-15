@@ -20,7 +20,7 @@
 	}
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 900px) {
 	.conteudo {
 		flex-direction: column-reverse;
 		margin-top: 64px;
@@ -32,7 +32,7 @@
 	}
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 420px) {
     .conteudo {
 		width: 200px;
 	}

@@ -80,13 +80,19 @@
 
 
 /* responsividade */
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 1280px) {
+	#config-adm {
+
+		margin-left: 64px;
+
+		height: 100vh;
+	}
+
+@media only screen and (max-width: 900px) {
 	.section-botao Button{
 		margin-right: 12px;
 	}
-}
 
-@media only screen and (max-width: 320px) {
 	#config-adm {
 		margin: 28px;
 		margin-left: 32px;
@@ -101,6 +107,12 @@
 	#info-conta-adm, #seu-plano {
 		margin: 26px auto;
 	}
+}
+
+@media only screen and (max-width: 320px) {
+
+
+
 
 	#config-adm hr, #container-info hr {
 		margin-bottom: 40px;
