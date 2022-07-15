@@ -1,5 +1,9 @@
 main.containerNovoAtendimento {
     width: 70%;
+    font-family: "Lato";
+}
+main.containerNovoAtendimento input, main.containerNovoAtendimento textarea  {
+    font-family: "Arvo";
 }
 
 h2.novoAtendimentoTitulo {

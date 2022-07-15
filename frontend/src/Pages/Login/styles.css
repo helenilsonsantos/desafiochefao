@@ -63,7 +63,7 @@
     }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 420px) {
     .sessao-login {
         gap: 16px;
     }
@@ -104,5 +104,12 @@
     .botao-cadastrar {
         max-width: 260px;
         margin-bottom: 12px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .sessao-login {
+        margin-top: 120px;
+        margin-bottom: 120px;
     }
 }
